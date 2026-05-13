@@ -763,42 +763,6 @@ body {
 </head>
 <body>
 
-<!-- ====== MECHANISM ====== -->
-<div class="slide slide-white slide-mechanism">
-  <div class="mech-header">
-    <div class="mh-num">平台机制</div>
-    <h2>「数据中台 + 文档生成 + 协同问答」</h2>
-    <p>日常维护一套结构化项目数据，文档自动生成，疑问随时问答。一次更新，全局同步。</p>
-  </div>
-  <div class="mech-flow">
-    <div class="mech-box mb1">
-      <div class="mb-icon">📝</div>
-      <div class="mb-title">管理员定期更新</div>
-      <div class="mb-desc">各学科进度、项目信息<br>数据规模、人员变动</div>
-    </div>
-    <div class="mech-arrow">→</div>
-    <div class="mech-box mb2">
-      <div class="mb-icon">🗄</div>
-      <div class="mb-title">结构化项目数据库</div>
-      <div class="mb-desc">唯一「数据真相源」<br>所有信息统一存储</div>
-    </div>
-    <div class="mech-arrow">→</div>
-    <div class="mech-box mb3">
-      <div class="mb-icon">✨</div>
-      <div class="mb-title">三大使用方式</div>
-      <div class="mb-desc">1. 随时查：总览 / 学科详情<br>2. 自动生成：选模板→导出文档<br>3. 问答：提问交流</div>
-    </div>
-  </div>
-  <div class="mech-docs">
-    <div class="mech-doc">📄 项目进展汇报</div>
-    <div class="mech-doc">📋 对外支持材料</div>
-    <div class="mech-doc">📝 项目背景与意义</div>
-    <div class="mech-doc">🎤 讲话稿/经验分享</div>
-    <div class="mech-doc">🏛 已有工作基础</div>
-    <div class="mech-doc">✉️ 联络/动员邮件</div>
-  </div>
-</div>
-
 <!-- ====== LOGIN ====== -->
 <div class="slide slide-light slide-content">
   <div class="slide-info">
@@ -876,17 +840,17 @@ body {
   </div>
 </div>
 
-<!-- ====== 1. DASHBOARD ====== -->
+<!-- ====== 1. 学科建设情况 ====== -->
 <div class="slide slide-light slide-content">
   <div class="slide-info">
     <div class="si-num">1</div>
-    <h2>建设总览</h2>
-    <p class="si-desc">打开即见全学科建设概况。顶部四张数字卡片展示项目总数、数据资源类数、加工工具数、协同单位规模。下方六学科进度条标注数据量，点击任一学科进入详情。</p>
+    <h2>学科建设情况</h2>
+    <p class="si-desc">平台首页。打开即见全学科建设概况，顶部数字卡片展示项目总数、数据资源、工具、协同规模。下方六个学科卡片展示项目数、数据量、参与人员和重点成果。点击进入学科详情。</p>
     <ul class="si-features">
       <li>全学科概览，一页尽览</li>
-      <li>进度条 + 数据量双重展示</li>
+      <li>进度条 + 数据规模双重展示</li>
       <li>点击学科卡片跳转详情</li>
-      <li>电脑 / 手机自适应布局</li>
+      <li>重点项目成果标注</li>
     </ul>
   </div>
   <div class="panels-wrap">
@@ -895,38 +859,57 @@ body {
       <div class="dt-frame">
         <div class="dt-topbar">
           <span class="dt-dot r"></span><span class="dt-dot y"></span><span class="dt-dot g"></span>
-          <span class="dt-tab on">建设总览</span><span class="dt-tab">学科详情</span><span class="dt-tab">文档生成</span>
+          <span class="dt-tab on">学科建设情况</span><span class="dt-tab">建设总览</span>
         </div>
         <div class="dt-body">
           <div class="dt-sidebar">
             <div class="dts-logo">◈ AIS 语料库</div>
             <ul class="dts-nav">
-              <li class="on">建设总览</li>
-              <li>数学</li>
-              <li>物理</li>
-              <li>化学</li>
-              <li>天文</li>
-              <li>地理</li>
-              <li>生物</li>
+              <li>建设总览</li>
+              <li class="on">学科建设情况</li>
+              <li>项目基本情况</li>
+              <li>语料需求更新</li>
               <li>文档生成</li>
-              <li>问答平台</li>
             </ul>
           </div>
           <div class="dt-main">
-            <div class="dtm-title">建设总览</div>
             <div class="stat-row">
               <div class="stat-card"><div class="sn">62</div><div class="sl">建设项目</div></div>
               <div class="stat-card"><div class="sn">161</div><div class="sl">数据资源类</div></div>
               <div class="stat-card"><div class="sn">200+</div><div class="sl">加工工具</div></div>
               <div class="stat-card"><div class="sn">1+6+N</div><div class="sl">协同单位</div></div>
             </div>
-            <div class="sec-label">六大学科建设进度</div>
-            <div class="subj-row"><span class="srn">数学</span><span class="srb"><span class="srf" style="width:65%"></span></span><span class="srp">65%</span><span class="srd">0.04 PB</span></div>
-            <div class="subj-row"><span class="srn">物理</span><span class="srb"><span class="srf" style="width:55%"></span></span><span class="srp">55%</span><span class="srd">6.72 PB</span></div>
-            <div class="subj-row"><span class="srn">化学</span><span class="srb"><span class="srf" style="width:48%"></span></span><span class="srp">48%</span><span class="srd">2.64 PB</span></div>
-            <div class="subj-row"><span class="srn">天文</span><span class="srb"><span class="srf" style="width:30%"></span></span><span class="srp">30%</span><span class="srd">18.4 PB</span></div>
-            <div class="subj-row"><span class="srn">地理</span><span class="srb"><span class="srf" style="width:40%"></span></span><span class="srp">40%</span><span class="srd">49.1 PB</span></div>
-            <div class="subj-row"><span class="srn">生物</span><span class="srb"><span class="srf" style="width:35%"></span></span><span class="srp">35%</span><span class="srd">25.5 PB</span></div>
+            <div class="dtm-title">六大学科建设进度</div>
+            <div style="display:flex;gap:6px;margin-bottom:12px">
+              <span class="chip on">全部学科</span><span class="chip">数学</span><span class="chip">物理</span><span class="chip">化学</span><span class="chip">天文</span><span class="chip">地理</span><span class="chip">生物</span>
+            </div>
+            <div class="sc">
+              <div class="sc-head"><span class="scn">◈ 数学</span><span class="sc-badge">65%</span></div>
+              <div class="sc-body">
+                <div class="sc-stat"><div class="scsn">8</div><div class="scsl">项目</div></div>
+                <div class="sc-stat"><div class="scsn">0.04 PB</div><div class="scsl">数据量</div></div>
+                <div class="sc-stat"><div class="scsn">15人</div><div class="scsl">参与</div></div>
+              </div>
+              <div class="sc-foot"><b>重点成果：</b>Matlas定理搜索引擎（中关村论坛发布）、LeanSearch+Archon验证Anderson猜想（国内首例）</div>
+            </div>
+            <div class="sc">
+              <div class="sc-head"><span class="scn">◈ 物理</span><span class="sc-badge">55%</span></div>
+              <div class="sc-body">
+                <div class="sc-stat"><div class="scsn">12</div><div class="scsl">项目</div></div>
+                <div class="sc-stat"><div class="scsn">6.72 PB</div><div class="scsl">数据量</div></div>
+                <div class="sc-stat"><div class="scsn">22人</div><div class="scsl">参与</div></div>
+              </div>
+              <div class="sc-foot"><b>重点成果：</b>PHYBench被OpenAI引用、PRBench获企业万元/条采买、ColliderAgent被MIT/CERN引用</div>
+            </div>
+            <div class="sc">
+              <div class="sc-head"><span class="scn">◈ 化学</span><span class="sc-badge">48%</span></div>
+              <div class="sc-body">
+                <div class="sc-stat"><div class="scsn">10</div><div class="scsl">项目</div></div>
+                <div class="sc-stat"><div class="scsn">2.64 PB</div><div class="scsl">数据量</div></div>
+                <div class="sc-stat"><div class="scsn">18人</div><div class="scsl">参与</div></div>
+              </div>
+              <div class="sc-foot"><b>重点成果：</b>NMR世界最大实验数据库（>330万条）、CarbonMat碳材料关联语料库、科学导航化学版</div>
+            </div>
           </div>
         </div>
       </div>
@@ -935,47 +918,43 @@ body {
       <div class="panel-label">手机端</div>
       <div class="mb-frame">
         <div class="mb-topbar">9:41</div>
-        <div class="mb-nav">建设总览</div>
+        <div class="mb-nav">学科建设情况</div>
         <div class="mb-content">
-          <div class="stat-row">
-            <div class="stat-card"><div class="sn">62</div><div class="sl">项目</div></div>
-            <div class="stat-card"><div class="sn">161</div><div class="sl">资源</div></div>
-            <div class="stat-card"><div class="sn">200+</div><div class="sl">工具</div></div>
-            <div class="stat-card"><div class="sn">1+6+N</div><div class="sl">协同</div></div>
+          <div class="chips" style="margin-bottom:10px">
+            <span class="chip on">全部</span><span class="chip">数学</span><span class="chip">物理</span><span class="chip">化学</span>
           </div>
-          <div class="sec-label">六大学科建设进度</div>
           <div class="sc">
             <div class="sc-head"><span class="scn">◈ 数学</span><span class="sc-badge">65%</span></div>
             <div class="sc-body">
               <div class="sc-stat"><div class="scsn">8</div><div class="scsl">项目</div></div>
-              <div class="sc-stat"><div class="scsn">0.04</div><div class="scsl">数据量(PB)</div></div>
-              <div class="sc-stat"><div class="scsn">15</div><div class="scsl">人员</div></div>
+              <div class="sc-stat"><div class="scsn">0.04PB</div><div class="scsl">数据</div></div>
+              <div class="sc-stat"><div class="scsn">15人</div><div class="scsl">人员</div></div>
             </div>
-            <div class="sc-foot">建设进度<span class="scfb"><span class="scff" style="width:65%"></span></span>65%</div>
+            <div class="sc-foot" style="font-size:8px">Matlas发布 · 验证Anderson猜想</div>
           </div>
           <div class="sc">
             <div class="sc-head"><span class="scn">◈ 物理</span><span class="sc-badge">55%</span></div>
             <div class="sc-body">
               <div class="sc-stat"><div class="scsn">12</div><div class="scsl">项目</div></div>
-              <div class="sc-stat"><div class="scsn">6.72</div><div class="scsl">数据量(PB)</div></div>
-              <div class="sc-stat"><div class="scsn">22</div><div class="scsl">人员</div></div>
+              <div class="sc-stat"><div class="scsn">6.72PB</div><div class="scsl">数据</div></div>
+              <div class="sc-stat"><div class="scsn">22人</div><div class="scsl">人员</div></div>
             </div>
-            <div class="sc-foot">建设进度<span class="scfb"><span class="scff" style="width:55%"></span></span>55%</div>
+            <div class="sc-foot" style="font-size:8px">PHYBench被OpenAI引用 · PRBench获采买</div>
           </div>
           <div class="sc">
             <div class="sc-head"><span class="scn">◈ 化学</span><span class="sc-badge">48%</span></div>
             <div class="sc-body">
               <div class="sc-stat"><div class="scsn">10</div><div class="scsl">项目</div></div>
-              <div class="sc-stat"><div class="scsn">2.64</div><div class="scsl">数据量(PB)</div></div>
-              <div class="sc-stat"><div class="scsn">18</div><div class="scsl">人员</div></div>
+              <div class="sc-stat"><div class="scsn">2.64PB</div><div class="scsl">数据</div></div>
+              <div class="sc-stat"><div class="scsn">18人</div><div class="scsl">人员</div></div>
             </div>
-            <div class="sc-foot">建设进度<span class="scfb"><span class="scff" style="width:48%"></span></span>48%</div>
+            <div class="sc-foot" style="font-size:8px">NMR世界最大实验数据库</div>
           </div>
         </div>
         <div class="mb-tabs">
-          <div class="mb-tab on"><span class="mbt-icon">◈</span>总览</div>
-          <div class="mb-tab"><span class="mbt-icon">☰</span>学科</div>
-          <div class="mb-tab"><span class="mbt-icon">◫</span>生成</div>
+          <div class="mb-tab"><span class="mbt-icon">◈</span>总览</div>
+          <div class="mb-tab on"><span class="mbt-icon">☰</span>学科</div>
+          <div class="mb-tab"><span class="mbt-icon">📋</span>项目</div>
           <div class="mb-tab"><span class="mbt-icon">💬</span>问答</div>
           <div class="mb-tab"><span class="mbt-icon">👤</span>我的</div>
         </div>
@@ -984,7 +963,7 @@ body {
   </div>
 </div>
 
-<!-- ====== 2. SUBJECT DETAIL ====== -->
+<!-- ====== 2. 学科详情 ====== -->
 <div class="slide slide-white slide-content">
   <div class="slide-info">
     <div class="si-num">2</div>
@@ -1108,7 +1087,7 @@ body {
   </div>
 </div>
 
-<!-- ====== 3. PROJECT DETAIL ====== -->
+<!-- ====== 3. 项目详情 ====== -->
 <div class="slide slide-light slide-content">
   <div class="slide-info">
     <div class="si-num">3</div>
@@ -1155,7 +1134,7 @@ body {
             <div class="detail-block"><div class="dl">参与人员</div><div class="dv">刘矩阵、张建国有、王积分、李函数</div></div>
             <div class="detail-block"><div class="dl">最新进展</div><div class="dv" style="font-size:11px;color:var(--text2)"><span class="accent-dot green"></span>2026.05 · 新增概率论大数定律定理 23 条</div></div>
             <div class="btn-row">
-              <div class="btn pri">编辑更新</div>
+              <div class="btn pri">编辑（展开修改）</div>
               <div class="btn">返回列表</div>
             </div>
           </div>
@@ -1188,97 +1167,16 @@ body {
   </div>
 </div>
 
-<!-- ====== 4. EDIT ====== -->
+<!-- ====== 4. 项目基本情况 ====== -->
 <div class="slide slide-white slide-content">
   <div class="slide-info">
     <div class="si-num">4</div>
-    <h2>编辑更新</h2>
-    <p class="si-desc">仅项目负责人和管理员可见编辑入口。可修改项目全部字段。关键设计：<span class="accent-dot amber"></span><b>保存后所有关联文档模板自动同步最新数据</b>，无需手动修改各份文档。</p>
-    <ul class="si-features">
-      <li>权限控制：仅授权用户可编辑</li>
-      <li>全字段可修改</li>
-      <li>保存后文档模板自动同步</li>
-      <li>更新记录可追溯</li>
-    </ul>
-  </div>
-  <div class="panels-wrap">
-    <div class="panel-col">
-      <div class="panel-label">桌面端</div>
-      <div class="dt-frame">
-        <div class="dt-topbar">
-          <span class="dt-dot r"></span><span class="dt-dot y"></span><span class="dt-dot g"></span>
-          <span class="dt-tab on">编辑项目</span>
-        </div>
-        <div class="dt-body">
-          <div class="dt-sidebar">
-            <div class="dts-logo">◈ AIS 语料库</div>
-            <ul class="dts-nav">
-              <li>建设总览</li>
-              <li class="on">数学</li>
-              <li>物理</li>
-              <li>化学</li>
-            </ul>
-          </div>
-          <div class="dt-main">
-            <div class="dtm-title">编辑项目</div>
-            <div class="tip-banner"><span class="tb-icon">!</span>保存后所有关联文档模板自动同步最新数据</div>
-            <div style="display:flex;gap:10px">
-              <div class="fg" style="flex:1"><div class="fgl">项目名称 <span class="req">*</span></div><input class="fg-input" value="数学定理语料库（ReasLib）"></div>
-              <div class="fg" style="flex:0 0 100px"><div class="fgl">进度 (%)</div><input class="fg-input" value="78"></div>
-            </div>
-            <div style="display:flex;gap:10px">
-              <div class="fg" style="flex:1"><div class="fgl">学科</div><div class="chips"><span class="chip on">数学</span><span class="chip">物理</span><span class="chip">化学</span></div></div>
-              <div class="fg" style="flex:1"><div class="fgl">状态</div><div class="chips"><span class="chip on">建设中</span><span class="chip">已完成</span></div></div>
-            </div>
-            <div class="fg"><div class="fgl">项目介绍</div><textarea class="fg-textarea">收集整理数学分析、高等代数、概率论等核心课程的定理、公式及完整证明过程。</textarea></div>
-            <div class="fg"><div class="fgl">建设内容</div><textarea class="fg-textarea">· 原始数学语料：2000本教材+40万论文
-· 结构化语料：800万数学陈述
-· 形式化语料：10本教材形式化</textarea></div>
-            <div style="display:flex;gap:10px">
-              <div class="fg" style="flex:1"><div class="fgl">负责人</div><input class="fg-input" value="陈景元"></div>
-              <div class="fg" style="flex:1"><div class="fgl">参与人员</div><input class="fg-input" value="刘矩阵、张建国有"></div>
-            </div>
-            <div class="btn-row">
-              <div class="btn pri">保存更新</div>
-              <div class="btn">取消</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="panel-col" style="flex:0 0 auto">
-      <div class="panel-label">手机端</div>
-      <div class="mb-frame">
-        <div class="mb-topbar">9:41</div>
-        <div class="mb-nav">编辑项目</div>
-        <div class="mb-content">
-          <div class="tip-banner"><span class="tb-icon">!</span>保存后文档模板自动同步</div>
-          <div class="fg"><div class="fgl">项目名称 <span class="req">*</span></div><input class="fg-input" value="数学定理语料库"></div>
-          <div class="fg"><div class="fgl">学科</div><div class="chips"><span class="chip on">数学</span><span class="chip">物理</span><span class="chip">化学</span><span class="chip">天文</span><span class="chip">地理</span><span class="chip">生物</span></div></div>
-          <div class="fg"><div class="fgl">状态</div><div class="chips"><span class="chip on">建设中</span><span class="chip">已完成</span><span class="chip">规划中</span></div></div>
-          <div class="fg"><div class="fgl">建设进度 (%)</div><input class="fg-input" value="78"></div>
-          <div class="fg"><div class="fgl">项目介绍</div><textarea class="fg-textarea">核心课程的定理、公式及证明过程，构建数学全领域知识图谱。</textarea></div>
-          <div class="fg"><div class="fgl">负责人 / 人员</div><input class="fg-input" value="陈景元 / 刘矩阵、张建国有"></div>
-          <div class="btn-row">
-            <div class="btn pri">保存</div>
-            <div class="btn">取消</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ====== 5. 项目基本情况 ====== -->
-<div class="slide slide-white slide-content">
-  <div class="slide-info">
-    <div class="si-num">5</div>
     <h2>项目基本情况</h2>
     <p class="si-desc">项目的完整信息档案，模块化组织，可按需展开或折叠。内容涵盖项目概述、建设背景与意义、建设目标与验收指标、组织架构与协同机制、经费与周期、关键联系人等。</p>
     <ul class="si-features">
       <li>模块化按需组装，可展开/折叠</li>
       <li>内容来源于项目正式文档</li>
-      <li>管理员可编辑更新各模块</li>
+      <li>管理员可编辑（展开修改）各模块</li>
       <li>对外汇报时可按模块导出</li>
     </ul>
   </div>
@@ -1391,127 +1289,10 @@ body {
   </div>
 </div>
 
-<!-- ====== 6. 学科建设情况 ====== -->
-<div class="slide slide-light slide-content">
-  <div class="slide-info">
-    <div class="si-num">6</div>
-    <h2>学科建设情况</h2>
-    <p class="si-desc">六大学科建设进度汇总视图。以表格和卡片结合的方式，展示各学科的项目数、数据规模、参与人员、重点成果、时间规划。适合向管理层汇报时快速了解全局。</p>
-    <ul class="si-features">
-      <li>六学科并列对比视图</li>
-      <li>各学科重点项目和成果标注</li>
-      <li>数据规模和人员一目了然</li>
-      <li>可直接导出为汇报材料</li>
-    </ul>
-  </div>
-  <div class="panels-wrap">
-    <div class="panel-col">
-      <div class="panel-label">桌面端</div>
-      <div class="dt-frame">
-        <div class="dt-topbar">
-          <span class="dt-dot r"></span><span class="dt-dot y"></span><span class="dt-dot g"></span>
-          <span class="dt-tab on">学科建设情况</span><span class="dt-tab">建设总览</span>
-        </div>
-        <div class="dt-body">
-          <div class="dt-sidebar">
-            <div class="dts-logo">◈ AIS 语料库</div>
-            <ul class="dts-nav">
-              <li>建设总览</li>
-              <li class="on">学科建设情况</li>
-              <li>项目基本情况</li>
-              <li>语料需求更新</li>
-              <li>文档生成</li>
-            </ul>
-          </div>
-          <div class="dt-main">
-            <div class="dtm-title">学科建设情况汇总</div>
-            <div style="display:flex;gap:6px;margin-bottom:12px">
-              <span class="chip on">全部学科</span><span class="chip">数学</span><span class="chip">物理</span><span class="chip">化学</span><span class="chip">天文</span><span class="chip">地理</span><span class="chip">生物</span>
-            </div>
-            <div class="sc">
-              <div class="sc-head"><span class="scn">◈ 数学</span><span class="sc-badge">65%</span></div>
-              <div class="sc-body">
-                <div class="sc-stat"><div class="scsn">8</div><div class="scsl">项目</div></div>
-                <div class="sc-stat"><div class="scsn">0.04 PB</div><div class="scsl">数据量</div></div>
-                <div class="sc-stat"><div class="scsn">15人</div><div class="scsl">参与</div></div>
-              </div>
-              <div class="sc-foot"><b>重点成果：</b>Matlas定理搜索引擎（中关村论坛发布）、LeanSearch+Archon验证Anderson猜想（国内首例）</div>
-            </div>
-            <div class="sc">
-              <div class="sc-head"><span class="scn">◈ 物理</span><span class="sc-badge">55%</span></div>
-              <div class="sc-body">
-                <div class="sc-stat"><div class="scsn">12</div><div class="scsl">项目</div></div>
-                <div class="sc-stat"><div class="scsn">6.72 PB</div><div class="scsl">数据量</div></div>
-                <div class="sc-stat"><div class="scsn">22人</div><div class="scsl">参与</div></div>
-              </div>
-              <div class="sc-foot"><b>重点成果：</b>PHYBench被OpenAI引用、PRBench获企业万元/条采买、ColliderAgent被MIT/CERN引用</div>
-            </div>
-            <div class="sc">
-              <div class="sc-head"><span class="scn">◈ 化学</span><span class="sc-badge">48%</span></div>
-              <div class="sc-body">
-                <div class="sc-stat"><div class="scsn">10</div><div class="scsl">项目</div></div>
-                <div class="sc-stat"><div class="scsn">2.64 PB</div><div class="scsl">数据量</div></div>
-                <div class="sc-stat"><div class="scsn">18人</div><div class="scsl">参与</div></div>
-              </div>
-              <div class="sc-foot"><b>重点成果：</b>NMR世界最大实验数据库（>330万条）、CarbonMat碳材料关联语料库、科学导航化学版</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="panel-col" style="flex:0 0 auto">
-      <div class="panel-label">手机端</div>
-      <div class="mb-frame">
-        <div class="mb-topbar">9:41</div>
-        <div class="mb-nav">学科建设情况</div>
-        <div class="mb-content">
-          <div class="chips" style="margin-bottom:10px">
-            <span class="chip on">全部</span><span class="chip">数学</span><span class="chip">物理</span><span class="chip">化学</span>
-          </div>
-          <div class="sc">
-            <div class="sc-head"><span class="scn">◈ 数学</span><span class="sc-badge">65%</span></div>
-            <div class="sc-body">
-              <div class="sc-stat"><div class="scsn">8</div><div class="scsl">项目</div></div>
-              <div class="sc-stat"><div class="scsn">0.04PB</div><div class="scsl">数据</div></div>
-              <div class="sc-stat"><div class="scsn">15人</div><div class="scsl">人员</div></div>
-            </div>
-            <div class="sc-foot" style="font-size:8px">Matlas发布 · 验证Anderson猜想</div>
-          </div>
-          <div class="sc">
-            <div class="sc-head"><span class="scn">◈ 物理</span><span class="sc-badge">55%</span></div>
-            <div class="sc-body">
-              <div class="sc-stat"><div class="scsn">12</div><div class="scsl">项目</div></div>
-              <div class="sc-stat"><div class="scsn">6.72PB</div><div class="scsl">数据</div></div>
-              <div class="sc-stat"><div class="scsn">22人</div><div class="scsl">人员</div></div>
-            </div>
-            <div class="sc-foot" style="font-size:8px">PHYBench被OpenAI引用 · PRBench获采买</div>
-          </div>
-          <div class="sc">
-            <div class="sc-head"><span class="scn">◈ 化学</span><span class="sc-badge">48%</span></div>
-            <div class="sc-body">
-              <div class="sc-stat"><div class="scsn">10</div><div class="scsl">项目</div></div>
-              <div class="sc-stat"><div class="scsn">2.64PB</div><div class="scsl">数据</div></div>
-              <div class="sc-stat"><div class="scsn">18人</div><div class="scsl">人员</div></div>
-            </div>
-            <div class="sc-foot" style="font-size:8px">NMR世界最大实验数据库</div>
-          </div>
-        </div>
-        <div class="mb-tabs">
-          <div class="mb-tab"><span class="mbt-icon">◈</span>总览</div>
-          <div class="mb-tab on"><span class="mbt-icon">☰</span>学科</div>
-          <div class="mb-tab"><span class="mbt-icon">📋</span>项目</div>
-          <div class="mb-tab"><span class="mbt-icon">💬</span>问答</div>
-          <div class="mb-tab"><span class="mbt-icon">👤</span>我的</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ====== 7. 语料需求更新 ====== -->
+<!-- ====== 5. 语料需求更新 ====== -->
 <div class="slide slide-white slide-content">
   <div class="slide-info">
-    <div class="si-num">7</div>
+    <div class="si-num">5</div>
     <h2>语料需求更新</h2>
     <p class="si-desc">记录和展示各合作企业对语料的需求情况，包括需求方、数据类型、格式要求、需求数量、合作进展等。按照"需求导向，边建边用"原则动态更新。</p>
     <ul class="si-features">
@@ -1620,8 +1401,8 @@ body {
 </div>
 <div class="slide slide-light slide-content">
   <div class="slide-info">
-    <!-- ====== 8. DOCUMENT GENERATION ====== -->
-<div class="si-num">8</div>
+    <!-- ====== 6. 文档生成 ====== -->
+<div class="si-num">6</div>
     <h2>文档生成</h2>
     <p class="si-desc">平台核心功能。左侧列出六类文档模板，覆盖项目中常见材料需求。选中模板后系统自动从数据库提取最新数据，按模板结构生成文档初稿。<span class="accent-dot amber"></span><b>一次更新数据，所有模板同步生效。</b></p>
     <ul class="si-features">
@@ -1659,7 +1440,8 @@ body {
             <div class="doc-tpl"><div class="dt-icon">🎤</div><div><div class="dt-name">讲话稿 / 经验分享</div><div class="dt-desc">面向会议/论坛，含建设思路、合作模式</div></div></div>
             <div class="doc-tpl"><div class="dt-icon">🏛</div><div><div class="dt-name">已有工作基础</div><div class="dt-desc">面向特定机构，含该机构相关的数据和工具积累</div></div></div>
             <div class="doc-tpl"><div class="dt-icon">✉️</div><div><div class="dt-name">联络/动员邮件</div><div class="dt-desc">面向院内/合作方，含项目重要性、需要对方做什么</div></div></div>
-            <div style="font-size:10px;color:var(--text3);text-align:center;margin-top:8px">点击模板 → 预览 → 导出 Word / PDF</div>
+            <div style="font-size:10px;color:var(--text3);text-align:center;margin-top:8px">点击模板 → 下方预览区生成文档 → 导出 Word / PDF</div>
+            <div style="margin-top:10px;border:1px solid #e9ecf1;border-radius:7px;padding:10px;background:#fdfdfd;font-size:10px;color:var(--text2);line-height:1.6"><b>预览区</b>：选中上方模板后此处展示文档内容，确认后点击导出</div></div>
           </div>
         </div>
       </div>
@@ -1690,101 +1472,10 @@ body {
   </div>
 </div>
 
-<!-- ====== 9. DOCUMENT PREVIEW ====== -->
-<div class="slide slide-white slide-content">
-  <div class="slide-info">
-    <div class="si-num">9</div>
-    <h2>文档预览与导出</h2>
-    <p class="si-desc">选中模板后进入预览。系统自动拉取各学科最新数据填入模板，生成完整文档。确认无误后一键导出 Word 或 PDF。不满意可重新生成或手动微调。</p>
-    <ul class="si-features">
-      <li>实时预览生成效果</li>
-      <li>一键导出 Word / PDF</li>
-      <li>可重新生成或手动微调</li>
-      <li>格式符合正式汇报要求</li>
-    </ul>
-  </div>
-  <div class="panels-wrap">
-    <div class="panel-col">
-      <div class="panel-label">桌面端</div>
-      <div class="dt-frame">
-        <div class="dt-topbar">
-          <span class="dt-dot r"></span><span class="dt-dot y"></span><span class="dt-dot g"></span>
-          <span class="dt-tab on">预览：对外支持材料</span>
-        </div>
-        <div class="dt-body">
-          <div class="dt-sidebar">
-            <div class="dts-logo">◈ AIS 语料库</div>
-            <ul class="dts-nav">
-              <li>建设总览</li>
-              <li>学科详情</li>
-              <li class="on">文档生成</li>
-            </ul>
-          </div>
-          <div class="dt-main">
-            <div class="doc-pv">
-              <div class="dp-title">基础学科科学研究语料库建设项目<br>对外支持材料</div>
-              <div class="dp-text">
-<b>一、项目描述</b><br>
-国家发改委批复立项，教育部统筹，北京大学牵头，聚焦数理化天地生六大学科。张锦常务副校长任负责人，鄂维南院士任技术总师。"1+6+N"协同机制，联合清华、南大、复旦、上交、武大、厦大及华为、蚂蚁、鹏城实验室等。<br><br>
-<b>二、经费描述</b><br>
-项目总投资暂定 59,590 万元，建设期 12 个月。<br><br>
-<b>三、各学科建设进展</b><br>
-数学：Matlas 发布，形式化 10 本教材，ReasLib 建设中<br>
-物理：PHYBench 被 OpenAI 引用，PRBench 获企业采买<br>
-化学：NMR 世界最大实验数据库，CarbonMat 语料库<br>
-天文：814 TB 多源观测数据<br>
-地理：全球 30 米数据立方体，PB 级数据<br>
-生物：肿瘤基因组 15 种肿瘤测序
-              </div>
-            </div>
-            <div class="btn-row" style="margin-top:8px">
-              <div class="btn pri">导出 Word</div>
-              <div class="btn">导出 PDF</div>
-              <div class="btn">重新生成</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="panel-col" style="flex:0 0 auto">
-      <div class="panel-label">手机端</div>
-      <div class="mb-frame">
-        <div class="mb-topbar">9:41</div>
-        <div class="mb-nav">← 预览</div>
-        <div class="mb-content">
-          <div class="doc-pv">
-            <div class="dp-title" style="font-size:11px">基础学科科学研究语料库<br>对外支持材料</div>
-            <div class="dp-text" style="font-size:9px">
-<b>一、项目描述</b><br>
-国家发改委批复，教育部统筹，北京大学牵头。"1+6+N"机制。<br><br>
-<b>二、经费</b><br>
-59,590 万元，12 个月建设期。<br><br>
-<b>三、各学科进展</b><br>
-数学：Matlas发布，ReasLib建设中<br>
-物理：PHYBench被OpenAI引用<br>
-化学：NMR世界最大实验数据库<br>
-天文：814TB多源数据<br>
-地理：全球30米数据立方体<br>
-生物：肿瘤基因组15种测序
-            </div>
-          </div>
-          <div class="btn-row">
-            <div class="btn pri">导出Word</div>
-            <div class="btn">导出PDF</div>
-          </div>
-          <div class="btn-row" style="margin-top:3px">
-            <div class="btn">重新生成</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ====== 10. Q&A PLATFORM ====== -->
+<!-- ====== 7. 问答平台 ====== -->
 <div class="slide slide-light slide-content">
   <div class="slide-info">
-    <div class="si-num">10</div>
+    <div class="si-num">7</div>
     <h2>问答平台</h2>
     <p class="si-desc">项目相关人员可在平台上提问交流。已解答的问题沉淀为知识库，方便后来者查阅。<span class="accent-dot teal"></span><b>各学科可分设问答区</b>，支持按学科、关键词搜索已有问答。</p>
     <ul class="si-features">
@@ -1899,10 +1590,10 @@ body {
   </div>
 </div>
 
-<!-- ====== 11. PROFILE ====== -->
+<!-- ====== 8. 个人中心 ====== -->
 <div class="slide slide-white slide-content">
   <div class="slide-info">
-    <div class="si-num">11</div>
+    <div class="si-num">8</div>
     <h2>个人中心</h2>
     <p class="si-desc">查看个人负责项目、团队人数、平均进度。管理员可进入学科管理、模板管理、人员权限管理、操作日志等后台功能。</p>
     <ul class="si-features">
