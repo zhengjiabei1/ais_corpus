@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>项目基本情况 - AIS 语料库建设管理平台</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --blue-deep: #1a365d;
+  --blue: #2c5aa8;
+  --blue-mid: #3b6fc9;
+  --blue-light: #5b8def;
+  --blue-pale: #dce8f8;
+  --blue-bg: #f2f5fc;
+  --text: #1a2332;
+  --text2: #4a5568;
+  --text3: #8899b0;
+  --border: #e2e8f0;
+  --bg: #f7f9fc;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  background: #eef1f6;
+  min-height: 100vh;
+}
+
+/* ===== HEADER ===== */
+.header {
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  padding: 0 24px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header .logo {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--blue-deep);
+}
+.header .user {
+  font-size: 13px;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+.header .user-avatar {
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  background: var(--blue-pale);
+  color: var(--blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* ===== LAYOUT ===== */
+.layout {
+  display: flex;
+  min-height: calc(100vh - 52px);
+}
+
+/* ===== SIDEBAR (Desktop) ===== */
+.sidebar {
+  width: 200px;
+  background: #fff;
+  border-right: 1px solid var(--border);
+  padding: 16px 0;
+  flex-shrink: 0;
+}
+.sidebar-section {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+.sidebar-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text3);
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+  padding: 0 8px;
+}
+.sidebar-item {
+  padding: 7px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  color: var(--text2);
+  cursor: pointer;
+  margin-bottom: 1px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.sidebar-item:hover { background: var(--bg); }
+.sidebar-item.active {
+  background: var(--blue-pale);
+  color: var(--blue-deep);
+  font-weight: 600;
+}
+.sidebar-item .si-icon { font-size: 14px; }
+
+/* ===== MAIN ===== */
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* ===== TAB NAV (Desktop) ===== */
+.tab-nav {
+  display: flex;
+  gap: 0;
+  border-bottom: 2px solid var(--border);
+  background: #fff;
+  padding: 0 20px;
+}
+.tab-nav-item {
+  padding: 11px 18px;
+  font-size: 13px;
+  color: var(--text3);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  white-space: nowrap;
+  transition: all 0.15s;
+}
+.tab-nav-item:hover { color: var(--text2); }
+.tab-nav-item.active {
+  color: var(--blue-deep);
+  font-weight: 600;
+  border-bottom-color: var(--blue-deep);
+}
+
+/* ===== TAB CONTENT ===== */
+.tab-content-area {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px;
+  background: var(--bg);
+}
+.tab-panel {
+  display: none;
+  max-width: 780px;
+}
+.tab-panel.active { display: block; }
+
+/* ===== CONTENT STYLES ===== */
+.panel-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+.section-subtitle {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--blue-deep);
+  margin: 16px 0 6px;
+}
+.section-text {
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.8;
+}
+
+/* Highlight cards */
+.highlight-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.highlight-card {
+  flex: 1;
+  background: #fff;
+  border: 1px solid #dce3ed;
+  border-radius: 8px;
+  padding: 12px 14px;
+  text-align: center;
+}
+.highlight-card .hc-label {
+  font-size: 10px;
+  color: var(--blue-light);
+  margin-bottom: 3px;
+}
+.highlight-card .hc-value {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--blue-deep);
+}
+
+/* Info table */
+.info-table {
+  width: 100%;
+  font-size: 12px;
+  border-collapse: collapse;
+  border: 1px solid #dce3ed;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #fff;
+}
+.info-table td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #eef1f6;
+}
+.info-table tr:last-child td { border-bottom: none; }
+.info-table .it-label {
+  font-weight: 600;
+  color: var(--blue-deep);
+  width: 90px;
+  background: #f8fafd;
+  font-size: 11px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Metric table */
+.metric-table {
+  width: 100%;
+  font-size: 12px;
+  border-collapse: collapse;
+  border: 1px solid #dce3ed;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #fff;
+  margin-bottom: 12px;
+}
+.metric-table td {
+  padding: 7px 12px;
+  border-bottom: 1px solid #eef1f6;
+}
+.metric-table tr:last-child td { border-bottom: none; }
+.metric-table .mt-hdr {
+  font-weight: 600;
+  font-size: 11px;
+  background: #eef2ff;
+  color: var(--blue-deep);
+  text-align: center;
+}
+.metric-table .mt-label {
+  font-weight: 600;
+  color: var(--blue-deep);
+  width: 80px;
+  background: #f8fafd;
+  font-size: 11px;
+  text-align: center;
+}
+
+/* Org chart */
+.org-chart { margin: 8px 0; }
+.org-box {
+  padding: 8px 16px; border-radius: 7px; text-align: center;
+  font-size: 12px; font-weight: 600; color: #fff;
+}
+.org-box span { font-size: 9px; font-weight: 400; opacity: 0.85; }
+.org-chip {
+  display: inline-block; padding: 5px 0; border-radius: 5px;
+  font-size: 10px; font-weight: 600; color: #fff; text-align: center;
+  background: var(--blue-mid);
+}
+.org-chip-support {
+  display: inline-block; padding: 5px 0; border-radius: 5px;
+  font-size: 10px; font-weight: 600; color: var(--blue-deep); text-align: center;
+  background: var(--blue-pale); border: 1px solid #b8cfe8;
+}
+
+/* Info box */
+.info-box {
+  background: #fff;
+  border: 1px solid #dce3ed;
+  border-radius: 7px;
+  padding: 12px 14px;
+  font-size: 12px;
+  color: var(--text2);
+  line-height: 1.7;
+}
+
+/* Defect list */
+.defect-list {
+  font-size: 12px;
+  color: var(--text2);
+  line-height: 1.8;
+  margin: 4px 0 8px 8px;
+}
+.defect-list li { margin-bottom: 2px; }
+.defect-list li::marker { color: var(--blue-light); }
+
+/* Achievement list */
+.achieve-list {
+  font-size: 11px;
+  color: var(--text2);
+  line-height: 1.8;
+  margin: 4px 0 0 4px;
+}
+.achieve-list li { margin-bottom: 1px; }
+.achieve-list li::marker { color: var(--blue-light); }
+
+/* ===== MOBILE ===== */
+.mobile-header {
+  display: none;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  padding: 0 14px;
+  height: 48px;
+  align-items: center;
+  justify-content: space-between;
+}
+.mobile-header .mh-back {
+  font-size: 14px;
+  color: var(--text2);
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+.mobile-header .mh-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+}
+.mobile-header .mh-user {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--blue-pale);
+  color: var(--blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.mobile-chip-nav {
+  display: none;
+  gap: 5px;
+  padding: 10px 14px;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+}
+.mobile-chip {
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+  color: var(--text2);
+  background: var(--bg);
+  border: none;
+  cursor: pointer;
+}
+.mobile-chip.active {
+  background: var(--blue);
+  color: #fff;
+}
+
+.mobile-content {
+  display: none;
+  flex: 1;
+  overflow-y: auto;
+  padding: 14px;
+  background: var(--bg);
+}
+.mobile-panel {
+  display: none;
+}
+.mobile-panel.active { display: block; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .header { display: none; }
+  .sidebar { display: none; }
+  .tab-nav { display: none; }
+  .tab-content-area { display: none; }
+
+  .mobile-header { display: flex; }
+  .mobile-chip-nav { display: flex; }
+  .mobile-content { display: block; }
+
+  .layout { flex-direction: column; }
+  .main { flex: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- Desktop Header -->
+<div class="header">
+  <div class="logo">&#9672; AIS 语料库建设管理平台</div>
+  <div class="user">
+    <span>陈景元</span>
+    <div class="user-avatar">陈</div>
+  </div>
+</div>
+
+<div class="layout">
+  <!-- Desktop Sidebar -->
+  <div class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-label">主菜单</div>
+      <div class="sidebar-item active"><span class="si-icon">&#9672;</span> 项目基本情况</div>
+      <div class="sidebar-item"><span class="si-icon">&#9776;</span> 学科建设情况</div>
+      <div class="sidebar-item"><span class="si-icon">&#9678;</span> 语料需求更新</div>
+      <div class="sidebar-item"><span class="si-icon">&#9998;</span> 文档生成</div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-label">其他</div>
+      <div class="sidebar-item"><span class="si-icon">&#9786;</span> 个人中心</div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main">
+    <!-- Desktop Tab Nav -->
+    <div class="tab-nav">
+      <div class="tab-nav-item active" data-tab="0">项目概述</div>
+      <div class="tab-nav-item" data-tab="1">战略背景</div>
+      <div class="tab-nav-item" data-tab="2">建设目标</div>
+      <div class="tab-nav-item" data-tab="3">组织架构</div>
+      <div class="tab-nav-item" data-tab="4">承担单位</div>
+    </div>
+
+    <!-- Desktop Tab Content -->
+    <div class="tab-content-area">
+      <!-- Tab 0: 项目概述 -->
+      <div class="tab-panel active" id="dt-tab-0">
+        <div class="panel-title">项目概述</div>
+        <div class="section-text" style="margin-bottom:14px">基础学科科学研究语料库建设项目由国家发展改革委批复立项，教育部统筹，北京大学牵头建设，聚焦<b>数学、物理、化学、天文、地理、生物</b>六大基础学科，旨在建成全球首个覆盖基础学科全谱系的战略语料库，为我国 AI for Science 的发展提供坚实长效的语料支撑。</div>
+        <div class="highlight-row">
+          <div class="highlight-card"><div class="hc-label">建设期</div><div class="hc-value">12 个月</div></div>
+          <div class="highlight-card"><div class="hc-label">总投资</div><div class="hc-value">59,590 万</div></div>
+          <div class="highlight-card"><div class="hc-label">协同模式</div><div class="hc-value">1+6+N</div></div>
+          <div class="highlight-card"><div class="hc-label">建设地点</div><div class="hc-value">北京+深圳</div></div>
+        </div>
+        <table class="info-table">
+          <tr><td class="it-label">项目名称</td><td>基础学科科学研究语料库建设项目</td></tr>
+          <tr><td class="it-label">批复 / 统筹</td><td>国家发展改革委 / 教育部</td></tr>
+          <tr><td class="it-label">建设单位</td><td>北京大学（张锦常务副校长任负责人，鄂维南院士任技术总师）</td></tr>
+          <tr><td class="it-label">协同高校</td><td>清华大学、南京大学、复旦大学、上海交通大学、武汉大学、厦门大学（"1+6"协同机制）</td></tr>
+          <tr><td class="it-label">共建企业</td><td>华为、蚂蚁、鹏城实验室、百度、万方、京能、字节跳动、中国联通、深势科技</td></tr>
+          <tr><td class="it-label">建设期</td><td>12 个月（2025.9 – 2026.12）</td></tr>
+          <tr><td class="it-label">总投资</td><td>59,590 万元</td></tr>
+          <tr><td class="it-label">建设地点</td><td>北京怀柔慧云西路6号院（主）· 深圳南山北大深研院（备）</td></tr>
+        </table>
+      </div>
+
+      <!-- Tab 1: 战略背景 -->
+      <div class="tab-panel" id="dt-tab-1">
+        <div class="panel-title">战略背景</div>
+        <div class="section-subtitle">国家战略定位</div>
+        <div class="section-text" style="margin-bottom:12px">习近平总书记明确指出人工智能"要占领先机、赢得优势，以人工智能引领科研范式变革"。AI4S 的全球竞争正从算法优化转向对<b>高质量科学数据的底层争夺</b>——语料资源的规模、质量和多样性直接决定模型对复杂科学问题的理解与推理能力。建设 AI4S 战略语料库已成为各国抢占技术制高点的战略必需。</div>
+        <div class="section-subtitle">当前数据困境</div>
+        <div class="section-text" style="margin-bottom:4px">主流大模型训练高度依赖公开互联网存量数据，存在<b>三大结构性缺陷</b>：</div>
+        <ul class="defect-list">
+          <li>质量参差不齐，含大量重复、低价值、噪声数据</li>
+          <li>科学价值不足，科研文献、学术典籍占比极低</li>
+          <li>版权与合规风险突出，如 The Pile 等语料库面临诉讼与商用限制</li>
+        </ul>
+        <div class="section-subtitle">建设必要性</div>
+        <div class="section-text" style="margin-bottom:10px">国际竞争焦点正从算法模型转向科学数据底层争夺。高质量语料是训练科学智能的核心养料——深度挖掘科研场景中蕴藏的学术文献、实验图谱、分子结构、观测时序等多模态数据，并通过科研计算与实验协同生成针对性增量数据，推动 AI 从被动学习向主动探索升级。</div>
+        <div class="section-subtitle">项目定位</div>
+        <div class="info-box" style="border-color:var(--blue-pale);background:#fafcff">本项目坚持<b>"边建设、边应用"</b>原则，免费向国家人工智能训练场全量开放，以公益授权机制无条件支持国家战略重点项目研发。致力于服务国家战略需求、赋能科研创新、降低行业门槛，为我国 AI 与基础学科发展提供无壁垒、高质量、可信赖的公益支撑。</div>
+      </div>
+
+      <!-- Tab 2: 建设目标 -->
+      <div class="tab-panel" id="dt-tab-2">
+        <div class="panel-title">建设目标与关键指标</div>
+        <div class="section-subtitle">总体目标</div>
+        <div class="section-text" style="margin-bottom:8px">以"<b>可治理、可追溯、可复用、可迭代</b>"为建设主线，构建覆盖数理化天地生六大基础学科的<b>≥1,000 个子语料库</b>，实现跨数据源、跨模态汇交与对齐，覆盖 <b>≥1,000 种数据源、≥50 种数据子模态</b>。打造 <b>≥50 个</b>语料加工工具、<b>≥200 个</b>工具链。建立科研语料标准体系和标识体系。</div>
+        <table class="metric-table">
+          <tr><td class="mt-hdr">指标</td><td class="mt-hdr">北京大学</td><td class="mt-hdr">合并中科院后</td></tr>
+          <tr><td class="mt-label">语料规模</td><td>≥38 PB / ≥92 亿条</td><td>≥95 PB / ≥230 亿条</td></tr>
+          <tr><td class="mt-label">数据集数</td><td>≥900 个</td><td>≥3,000 个</td></tr>
+          <tr><td class="mt-label">服务用户</td><td>≥400 万</td><td>≥600 万</td></tr>
+          <tr><td class="mt-label">质量指标</td><td colspan="2">准确率 ≥90% · 抽样合格率 ≥95% · 标注一致性 ≥0.8 · 重复率 ≤5‰</td></tr>
+        </table>
+        <div class="section-subtitle">示范应用目标</div>
+        <div class="section-text">为 ≥10 家基础模型提供训练语料，提升模型 ≥20% 科学推理能力；为 ≥100 个垂类工具模型（如微观大原子模型、谱图反解模型）提供训练语料；为 ≥1,000 个科研智能体提供数据库 MCP 调用服务；语料激活率 ≥90%，全年累计使用 ≥100 万亿 token。</div>
+      </div>
+
+      <!-- Tab 3: 组织架构 -->
+      <div class="tab-panel" id="dt-tab-3">
+        <div class="panel-title">组织架构</div>
+        <div class="section-text" style="margin-bottom:10px">项目设指挥部、协调中心两级管理，下设 11 个工作组。指挥部按月调度，工作组按周推进并提交周报。依托北京大学人工智能研究院，建立跨部门、跨学院协同推进机制。</div>
+        <div class="org-chart">
+          <div class="org-box" style="background:#1a365d;padding:8px 16px;max-width:280px;margin:0 auto">指挥部<br><span>项目负责人 · 首席科学家 · 秘书长</span></div>
+          <div style="width:2px;height:14px;background:#8fa8c8;margin:0 auto"></div>
+          <div class="org-box" style="background:#2c5aa8;padding:7px 14px;max-width:320px;margin:0 auto">协调中心<br><span>负责人 · 项目经理 · 副手 · 教育部协调 · 日常统筹</span></div>
+          <div style="width:2px;height:10px;background:#8fa8c8;margin:0 auto"></div>
+          <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:5px;max-width:420px;margin:0 auto">
+            <span class="org-chip">数学组</span><span class="org-chip">物理组</span><span class="org-chip">化学组</span><span class="org-chip">天文组</span><span class="org-chip">地理组</span><span class="org-chip">生物组</span>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:5px;max-width:380px;margin:6px auto 0">
+            <span class="org-chip-support">数据统筹组</span><span class="org-chip-support">加工工具组</span><span class="org-chip-support">硬件平台组</span><span class="org-chip-support">模型训练组</span><span class="org-chip-support">教学培养组</span>
+          </div>
+          <div style="text-align:center;font-size:11px;color:var(--text3);margin-top:8px">六大学科组：语料加工与质量把关&emsp;│&emsp;五个支撑组：平台、工具、数据、模型、教学保障</div>
+        </div>
+        <div class="info-box" style="margin-top:12px"><b>协同机制：</b>项目按照"1+6+N"开放协同机制推进生态共建。以国际科学智能联盟为组织抓手，构建覆盖资源共建、能力共研、标准共制与成果共享的协同网络。联合共建企业包括华为、蚂蚁、鹏城实验室、百度、万方、京能、字节跳动、中国联通等。</div>
+      </div>
+
+      <!-- Tab 4: 承担单位 -->
+      <div class="tab-panel" id="dt-tab-4">
+        <div class="panel-title">承担单位</div>
+        <div class="section-subtitle">北京大学</div>
+        <div class="section-text" style="margin-bottom:10px">国内基础科学研究旗舰。拥有 49 个国家一流学科，23 个全国重点实验室（含国家研究中心），2021 年至今获批国家自然科学基金委项目总经费 34.1 亿元。12 位"两弹一星功勋奖章"获得者出自北京大学。鄂维南院士在 2022 年国际数学家大会作 1 小时大会报告。</div>
+        <div class="highlight-row">
+          <div class="highlight-card"><div class="hc-label">总资产</div><div class="hc-value">441.23亿</div></div>
+          <div class="highlight-card"><div class="hc-label">资产负债率</div><div class="hc-value">24.38%</div></div>
+          <div class="highlight-card"><div class="hc-label">全国重点实验室</div><div class="hc-value">23个</div></div>
+          <div class="highlight-card"><div class="hc-label">基金委经费</div><div class="hc-value">34.1亿</div></div>
+        </div>
+        <div class="section-subtitle">北京科学智能研究院（AISI）</div>
+        <div class="section-text" style="margin-bottom:10px">2021 年成立，鄂维南院士领衔，全球第一家以 AI for Science 命名并专注该领域的研究机构。以"解放科学家，赋能新工业"为使命，构建"四梁N柱"科研基础设施：算法模型与软件系统、实验表征系统、数据库与知识库系统、算力平台系统，面向新能源、新材料、生命科学等关键领域赋能。</div>
+        <div class="section-subtitle">核心成果</div>
+        <ul class="achieve-list">
+          <li>OpenLAM 大原子模型计划（30+共建单位），DPA-3 模型国际领先</li>
+          <li>Science Navigator 科学导航平台，全球科学家用户数百万</li>
+          <li>Uni-Lab-OS 智能实验室操作系统，打通"读-算-做"闭环</li>
+          <li>SciencePedia 知识库：400 万条思维链，覆盖 200 学科、24 万知识点</li>
+          <li>发起"国际科学智能联盟"，首批单位覆盖顶尖高校与龙头企业</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Mobile -->
+<div class="mobile-header">
+  <button class="mh-back" onclick="history.back()">←</button>
+  <span class="mh-title">项目基本情况</span>
+  <div class="mh-user">陈</div>
+</div>
+<div class="mobile-chip-nav">
+  <button class="mobile-chip active" data-mtab="0">概述</button>
+  <button class="mobile-chip" data-mtab="1">背景</button>
+  <button class="mobile-chip" data-mtab="2">目标</button>
+  <button class="mobile-chip" data-mtab="3">架构</button>
+  <button class="mobile-chip" data-mtab="4">单位</button>
+</div>
+<div class="mobile-content">
+  <!-- Mobile Tab 0 -->
+  <div class="mobile-panel active" id="mb-tab-0">
+    <div class="panel-title" style="font-size:16px">项目概述</div>
+    <div class="highlight-row" style="flex-wrap:wrap">
+      <div class="highlight-card" style="min-width:70px"><div class="hc-label">建设期</div><div class="hc-value" style="font-size:14px">12个月</div></div>
+      <div class="highlight-card" style="min-width:70px"><div class="hc-label">总投资</div><div class="hc-value" style="font-size:14px">59,590万</div></div>
+      <div class="highlight-card" style="min-width:70px"><div class="hc-label">协同</div><div class="hc-value" style="font-size:14px">1+6+N</div></div>
+    </div>
+    <table class="info-table" style="font-size:11px">
+      <tr><td class="it-label" style="width:55px;font-size:10px">名称</td><td>基础学科科学研究语料库建设项目</td></tr>
+      <tr><td class="it-label" style="width:55px;font-size:10px">批复</td><td>国家发展改革委 / 教育部</td></tr>
+      <tr><td class="it-label" style="width:55px;font-size:10px">建设</td><td>北京大学（张锦/鄂维南）</td></tr>
+      <tr><td class="it-label" style="width:55px;font-size:10px">协同</td><td>清华、南大、复旦、上交、武大、厦大</td></tr>
+      <tr><td class="it-label" style="width:55px;font-size:10px">企业</td><td>华为、蚂蚁、鹏城实验室、百度、万方等</td></tr>
+      <tr><td class="it-label" style="width:55px;font-size:10px">期限</td><td>12个月 / 59,590万元</td></tr>
+    </table>
+  </div>
+
+  <!-- Mobile Tab 1 -->
+  <div class="mobile-panel" id="mb-tab-1">
+    <div class="panel-title" style="font-size:16px">战略背景</div>
+    <div class="section-text" style="font-size:12px;margin-bottom:8px">习近平总书记指出 AI"要占领先机、赢得优势，以人工智能引领科研范式变革"。AI4S 全球竞争转向高质量科学数据底层争夺。</div>
+    <div class="section-text" style="font-size:12px;margin-bottom:8px">当前数据存在三大缺陷：质量参差、科学价值不足、版权风险突出。建设 AI4S 战略语料库对我国突破"卡脖子"瓶颈具有重大战略意义。</div>
+    <div class="info-box" style="border-color:var(--blue-pale);background:#fafcff;font-size:11px">坚持"<b>边建设、边应用</b>"，免费向国家人工智能训练场全量开放，以公益授权机制支撑国家战略项目。</div>
+  </div>
+
+  <!-- Mobile Tab 2 -->
+  <div class="mobile-panel" id="mb-tab-2">
+    <div class="panel-title" style="font-size:16px">建设目标与关键指标</div>
+    <div class="section-text" style="font-size:12px;margin-bottom:8px">以"可治理、可追溯、可复用、可迭代"为主线，≥1,000 子语料库，≥50 加工工具，≥200 工具链。</div>
+    <table class="metric-table" style="font-size:11px;margin-bottom:8px">
+      <tr><td class="mt-hdr" style="font-size:10px">指标</td><td class="mt-hdr" style="font-size:10px">北京大学</td><td class="mt-hdr" style="font-size:10px">合并中科院</td></tr>
+      <tr><td class="mt-label" style="font-size:10px;width:55px">规模</td><td>≥38PB/92亿条</td><td>≥95PB/230亿条</td></tr>
+      <tr><td class="mt-label" style="font-size:10px;width:55px">数据集</td><td>≥900个</td><td>≥3,000个</td></tr>
+      <tr><td class="mt-label" style="font-size:10px;width:55px">用户</td><td>≥400万</td><td>≥600万</td></tr>
+    </table>
+    <div class="section-text" style="font-size:12px">质量：准确率≥90% · 合格率≥95% · 一致性≥0.8。应用：≥10家基础模型 · ≥100个垂类模型 · ≥1,000个科研智能体。</div>
+  </div>
+
+  <!-- Mobile Tab 3 -->
+  <div class="mobile-panel" id="mb-tab-3">
+    <div class="panel-title" style="font-size:16px">组织架构</div>
+    <div class="section-text" style="font-size:12px;margin-bottom:8px">指挥部 → 协调中心 → 11 个工作组，按周调度，提交周报。</div>
+    <div style="text-align:center;margin-bottom:8px">
+      <div class="org-box" style="background:#1a365d;padding:6px 14px;display:inline-block;margin-bottom:3px">指挥部</div>
+      <div style="font-size:9px;color:#8899b0;margin-bottom:6px">▼</div>
+      <div class="org-box" style="background:#2c5aa8;padding:5px 12px;display:inline-block;margin-bottom:3px">协调中心</div>
+      <div style="font-size:9px;color:#8899b0;margin-bottom:6px">▼</div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-bottom:4px">
+      <span class="org-chip" style="font-size:9px;padding:4px 0">数学组</span><span class="org-chip" style="font-size:9px;padding:4px 0">物理组</span><span class="org-chip" style="font-size:9px;padding:4px 0">化学组</span>
+      <span class="org-chip" style="font-size:9px;padding:4px 0">天文组</span><span class="org-chip" style="font-size:9px;padding:4px 0">地理组</span><span class="org-chip" style="font-size:9px;padding:4px 0">生物组</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-bottom:8px">
+      <span class="org-chip-support" style="font-size:9px;padding:4px 0">数据统筹</span><span class="org-chip-support" style="font-size:9px;padding:4px 0">加工工具</span><span class="org-chip-support" style="font-size:9px;padding:4px 0">硬件平台</span>
+      <span class="org-chip-support" style="font-size:9px;padding:4px 0">模型训练</span><span class="org-chip-support" style="font-size:9px;padding:4px 0">教学培养</span>
+    </div>
+    <div class="info-box" style="font-size:11px">"1+6+N"协同机制，以国际科学智能联盟为组织抓手，联合华为、蚂蚁、鹏城实验室、百度等企业共建。</div>
+  </div>
+
+  <!-- Mobile Tab 4 -->
+  <div class="mobile-panel" id="mb-tab-4">
+    <div class="panel-title" style="font-size:16px">承担单位</div>
+    <div class="section-subtitle" style="font-size:12px">北京大学</div>
+    <div class="highlight-row" style="flex-wrap:wrap">
+      <div class="highlight-card" style="min-width:60px"><div class="hc-label">一流学科</div><div class="hc-value" style="font-size:14px">49个</div></div>
+      <div class="highlight-card" style="min-width:60px"><div class="hc-label">重点实验室</div><div class="hc-value" style="font-size:14px">23个</div></div>
+      <div class="highlight-card" style="min-width:60px"><div class="hc-label">总资产</div><div class="hc-value" style="font-size:14px">441亿</div></div>
+    </div>
+    <div class="section-text" style="font-size:12px;margin-bottom:10px">12 位"两弹一星"功勋出自北大。鄂维南院士 2022 年国际数学家大会 1 小时报告。</div>
+    <div class="section-subtitle" style="font-size:12px">北京科学智能研究院（AISI）</div>
+    <div class="section-text" style="font-size:12px;margin-bottom:6px">鄂维南院士领衔，全球首个 AI4S 机构。"四梁N柱"体系：算法模型 + 实验表征 + 知识库 + 算力平台。</div>
+    <div class="section-text" style="font-size:11px">核心成果：OpenLAM · Science Navigator · Uni-Lab-OS · SciencePedia（400万思维链，200学科）。发起国际科学智能联盟。</div>
+  </div>
+</div>
+
+<script>
+// Desktop tab switching
+document.querySelectorAll('.tab-nav-item').forEach(function(item) {
+  item.addEventListener('click', function() {
+    var tabIdx = this.getAttribute('data-tab');
+    document.querySelectorAll('.tab-nav-item').forEach(function(n) { n.classList.remove('active'); });
+    this.classList.add('active');
+    document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+    document.getElementById('dt-tab-' + tabIdx).classList.add('active');
+  });
+});
+
+// Mobile tab switching
+document.querySelectorAll('.mobile-chip').forEach(function(chip) {
+  chip.addEventListener('click', function() {
+    var tabIdx = this.getAttribute('data-mtab');
+    document.querySelectorAll('.mobile-chip').forEach(function(c) { c.classList.remove('active'); });
+    this.classList.add('active');
+    document.querySelectorAll('.mobile-panel').forEach(function(p) { p.classList.remove('active'); });
+    document.getElementById('mb-tab-' + tabIdx).classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
