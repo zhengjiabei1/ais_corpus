@@ -705,14 +705,25 @@ body {
 .org-box span { font-size: 9px; font-weight: 400; opacity: 0.85; }
 
 .org-chip {
-  display: inline-block; padding: 5px 10px; border-radius: 5px;
-  font-size: 10px; font-weight: 600; color: #fff;
+  display: inline-block; padding: 5px 0; border-radius: 5px;
+  font-size: 10px; font-weight: 600; color: #fff; text-align: center;
   background: #3b6fc9;
 }
 .org-chip-support {
-  display: inline-block; padding: 5px 10px; border-radius: 5px;
-  font-size: 10px; font-weight: 600; color: #1a365d;
+  display: inline-block; padding: 5px 0; border-radius: 5px;
+  font-size: 10px; font-weight: 600; color: #1a365d; text-align: center;
   background: #dce8f8; border: 1px solid #b8cfe8;
+}
+
+/* ===== Project Info Nav Tabs ===== */
+.pj-nav-item {
+  padding: 8px 14px; font-size: 11px; cursor: pointer;
+  color: #8899b0; border-bottom: 2px solid transparent;
+  margin-bottom: -2px; white-space: nowrap;
+}
+.pj-nav-item.active {
+  color: #1a365d; font-weight: 600;
+  border-bottom-color: #1a365d;
 }
 
 /* Enhanced table */
@@ -728,7 +739,7 @@ body {
 .info-table-v2 .itv-label {
   font-weight: 600; color: #1a365d; width: 72px;
   background: #f2f5fa; font-size: 9px; letter-spacing: 0.5px;
-  text-align: center;
+  text-align: center; white-space: nowrap;
 }
 
 </style>
@@ -923,13 +934,15 @@ body {
           <div class="dt-main" style="padding:0">
             <!-- Section Nav Bar -->
             <div style="display:flex;gap:0;border-bottom:2px solid #e2e8f0;padding:0 14px;background:#fafbfc">
-              <span style="padding:8px 14px;font-size:11px;font-weight:600;color:#1a365d;border-bottom:2px solid #1a365d;margin-bottom:-2px">项目概述</span>
-              <span style="padding:8px 14px;font-size:11px;color:#8899b0">战略背景</span>
-              <span style="padding:8px 14px;font-size:11px;color:#8899b0">建设目标</span>
-              <span style="padding:8px 14px;font-size:11px;color:#8899b0">组织架构</span>
-              <span style="padding:8px 14px;font-size:11px;color:#8899b0">承担单位</span>
+              <span class="pj-nav-item active">项目概述</span>
+              <span class="pj-nav-item">战略背景</span>
+              <span class="pj-nav-item">建设目标</span>
+              <span class="pj-nav-item">组织架构</span>
+              <span class="pj-nav-item">承担单位</span>
             </div>
             <div style="padding:14px">
+            <!-- Tab 1: 项目概述 -->
+            <div class="pj-tab-content" id="pj-tab-0">
             <div style="font-size:15px;font-weight:700;color:#1a2332;margin-bottom:10px">项目概述</div>
             <div style="font-size:11px;color:#4a5568;line-height:1.8;margin-bottom:10px">基础学科科学研究语料库建设项目由国家发展改革委批复立项，教育部统筹，北京大学牵头建设，聚焦<b>数学、物理、化学、天文、地理、生物</b>六大基础学科，旨在建成全球首个覆盖基础学科全谱系的战略语料库，为我国 AI for Science 的发展提供坚实长效的语料支撑。</div>
             <table class="info-table-v2" style="margin-bottom:14px">
@@ -938,17 +951,24 @@ body {
               <tr><td class="itv-label">建设单位</td><td>北京大学（张锦常务副校长任负责人，鄂维南院士任技术总师）</td></tr>
               <tr><td class="itv-label">协同高校</td><td>清华大学、南京大学、复旦大学、上海交通大学、武汉大学、厦门大学（"1+6"协同机制）</td></tr>
               <tr><td class="itv-label">共建企业</td><td>华为、蚂蚁、鹏城实验室、百度、万方、京能、字节跳动、中国联通、深势科技</td></tr>
-              <tr><td class="itv-label">建设期 / 投资</td><td>12 个月（2025.9 – 2026.12）/ 59,590 万元</td></tr>
+              <tr><td class="itv-label">建设期</td><td>12 个月（2025.9 – 2026.12）</td></tr>
+              <tr><td class="itv-label">总投资</td><td>59,590 万元</td></tr>
               <tr><td class="itv-label">建设地点</td><td>北京怀柔慧云西路6号院（主）· 深圳南山北大深研院（备）</td></tr>
             </table>
+            </div>
 
-            <div style="font-size:15px;font-weight:700;color:#1a2332;margin:18px 0 10px;padding-top:14px;border-top:1px solid #e9ecf1">战略背景</div>
+            <!-- Tab 2: 战略背景 -->
+            <div class="pj-tab-content" id="pj-tab-1" style="display:none">
+            <div style="font-size:15px;font-weight:700;color:#1a2332;margin-bottom:10px">战略背景</div>
             <div style="font-size:12px;font-weight:600;color:#1a365d;margin-bottom:6px">国家战略定位</div>
-            <div style="font-size:11px;color:#4a5568;line-height:1.8;margin-bottom:10px">习近平总书记明确指出人工智能"要占领先机、赢得优势，以人工智能引领科研范式变革"。AI4S 的全球竞争正从算法优化转向对<b>高质量科学数据的底层争夺</b>——语料资源的规模、质量和多样性直接决定模型对复杂科学问题的理解与推理能力。</div>
+            <div style="font-size:11px;color:#4a5568;line-height:1.8;margin-bottom:12px">习近平总书记明确指出人工智能"要占领先机、赢得优势，以人工智能引领科研范式变革"。AI4S 的全球竞争正从算法优化转向对<b>高质量科学数据的底层争夺</b>——语料资源的规模、质量和多样性直接决定模型对复杂科学问题的理解与推理能力。</div>
             <div style="font-size:12px;font-weight:600;color:#1a365d;margin-bottom:6px">建设必要性</div>
             <div style="font-size:11px;color:#4a5568;line-height:1.8">当前主流大模型训练高度依赖公开互联网数据，存在质量参差、科学价值不足、版权风险突出三大缺陷。建设 AI4S 战略语料库，对于我国突破"卡脖子"技术瓶颈、抢占人工智能技术制高点、实现基础研究跨越式发展具有重大而紧迫的战略意义。</div>
+            </div>
 
-            <div style="font-size:15px;font-weight:700;color:#1a2332;margin:18px 0 10px;padding-top:14px;border-top:1px solid #e9ecf1">建设目标与关键指标</div>
+            <!-- Tab 3: 建设目标 -->
+            <div class="pj-tab-content" id="pj-tab-2" style="display:none">
+            <div style="font-size:15px;font-weight:700;color:#1a2332;margin-bottom:10px">建设目标与关键指标</div>
             <div style="font-size:12px;font-weight:600;color:#1a365d;margin-bottom:6px">总体目标</div>
             <div style="font-size:11px;color:#4a5568;line-height:1.8;margin-bottom:10px">以"<b>可治理、可追溯、可复用、可迭代</b>"为建设主线，构建"人机协同"的语料自动化解析与专家标注迭代演化系统，打造不少于 50 个语料加工工具、不少于 200 个工具链。</div>
             <div style="font-size:12px;font-weight:600;color:#1a365d;margin-bottom:6px">规模指标</div>
@@ -957,26 +977,35 @@ body {
             <div style="font-size:11px;color:#4a5568;line-height:1.8;margin-bottom:6px">质量指标：准确率 ≥90%，抽样合格率 ≥95%，标注一致性 ≥0.8，重复率 ≤5‰。</div>
             <div style="font-size:12px;font-weight:600;color:#1a365d;margin-bottom:6px">示范应用</div>
             <div style="font-size:11px;color:#4a5568;line-height:1.8">为 ≥10 家基础模型提供训练语料（提升 ≥20% 科学推理能力），服务 ≥100 个垂类工具模型和 ≥1,000 个科研智能体，全年累计使用 ≥100 万亿 token。</div>
-
-            <div style="font-size:15px;font-weight:700;color:#1a2332;margin:18px 0 10px;padding-top:14px;border-top:1px solid #e9ecf1">组织架构</div>
-            <div style="font-size:11px;color:#4a5568;line-height:1.8;margin-bottom:10px">项目设指挥部、协调中心两级管理，下设 11 个工作组。指挥部按月调度，工作组按周推进并提交周报。</div>
-            <div class="org-chart">
-              <div class="org-box" style="background:#1a365d;padding:8px 16px">指挥部<br><span style="font-size:9px;opacity:0.8">项目负责人 · 首席科学家 · 秘书长</span></div>
-              <div style="width:2px;height:14px;background:#8fa8c8;margin:0 auto"></div>
-              <div class="org-box" style="background:#2c5aa8;padding:7px 14px">协调中心<br><span style="font-size:9px;opacity:0.8">负责人 · 项目经理 · 副手 · 教育部协调 · 日常统筹</span></div>
-              <div style="width:2px;height:10px;background:#8fa8c8;margin:0 auto"></div>
-              <div style="display:flex;flex-wrap:wrap;gap:5px;justify-content:center">
-                <span class="org-chip">数学组</span><span class="org-chip">物理组</span><span class="org-chip">化学组</span><span class="org-chip">天文组</span><span class="org-chip">地理组</span><span class="org-chip">生物组</span>
-                <span class="org-chip-support">数据统筹组</span><span class="org-chip-support">加工工具组</span><span class="org-chip-support">硬件平台组</span><span class="org-chip-support">模型训练组</span><span class="org-chip-support">教学培养组</span>
-              </div>
-              <div style="text-align:center;font-size:9px;color:#8899b0;margin-top:6px">六大学科组负责语料加工与质量把关　│　五个支撑组提供平台、工具、数据、模型、教学保障</div>
             </div>
 
-            <div style="font-size:15px;font-weight:700;color:#1a2332;margin:18px 0 10px;padding-top:14px;border-top:1px solid #e9ecf1">承担单位</div>
+            <!-- Tab 4: 组织架构 -->
+            <div class="pj-tab-content" id="pj-tab-3" style="display:none">
+            <div style="font-size:15px;font-weight:700;color:#1a2332;margin-bottom:10px">组织架构</div>
+            <div style="font-size:11px;color:#4a5568;line-height:1.8;margin-bottom:10px">项目设指挥部、协调中心两级管理，下设 11 个工作组。指挥部按月调度，工作组按周推进并提交周报。</div>
+            <div class="org-chart">
+              <div class="org-box" style="background:#1a365d;padding:8px 16px;max-width:300px;margin:0 auto">指挥部<br><span style="font-size:9px;opacity:0.8">项目负责人 · 首席科学家 · 秘书长</span></div>
+              <div style="width:2px;height:14px;background:#8fa8c8;margin:0 auto"></div>
+              <div class="org-box" style="background:#2c5aa8;padding:7px 14px;max-width:340px;margin:0 auto">协调中心<br><span style="font-size:9px;opacity:0.8">负责人 · 项目经理 · 副手 · 教育部协调 · 日常统筹</span></div>
+              <div style="width:2px;height:10px;background:#8fa8c8;margin:0 auto"></div>
+              <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:5px;max-width:420px;margin:0 auto">
+                <span class="org-chip">数学组</span><span class="org-chip">物理组</span><span class="org-chip">化学组</span><span class="org-chip">天文组</span><span class="org-chip">地理组</span><span class="org-chip">生物组</span>
+              </div>
+              <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:5px;max-width:380px;margin:6px auto 0">
+                <span class="org-chip-support">数据统筹组</span><span class="org-chip-support">加工工具组</span><span class="org-chip-support">硬件平台组</span><span class="org-chip-support">模型训练组</span><span class="org-chip-support">教学培养组</span>
+              </div>
+              <div style="text-align:center;font-size:9px;color:#8899b0;margin-top:8px">六大学科组：语料加工与质量把关　│　五个支撑组：平台、工具、数据、模型、教学保障</div>
+            </div>
+            </div>
+
+            <!-- Tab 5: 承担单位 -->
+            <div class="pj-tab-content" id="pj-tab-4" style="display:none">
+            <div style="font-size:15px;font-weight:700;color:#1a2332;margin-bottom:10px">承担单位</div>
             <div style="font-size:12px;font-weight:600;color:#1a365d;margin-bottom:6px">北京大学</div>
-            <div style="font-size:11px;color:#4a5568;line-height:1.8;margin-bottom:8px">国内基础科学研究旗舰。拥有 49 个国家一流学科，23 个全国重点实验室（含国家研究中心），2021 年至今获批国家自然科学基金委项目总经费 34.1 亿元。12 位"两弹一星功勋奖章"获得者出自北京大学。鄂维南院士在 2022 年国际数学家大会作 1 小时大会报告。总资产 441.23 亿元，资产负债率 24.38%，财务状况稳健。</div>
+            <div style="font-size:11px;color:#4a5568;line-height:1.8;margin-bottom:12px">国内基础科学研究旗舰。拥有 49 个国家一流学科，23 个全国重点实验室（含国家研究中心），2021 年至今获批国家自然科学基金委项目总经费 34.1 亿元。12 位"两弹一星功勋奖章"获得者出自北京大学。鄂维南院士在 2022 年国际数学家大会作 1 小时大会报告。总资产 441.23 亿元，资产负债率 24.38%，财务状况稳健。</div>
             <div style="font-size:12px;font-weight:600;color:#1a365d;margin-bottom:6px">北京科学智能研究院（AISI）</div>
             <div style="font-size:11px;color:#4a5568;line-height:1.8">2021 年成立，鄂维南院士领衔，全球第一家以 AI for Science 命名并专注该领域的研究机构。已发布 OpenLAM 大原子模型计划（30 余家共建单位）、Science Navigator 科学导航平台、Uni-Lab-OS 智能实验室操作系统、SciencePedia 知识库（400 万条思维链，覆盖 200 学科和 24 万知识点）。发起建设"国际科学智能联盟"，首批倡议单位覆盖北大、清华、中科大、新加坡国立大学、鹏城实验室、百度、华为等。</div>
+            </div>
             </div>
           </div>
         </div>
@@ -998,7 +1027,8 @@ body {
             <tr><td class="itv-label" style="width:55px">建设单位</td><td>北京大学（张锦/鄂维南）</td></tr>
             <tr><td class="itv-label" style="width:55px">协同高校</td><td>清华、南大、复旦、上交、武大、厦大（"1+6"）</td></tr>
             <tr><td class="itv-label" style="width:55px">共建企业</td><td>华为、蚂蚁、鹏城实验室、百度、万方、京能、字节等</td></tr>
-            <tr><td class="itv-label" style="width:55px">期限/投资</td><td>12个月 / 59,590万元</td></tr>
+            <tr><td class="itv-label" style="width:55px">建设期</td><td>12个月</td></tr>
+            <tr><td class="itv-label" style="width:55px">总投资</td><td>59,590万元</td></tr>
           </table>
           <div style="font-size:12px;font-weight:600;color:#1a365d;margin:10px 0 4px">战略背景</div>
           <div style="font-size:10px;color:#4a5568;line-height:1.7">习近平指出 AI"要占领先机、赢得优势"。AI4S 竞争转向高质量科学数据底层争夺。</div>
