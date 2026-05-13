@@ -779,11 +779,11 @@ body {
   <div class="slide-info">
     <div class="si-num">1</div>
     <h2>项目基本情况</h2>
-    <p class="si-desc">面向领导、合作单位的项目全景介绍。关键数据表格化呈现，战略背景概括提炼，组织架构清晰分层。帮助快速了解 AIS 语料库的定位、规模、团队和进展。</p>
+    <p class="si-desc">面向领导、合作单位的项目全景介绍。涵盖项目定位、战略背景、建设目标、组织架构和承担单位实力，帮助快速了解 AIS 语料库的来龙去脉。</p>
     <ul class="si-features">
-      <li>关键信息表格化，一目了然</li>
-      <li>战略背景概括提炼，要点突出</li>
-      <li>组织架构分层展示，分工清晰</li>
+      <li>关键信息概括提炼，要点突出</li>
+      <li>战略背景 + 建设目标 + 团队分工</li>
+      <li>管理员可编辑更新各模块</li>
       <li>支持导出为汇报材料</li>
     </ul>
   </div>
@@ -800,81 +800,42 @@ body {
             <div class="dts-logo">&#9672; AIS 语料库</div>
             <ul class="dts-nav">
               <li class="on">项目基本情况</li>
+              <li>学科建设情况</li>
               <li>语料需求更新</li>
               <li>文档生成</li>
-            </ul>
-            <div style="font-size:9px;color:var(--text3);margin-top:8px;padding:0 6px">模块导航</div>
-            <ul class="dts-nav" style="margin-top:2px;font-size:10px">
-              <li class="on">项目概述</li>
-              <li>战略背景</li>
-              <li>建设目标与指标</li>
-              <li>组织架构</li>
-              <li>承担单位介绍</li>
+              <li>个人中心</li>
             </ul>
           </div>
           <div class="dt-main">
             <div class="dtm-title">项目概述</div>
-            <div style="font-size:10px;color:var(--text2);line-height:1.7;margin-bottom:12px">
-              本项目由国家发展改革委批复立项，教育部统筹，北京大学牵头建设，联合清华大学、南京大学、复旦大学、上海交通大学、武汉大学、厦门大学形成"1+6"协同体系。聚焦<b>数理化天地生</b>六大基础学科，建设全球首个覆盖基础学科全谱系的战略语料库，为我国 AI for Science 提供长效语料支撑。
+            <div style="font-size:11px;color:var(--text);line-height:1.8;margin-bottom:12px">
+              基础学科科学研究语料库建设项目由国家发展改革委批复立项，教育部统筹，北京大学牵头建设，张锦常务副校长担任负责人，鄂维南院士担任技术总师。项目联合清华大学、南京大学、复旦大学、上海交通大学、武汉大学、厦门大学形成<b>"1+6"协同体系</b>，同时汇聚华为、蚂蚁、鹏城实验室、百度、万方、京能、字节跳动、中国联通、深势科技等企业力量。建设期 12 个月（2025.9–2026.12），总投资 59,590 万元，在北京怀柔（主）和深圳南山（备）设立建设地点。
             </div>
-            <table style="width:100%;font-size:10px;border-collapse:collapse;margin-bottom:12px">
-              <tr style="background:#f7f9fc"><td style="padding:5px 8px;font-weight:600;width:80px">项目名称</td><td style="padding:5px 8px">基础学科科学研究语料库建设项目</td></tr>
-              <tr><td style="padding:5px 8px;font-weight:600">批复 / 统筹</td><td style="padding:5px 8px">国家发展改革委 / 教育部</td></tr>
-              <tr style="background:#f7f9fc"><td style="padding:5px 8px;font-weight:600">建设单位</td><td style="padding:5px 8px">北京大学（张锦常务副校长任负责人，鄂维南院士任技术总师）</td></tr>
-              <tr><td style="padding:5px 8px;font-weight:600">协同高校</td><td style="padding:5px 8px">清华、南大、复旦、上交、武大、厦大（"1+6"）</td></tr>
-              <tr style="background:#f7f9fc"><td style="padding:5px 8px;font-weight:600">共建企业</td><td style="padding:5px 8px">华为、蚂蚁、鹏城实验室、百度、万方、京能、字节跳动、中国联通、深势科技</td></tr>
-              <tr><td style="padding:5px 8px;font-weight:600">建设期</td><td style="padding:5px 8px">12个月（2025.9 - 2026.12）</td></tr>
-              <tr style="background:#f7f9fc"><td style="padding:5px 8px;font-weight:600">总投资</td><td style="padding:5px 8px">59,590 万元</td></tr>
-              <tr><td style="padding:5px 8px;font-weight:600">建设地点</td><td style="padding:5px 8px">北京怀柔（主） · 深圳南山北大深研院（备）</td></tr>
-            </table>
-
-            <div style="border-top:1px solid #e9ecf1;padding-top:10px;margin-top:4px">
-              <div style="font-size:11px;font-weight:600;color:var(--text);margin-bottom:6px">战略背景</div>
-              <div style="font-size:10px;color:var(--text2);line-height:1.7">习近平总书记指出人工智能"要占领先机、赢得优势，以人工智能引领科研范式变革"。AI4S 正从算法竞争转向高质量科学数据的底层争夺。语料资源是支撑大模型训练的"养料"和关键战略基础设施。建设 AI4S 战略语料库，对于我国突破"卡脖子"技术瓶颈、抢占人工智能制高点具有重大而紧迫的战略意义。</div>
+            <div style="font-size:11px;color:var(--text);line-height:1.8;margin-bottom:12px">
+              聚焦<b>数学、物理、化学、天文、地理、生物</b>六大基础学科，旨在建成全球首个覆盖基础学科全谱系的战略语料库，构建"人机协同"的语料自动化解析与专家标注迭代演化系统，为我国 AI for Science 的发展提供坚实长效的语料支撑。
             </div>
-
-            <div style="border-top:1px solid #e9ecf1;padding-top:10px;margin-top:8px">
-              <div style="font-size:11px;font-weight:600;color:var(--text);margin-bottom:6px">建设目标与关键指标</div>
-              <table style="width:100%;font-size:10px;border-collapse:collapse">
-                <tr style="background:#f7f9fc"><td style="padding:4px 8px;font-weight:600;width:70px">指标</td><td style="padding:4px 8px;font-weight:600;width:130px">北京大学</td><td style="padding:4px 8px;font-weight:600">合并中科院后</td></tr>
-                <tr><td style="padding:4px 8px">语料规模</td><td style="padding:4px 8px">≥38 PB / ≥92 亿条</td><td style="padding:4px 8px">≥95 PB / ≥230 亿条</td></tr>
-                <tr style="background:#f7f9fc"><td style="padding:4px 8px">数据集数</td><td style="padding:4px 8px">≥900 个</td><td style="padding:4px 8px">≥3,000 个</td></tr>
-                <tr><td style="padding:4px 8px">服务用户</td><td style="padding:4px 8px">≥400 万</td><td style="padding:4px 8px">≥600 万</td></tr>
-                <tr style="background:#f7f9fc"><td style="padding:4px 8px">质量指标</td><td style="padding:4px 8px" colspan="2">准确率≥90%，抽样合格率≥95%，标注一致性≥0.8，重复率≤5‰</td></tr>
-                <tr><td style="padding:4px 8px">示范应用</td><td style="padding:4px 8px" colspan="2">服务≥10家基础模型，≥100个垂类工具模型，≥1,000个科研智能体，全年≥100万亿token</td></tr>
-              </table>
-            </div>
-
-            <div style="border-top:1px solid #e9ecf1;padding-top:10px;margin-top:8px">
-              <div style="font-size:11px;font-weight:600;color:var(--text);margin-bottom:6px">组织架构</div>
-              <div style="font-size:10px;color:var(--text2);line-height:1.6;margin-bottom:6px">
-                <b>指挥部：</b>张锦、鄂维南（首席科学家）、董彬<br>
-                <b>协调中心：</b>崔斌（负责人）、李鑫宇（项目经理）、马雷/张立（副手）、杨凌春（教育部协调）、田永鸿<br>
-                <b>组织方式：</b>指挥部按月调度，核心工作组按周调度并提交周报。共设 11 个工作组。
+            <div style="border-top:1px solid #e9ecf1;padding-top:12px;margin-top:4px">
+              <div style="font-size:12px;font-weight:600;color:var(--text);margin-bottom:8px">战略背景</div>
+              <div style="font-size:11px;color:var(--text2);line-height:1.8">
+                习近平总书记明确指出人工智能"要占领先机、赢得优势，以人工智能引领科研范式变革"。当前，AI4S 的全球竞争正从算法优化转向对<b>高质量科学数据的底层争夺</b>——语料资源的规模、质量和多样性直接决定模型对复杂科学问题的理解与推理能力。建设 AI4S 战略语料库，对我国突破"卡脖子"瓶颈、抢占人工智能技术制高点具有重大而紧迫的战略意义。
               </div>
-              <table style="width:100%;font-size:10px;border-collapse:collapse">
-                <tr style="background:#f7f9fc"><td style="padding:4px 8px;font-weight:600;width:80px">工作组</td><td style="padding:4px 8px;font-weight:600">主要职责</td><td style="padding:4px 8px;font-weight:600;width:140px">负责人</td></tr>
-                <tr><td style="padding:4px 8px">数学</td><td style="padding:4px 8px">数学学科语料加工与质量把关</td><td style="padding:4px 8px">陈大岳、章志飞、董彬、文再文</td></tr>
-                <tr style="background:#f7f9fc"><td style="padding:4px 8px">物理</td><td style="padding:4px 8px">物理学科语料加工与质量把关</td><td style="padding:4px 8px">肖云峰、马仁敏、曹庆宏、朱华星</td></tr>
-                <tr><td style="padding:4px 8px">化学</td><td style="padding:4px 8px">化学学科语料加工与质量把关</td><td style="padding:4px 8px">彭海琳、刘志博、高毅勤、邹如强</td></tr>
-                <tr style="background:#f7f9fc"><td style="padding:4px 8px">天文</td><td style="padding:4px 8px">天文学科语料加工与质量把关</td><td style="padding:4px 8px">何子山、江林华、王力乐、董若冰</td></tr>
-                <tr><td style="padding:4px 8px">地理</td><td style="padding:4px 8px">地理学科语料加工与质量把关</td><td style="padding:4px 8px">贺灿飞、彭建、王志恒、刘瑜、林金泰</td></tr>
-                <tr style="background:#f7f9fc"><td style="padding:4px 8px">生物</td><td style="padding:4px 8px">生物学科语料加工与质量把关</td><td style="padding:4px 8px">高宁、杜鹏、高歌、王初、张路霞</td></tr>
-                <tr><td style="padding:4px 8px">数据统筹</td><td style="padding:4px 8px">数据汇交与外部采买对接</td><td style="padding:4px 8px">童云海、李鑫宇</td></tr>
-                <tr style="background:#f7f9fc"><td style="padding:4px 8px">加工工具</td><td style="padding:4px 8px">DataFlow 语料加工工具研发</td><td style="padding:4px 8px">张文涛</td></tr>
-                <tr><td style="padding:4px 8px">硬件与平台</td><td style="padding:4px 8px">系统采买与搭建</td><td style="padding:4px 8px">马皓、马雷</td></tr>
-                <tr style="background:#f7f9fc"><td style="padding:4px 8px">模型训练</td><td style="padding:4px 8px">从模型视角反馈语料质量</td><td style="padding:4px 8px">张林峰</td></tr>
-                <tr><td style="padding:4px 8px">教学培养</td><td style="padding:4px 8px">语料相关课程与人才培训</td><td style="padding:4px 8px">孙华</td></tr>
-              </table>
             </div>
-
-            <div style="border-top:1px solid #e9ecf1;padding-top:10px;margin-top:8px">
-              <div style="font-size:11px;font-weight:600;color:var(--text);margin-bottom:6px">承担单位介绍</div>
-              <div style="font-size:10px;color:var(--text2);line-height:1.7;margin-bottom:8px">
-                <b>北京大学</b> — 国内基础科学研究旗舰。拥有国家一流学科 49 个，全国重点实验室 23 个，2021 年至今基金委项目经费 34.1 亿元。12 位"两弹一星"功勋出自北大。鄂维南院士在 2022 国际数学家大会作 1 小时报告。2025 年为北大"科技创新年"。
+            <div style="border-top:1px solid #e9ecf1;padding-top:12px;margin-top:8px">
+              <div style="font-size:12px;font-weight:600;color:var(--text);margin-bottom:8px">建设目标与关键指标</div>
+              <div style="font-size:11px;color:var(--text2);line-height:1.8">
+                以"<b>可治理、可追溯、可复用、可迭代</b>"为建设主线。北京大学承担语料规模 <b>≥38 PB、≥92 亿条</b>，数据集 <b>≥900 个</b>，服务 <b>≥400 万</b>科研用户；与中科院文献情报中心合并后总规模 <b>≥95 PB、≥230 亿条</b>，数据集 <b>≥3,000 个</b>，服务 <b>≥600 万</b>用户。质量指标：准确率 ≥90%，抽样合格率 ≥95%，标注一致性 ≥0.8，重复率 ≤5‰。示范应用：服务 ≥10 家基础模型（提升 ≥20% 科学推理能力）、≥100 个垂类工具模型、≥1,000 个科研智能体，全年累计使用 ≥100 万亿 token。
               </div>
-              <div style="font-size:10px;color:var(--text2);line-height:1.7">
-                <b>北京科学智能研究院（AISI）</b> — 2021 年成立，鄂维南院士领衔，全球首个 AI for Science 研究机构。发布 OpenLAM 大原子模型、Science Navigator 科学导航、Uni-Lab-OS 智能实验室系统、SciencePedia 知识库（400 万条思维链）。发起"国际科学智能联盟"，首批倡议单位覆盖北大、清华、中科大、新加坡国立大学、鹏城实验室、百度、华为等。
+            </div>
+            <div style="border-top:1px solid #e9ecf1;padding-top:12px;margin-top:8px">
+              <div style="font-size:12px;font-weight:600;color:var(--text);margin-bottom:8px">组织架构</div>
+              <div style="font-size:11px;color:var(--text2);line-height:1.8">
+                设<b>指挥部</b>（张锦、鄂维南、董彬），<b>协调中心</b>（崔斌负责、李鑫宇任项目经理、马雷/张立副手、杨凌春对接教育部、田永鸿参与统筹），下设 11 个工作组按周调度、提交周报。六大学科组由各院系骨干教授牵头（数学：陈大岳、章志飞、董彬、文再文；物理：肖云峰、马仁敏、曹庆宏、朱华星；化学：彭海琳、刘志博、高毅勤、邹如强；天文：何子山、江林华、王力乐、董若冰；地理：贺灿飞、彭建、王志恒、刘瑜、林金泰；生物：高宁、杜鹏、高歌、王初、张路霞），另设数据统筹组（童云海、李鑫宇）、加工工具组（张文涛，依托 DataFlow）、硬件与平台组（马皓、马雷）、模型训练组（张林峰）、教学培养组（孙华）。
+              </div>
+            </div>
+            <div style="border-top:1px solid #e9ecf1;padding-top:12px;margin-top:8px">
+              <div style="font-size:12px;font-weight:600;color:var(--text);margin-bottom:8px">承担单位</div>
+              <div style="font-size:11px;color:var(--text2);line-height:1.8">
+                <b>北京大学</b>是国内基础科学研究旗舰，拥有 49 个国家一流学科、23 个全国重点实验室，2021 年至今获批基金委项目总经费 34.1 亿元，12 位"两弹一星"功勋出自北大。<b>北京科学智能研究院（AISI）</b>由鄂维南院士领衔，是全球首个 AI for Science 研究机构，发布 OpenLAM 大原子模型、Science Navigator 科学导航、SciencePedia 知识库（400 万条思维链），发起"国际科学智能联盟"，首批倡议单位覆盖北大、清华、中科大、新加坡国立大学、鹏城实验室、百度、华为等。
               </div>
             </div>
           </div>
@@ -888,43 +849,35 @@ body {
         <div class="mb-nav">项目基本情况</div>
         <div class="mb-content">
           <div class="chips" style="margin-bottom:10px">
-            <span class="chip on">概述</span><span class="chip">指标</span><span class="chip">架构</span><span class="chip">单位</span>
+            <span class="chip on">概述</span><span class="chip">背景</span><span class="chip">目标</span><span class="chip">架构</span>
           </div>
-          <div style="font-size:10px;color:var(--text2);line-height:1.6;margin-bottom:8px">国家发改委批复，教育部统筹，北京大学牵头，聚焦<b>数理化天地生</b>六大学科。"1+6"协同（清华、南大、复旦、上交、武大、厦大），联合华为、蚂蚁、鹏城实验室等企业。</div>
-          <table style="width:100%;font-size:9px;border-collapse:collapse;margin-bottom:8px">
-            <tr style="background:#f7f9fc"><td style="padding:3px 6px;font-weight:600">期 限</td><td style="padding:3px 6px">12个月</td></tr>
-            <tr><td style="padding:3px 6px;font-weight:600">总投资</td><td style="padding:3px 6px">59,590万元</td></tr>
-            <tr style="background:#f7f9fc"><td style="padding:3px 6px;font-weight:600">负责人</td><td style="padding:3px 6px">张锦（常务副校长）</td></tr>
-            <tr><td style="padding:3px 6px;font-weight:600">总师</td><td style="padding:3px 6px">鄂维南（中科院院士）</td></tr>
-          </table>
-          <div style="border-top:1px solid #e9ecf1;padding-top:6px;margin-top:4px">
-            <div style="font-size:10px;font-weight:600;color:var(--text);margin-bottom:3px">关键指标</div>
-            <table style="width:100%;font-size:9px;border-collapse:collapse">
-              <tr style="background:#f7f9fc"><td style="padding:3px 6px;font-weight:600">北大</td><td style="padding:3px 6px">≥38PB / 92亿条 / ≥900数据集</td></tr>
-              <tr><td style="padding:3px 6px;font-weight:600">合并</td><td style="padding:3px 6px">≥95PB / 230亿条 / ≥600万用户</td></tr>
-              <tr style="background:#f7f9fc"><td style="padding:3px 6px;font-weight:600">质量</td><td style="padding:3px 6px">准确率≥90% / 合格率≥95%</td></tr>
-            </table>
+          <div style="font-size:11px;color:var(--text);line-height:1.7;margin-bottom:8px">
+            国家发改委批复，教育部统筹，北京大学牵头。张锦任负责人，鄂维南任技术总师。"1+6"协同（清华、南大、复旦、上交、武大、厦大），联合华为、蚂蚁、鹏城实验室等企业。建设期 12 个月，总投资 59,590 万元。聚焦<b>数理化天地生</b>六大学科。
           </div>
-          <div style="border-top:1px solid #e9ecf1;padding-top:6px;margin-top:6px">
-            <div style="font-size:10px;font-weight:600;color:var(--text);margin-bottom:4px">组织架构</div>
-            <div style="font-size:9px;color:var(--text2);line-height:1.6">
-              指挥部（张锦·鄂维南·董彬）→ 协调中心（崔斌·李鑫宇）→ 11个工作组：六大学科组 + 数据统筹 + 加工工具 + 硬件平台 + 模型训练 + 教学培养
-            </div>
+          <div style="border-top:1px solid #e9ecf1;padding-top:8px;margin-top:4px">
+            <div style="font-size:11px;font-weight:600;color:var(--text);margin-bottom:4px">战略背景</div>
+            <div style="font-size:10px;color:var(--text2);line-height:1.7">习近平总书记指出 AI 要"占领先机、赢得优势"。AI4S 竞争正从算法转向高质量科学数据的底层争夺，建设战略语料库是国家战略必需。</div>
           </div>
-          <div style="border-top:1px solid #e9ecf1;padding-top:6px;margin-top:6px">
-            <div style="font-size:10px;font-weight:600;color:var(--text);margin-bottom:3px">承担单位</div>
-            <div style="font-size:9px;color:var(--text2);line-height:1.6"><b>北京大学：</b>49个一流学科，23个全国重点实验室。<b>AISI：</b>鄂维南院士领衔，全球首个AI4S机构，发起国际科学智能联盟。</div>
+          <div style="border-top:1px solid #e9ecf1;padding-top:8px;margin-top:6px">
+            <div style="font-size:11px;font-weight:600;color:var(--text);margin-bottom:4px">关键指标</div>
+            <div style="font-size:10px;color:var(--text2);line-height:1.7">北大：≥38 PB / 92 亿条 / 900 数据集 / 400 万用户。合并中科院：≥95 PB / 230 亿条 / 600 万用户。准确率 ≥90%，合格率 ≥95%。</div>
+          </div>
+          <div style="border-top:1px solid #e9ecf1;padding-top:8px;margin-top:6px">
+            <div style="font-size:11px;font-weight:600;color:var(--text);margin-bottom:4px">组织架构</div>
+            <div style="font-size:10px;color:var(--text2);line-height:1.7">指挥部（张锦·鄂维南·董彬）→ 协调中心（崔斌·李鑫宇）→ 11 个工作组：六大学科组 + 数据统筹 + 加工工具 + 硬件平台 + 模型训练 + 教学培养。</div>
+          </div>
+          <div style="border-top:1px solid #e9ecf1;padding-top:8px;margin-top:6px">
+            <div style="font-size:11px;font-weight:600;color:var(--text);margin-bottom:4px">承担单位</div>
+            <div style="font-size:10px;color:var(--text2);line-height:1.7">北大：49 个一流学科，23 个全国重点实验室。AISI：鄂维南院士领衔，全球首个 AI4S 机构，发起国际科学智能联盟。</div>
           </div>
         </div>
-        <div class="mb-tabs">
-          <div class="mb-tab on"><span class="mbt-icon">&#9672;</span>概况</div>
+                <div class="mb-tabs">
+          <div class="mb-tab"><span class="mbt-icon">&#9672;</span>概况</div>
           <div class="mb-tab"><span class="mbt-icon">&#9776;</span>学科</div>
           <div class="mb-tab"><span class="mbt-icon">&#9678;</span>需求</div>
           <div class="mb-tab"><span class="mbt-icon">&#9998;</span>生成</div>
           <div class="mb-tab"><span class="mbt-icon">&#9786;</span>我的</div>
         </div>
-      </div>
-    </div>
   </div>
 </div>
 
@@ -933,12 +886,12 @@ body {
   <div class="slide-info">
     <div class="si-num">2</div>
     <h2>学科建设情况</h2>
-    <p class="si-desc">平台首页。打开即见全学科建设概况，顶部数字卡片展示项目总数、数据资源、工具、协同规模。下方六个学科卡片展示项目数、数据量、参与人员和重点成果。点击学科卡片展开查看项目与人员。</p>
+    <p class="si-desc">平台首页看板。顶部数字卡片展示项目总数、数据资源、工具、协同规模。下方六大学科卡片展示项目、数据量、人员和重点成果，点击展开查看详情。</p>
     <ul class="si-features">
       <li>全学科概览，一页尽览</li>
       <li>进度条 + 数据规模双重展示</li>
-      <li>点击学科卡片跳转详情</li>
-      <li>重点项目成果标注</li>
+      <li>点击学科卡片展开项目与人员</li>
+      <li>重点成果标注，亮点突出</li>
     </ul>
   </div>
   <div class="panels-wrap">
@@ -947,16 +900,17 @@ body {
       <div class="dt-frame">
         <div class="dt-topbar">
           <span class="dt-dot r"></span><span class="dt-dot y"></span><span class="dt-dot g"></span>
-          <span class="dt-tab on">学科建设情况</span>
+          <span class="dt-tab on">学科建设情况</span><span class="dt-tab">文档生成</span>
         </div>
         <div class="dt-body">
           <div class="dt-sidebar">
-            <div class="dts-logo">◈ AIS 语料库</div>
+            <div class="dts-logo">&#9672; AIS 语料库</div>
             <ul class="dts-nav">
-              <li class="on">学科建设情况</li>
               <li>项目基本情况</li>
+              <li class="on">学科建设情况</li>
               <li>语料需求更新</li>
               <li>文档生成</li>
+              <li>个人中心</li>
             </ul>
           </div>
           <div class="dt-main">
@@ -967,50 +921,44 @@ body {
               <div class="stat-card"><div class="sn">1+6+N</div><div class="sl">协同单位</div></div>
             </div>
             <div class="dtm-title">六大学科建设进度</div>
-            <div style="display:flex;gap:6px;margin-bottom:12px">
-              <span class="chip on">全部学科</span><span class="chip">数学</span><span class="chip">物理</span><span class="chip">化学</span><span class="chip">天文</span><span class="chip">地理</span><span class="chip">生物</span>
+            <div class="chips" style="margin-bottom:10px">
+              <span class="chip on">全部</span><span class="chip">数学</span><span class="chip">物理</span><span class="chip">化学</span><span class="chip">天文</span><span class="chip">地理</span><span class="chip">生物</span>
             </div>
             <div class="sc">
-              <div class="sc-head"><span class="scn">◈ 数学</span><span class="sc-badge">65% ▸</span></div>
-              <div class="sc-body">
-                <div class="sc-stat"><div class="scsn">8</div><div class="scsl">项目</div></div>
-                <div class="sc-stat"><div class="scsn">0.04 PB</div><div class="scsl">数据量</div></div>
-                <div class="sc-stat"><div class="scsn">15人</div><div class="scsl">参与</div></div>
-              </div>
-              <div class="sc-foot"><b>重点成果：</b>Matlas定理搜索引擎（中关村论坛发布）、LeanSearch+Archon验证Anderson猜想（国内首例）</div>
-              <div style="padding:8px 12px;border-top:1px dashed #e9ecf1;font-size:10px;color:var(--text2);line-height:1.5">
-                <b>在建项目：</b>ReasLib定理语料库(78%) · 形式化语料Lean(45%) · Agentic推理语料(32%)<br>
-                <b>已有：</b>Matlas搜索引擎 · LeanSearch+Archon验证<br>
-                <b>人员：</b>陈景元(负责)、刘矩阵、张建国有、王积分、李函数 等15人
-              </div>
+              <div class="sc-head"><span class="scn">&#9672; 数学</span><span class="sc-badge">65% &#9656;</span></div>
+              <div class="sc-body"><div class="sc-stat"><div class="scsn">8</div><div class="scsl">项目</div></div><div class="sc-stat"><div class="scsn">0.04 PB</div><div class="scsl">数据量</div></div><div class="sc-stat"><div class="scsn">15 人</div><div class="scsl">参与</div></div></div>
+              <div class="sc-foot">Matlas定理搜索引擎（中关村论坛发布）· LeanSearch+Archon验证Anderson猜想（国内首例）</div>
+              <div style="padding:8px 12px;border-top:1px dashed #e9ecf1;font-size:10px;color:var(--text2);line-height:1.5">在建：ReasLib定理库(78%) · 形式化Lean(45%) · Agentic推理(32%)　负责：陈景元 等</div>
             </div>
             <div class="sc">
-              <div class="sc-head"><span class="scn">◈ 物理</span><span class="sc-badge">55% ▸</span></div>
-              <div class="sc-body">
-                <div class="sc-stat"><div class="scsn">12</div><div class="scsl">项目</div></div>
-                <div class="sc-stat"><div class="scsn">6.72 PB</div><div class="scsl">数据量</div></div>
-                <div class="sc-stat"><div class="scsn">22人</div><div class="scsl">参与</div></div>
-              </div>
-              <div class="sc-foot"><b>重点成果：</b>PHYBench被OpenAI引用、PRBench获企业万元/条采买、ColliderAgent被MIT/CERN引用</div>
-              <div style="padding:8px 12px;border-top:1px dashed #e9ecf1;font-size:10px;color:var(--text2);line-height:1.5">
-                <b>在建项目：</b>物理文本与视频语料集(55%) · 智能体推理计算语料(50%) · 结构化物理语料(40%) · 实验数据集(35%)<br>
-                <b>已有：</b>PHYBench评测基准 · PRBench复现评测 · ColliderAgent智能体<br>
-                <b>人员：</b>周光召(负责) 等22人
-              </div>
+              <div class="sc-head"><span class="scn">&#9672; 物理</span><span class="sc-badge">55% &#9656;</span></div>
+              <div class="sc-body"><div class="sc-stat"><div class="scsn">12</div><div class="scsl">项目</div></div><div class="sc-stat"><div class="scsn">6.72 PB</div><div class="scsl">数据量</div></div><div class="sc-stat"><div class="scsn">22 人</div><div class="scsl">参与</div></div></div>
+              <div class="sc-foot">PHYBench被OpenAI引用 · PRBench获企业采买 · ColliderAgent被MIT/CERN引用</div>
+              <div style="padding:8px 12px;border-top:1px dashed #e9ecf1;font-size:10px;color:var(--text2);line-height:1.5">在建：文本视频语料(55%) · 智能体推理(50%) · 结构化语料(40%) · 实验数据(35%)　负责：周光召 等</div>
             </div>
             <div class="sc">
-              <div class="sc-head"><span class="scn">◈ 化学</span><span class="sc-badge">48% ▸</span></div>
-              <div class="sc-body">
-                <div class="sc-stat"><div class="scsn">10</div><div class="scsl">项目</div></div>
-                <div class="sc-stat"><div class="scsn">2.64 PB</div><div class="scsl">数据量</div></div>
-                <div class="sc-stat"><div class="scsn">18人</div><div class="scsl">参与</div></div>
-              </div>
-              <div class="sc-foot"><b>重点成果：</b>NMR世界最大实验数据库（>330万条）、CarbonMat碳材料关联语料库、科学导航化学版</div>
-              <div style="padding:8px 12px;border-top:1px dashed #e9ecf1;font-size:10px;color:var(--text2);line-height:1.5">
-                <b>在建项目：</b>无机化学物质属性库(51%) · 有机合成反应语料库(42%)<br>
-                <b>已有：</b>NMR实验数据库 · CarbonMat碳材料库 · 科学导航化学版<br>
-                <b>人员：</b>李元素(负责) 等18人
-              </div>
+              <div class="sc-head"><span class="scn">&#9672; 化学</span><span class="sc-badge">48% &#9656;</span></div>
+              <div class="sc-body"><div class="sc-stat"><div class="scsn">10</div><div class="scsl">项目</div></div><div class="sc-stat"><div class="scsn">2.64 PB</div><div class="scsl">数据量</div></div><div class="sc-stat"><div class="scsn">18 人</div><div class="scsl">参与</div></div></div>
+              <div class="sc-foot">NMR世界最大实验数据库（>330万条）· CarbonMat碳材料关联语料库</div>
+              <div style="padding:8px 12px;border-top:1px dashed #e9ecf1;font-size:10px;color:var(--text2);line-height:1.5">在建：无机化学属性库(51%) · 有机合成反应库(42%)　负责：李元素 等</div>
+            </div>
+            <div class="sc">
+              <div class="sc-head"><span class="scn">&#9672; 天文</span><span class="sc-badge">30% &#9656;</span></div>
+              <div class="sc-body"><div class="sc-stat"><div class="scsn">5</div><div class="scsl">项目</div></div><div class="sc-stat"><div class="scsn">18.4 PB</div><div class="scsl">数据量</div></div><div class="sc-stat"><div class="scsn">8 人</div><div class="scsl">参与</div></div></div>
+              <div class="sc-foot">814 TB多源观测数据汇聚 · 获批北大本科教改立项</div>
+              <div style="padding:8px 12px;border-top:1px dashed #e9ecf1;font-size:10px;color:var(--text2);line-height:1.5">在建：天体物理知识库 · 自动化数据管线 · AI Agent Skill文档　负责：吴星宇 等</div>
+            </div>
+            <div class="sc">
+              <div class="sc-head"><span class="scn">&#9672; 地理</span><span class="sc-badge">40% &#9656;</span></div>
+              <div class="sc-body"><div class="sc-stat"><div class="scsn">6</div><div class="scsl">项目</div></div><div class="sc-stat"><div class="scsn">49.1 PB</div><div class="scsl">数据量</div></div><div class="sc-stat"><div class="scsn">12 人</div><div class="scsl">参与</div></div></div>
+              <div class="sc-foot">全球30米无缝数据立方体（2000–2024）· 地球与行星多天体数据语料库</div>
+              <div style="padding:8px 12px;border-top:1px dashed #e9ecf1;font-size:10px;color:var(--text2);line-height:1.5">在建：遥感观测语料 · 行星科学语料 · 碳核查数据　负责：林金泰、刘瑜 等</div>
+            </div>
+            <div class="sc">
+              <div class="sc-head"><span class="scn">&#9672; 生物</span><span class="sc-badge">35% &#9656;</span></div>
+              <div class="sc-body"><div class="sc-stat"><div class="scsn">11</div><div class="scsl">项目</div></div><div class="sc-stat"><div class="scsn">25.5 PB</div><div class="scsl">数据量</div></div><div class="sc-stat"><div class="scsn">20 人</div><div class="scsl">参与</div></div></div>
+              <div class="sc-foot">中国人群肿瘤基因组（15种肿瘤全基因组测序）· 跨物种细胞调控图谱（4.2亿细胞）</div>
+              <div style="padding:8px 12px;border-top:1px dashed #e9ecf1;font-size:10px;color:var(--text2);line-height:1.5">在建：作物多模态育种语料 · 天然药物综合语料库 · 临床科研数据集　负责：高歌、张路霞 等</div>
             </div>
           </div>
         </div>
@@ -1022,46 +970,24 @@ body {
         <div class="mb-topbar">9:41</div>
         <div class="mb-nav">学科建设情况</div>
         <div class="mb-content">
+          <div class="stat-row">
+            <div class="stat-card"><div class="sn">62</div><div class="sl">项目</div></div><div class="stat-card"><div class="sn">161</div><div class="sl">资源</div></div><div class="stat-card"><div class="sn">200+</div><div class="sl">工具</div></div><div class="stat-card"><div class="sn">1+6+N</div><div class="sl">协同</div></div>
+          </div>
           <div class="chips" style="margin-bottom:10px">
             <span class="chip on">全部</span><span class="chip">数学</span><span class="chip">物理</span><span class="chip">化学</span>
           </div>
-          <div class="sc">
-            <div class="sc-head"><span class="scn">◈ 数学</span><span class="sc-badge">65% ▸</span></div>
-            <div class="sc-body">
-              <div class="sc-stat"><div class="scsn">8</div><div class="scsl">项目</div></div>
-              <div class="sc-stat"><div class="scsn">0.04PB</div><div class="scsl">数据</div></div>
-              <div class="sc-stat"><div class="scsn">15人</div><div class="scsl">人员</div></div>
-            </div>
-            <div class="sc-foot" style="font-size:8px">Matlas发布 · 验证Anderson猜想</div>
-          </div>
-          <div class="sc">
-            <div class="sc-head"><span class="scn">◈ 物理</span><span class="sc-badge">55% ▸</span></div>
-            <div class="sc-body">
-              <div class="sc-stat"><div class="scsn">12</div><div class="scsl">项目</div></div>
-              <div class="sc-stat"><div class="scsn">6.72PB</div><div class="scsl">数据</div></div>
-              <div class="sc-stat"><div class="scsn">22人</div><div class="scsl">人员</div></div>
-            </div>
-            <div class="sc-foot" style="font-size:8px">PHYBench被OpenAI引用 · PRBench获采买</div>
-          </div>
-          <div class="sc">
-            <div class="sc-head"><span class="scn">◈ 化学</span><span class="sc-badge">48% ▸</span></div>
-            <div class="sc-body">
-              <div class="sc-stat"><div class="scsn">10</div><div class="scsl">项目</div></div>
-              <div class="sc-stat"><div class="scsn">2.64PB</div><div class="scsl">数据</div></div>
-              <div class="sc-stat"><div class="scsn">18人</div><div class="scsl">人员</div></div>
-            </div>
-            <div class="sc-foot" style="font-size:8px">NMR世界最大实验数据库</div>
-          </div>
+          <div class="sc"><div class="sc-head"><span class="scn">&#9672; 数学</span><span class="sc-badge">65%</span></div><div class="sc-body"><div class="sc-stat"><div class="scsn">8</div><div class="scsl">项目</div></div><div class="sc-stat"><div class="scsn">0.04PB</div><div class="scsl">数据</div></div><div class="sc-stat"><div class="scsn">15人</div><div class="scsl">人员</div></div></div><div class="sc-foot" style="font-size:8px">Matlas发布 · 验证Anderson猜想</div></div>
+          <div class="sc"><div class="sc-head"><span class="scn">&#9672; 物理</span><span class="sc-badge">55%</span></div><div class="sc-body"><div class="sc-stat"><div class="scsn">12</div><div class="scsl">项目</div></div><div class="sc-stat"><div class="scsn">6.72PB</div><div class="scsl">数据</div></div><div class="sc-stat"><div class="scsn">22人</div><div class="scsl">人员</div></div></div><div class="sc-foot" style="font-size:8px">PHYBench被OpenAI引用 · PRBench获采买</div></div>
+          <div class="sc"><div class="sc-head"><span class="scn">&#9672; 化学</span><span class="sc-badge">48%</span></div><div class="sc-body"><div class="sc-stat"><div class="scsn">10</div><div class="scsl">项目</div></div><div class="sc-stat"><div class="scsn">2.64PB</div><div class="scsl">数据</div></div><div class="sc-stat"><div class="scsn">18人</div><div class="scsl">人员</div></div></div><div class="sc-foot" style="font-size:8px">NMR世界最大实验数据库</div></div>
+          <div class="sc"><div class="sc-head"><span class="scn">&#9672; 天文</span><span class="sc-badge">30%</span></div><div class="sc-body"><div class="sc-stat"><div class="scsn">5</div><div class="scsl">项目</div></div><div class="sc-stat"><div class="scsn">18.4PB</div><div class="scsl">数据</div></div><div class="sc-stat"><div class="scsn">8人</div><div class="scsl">人员</div></div></div><div class="sc-foot" style="font-size:8px">814TB多源数据 · 获批教改立项</div></div>
         </div>
-        <div class="mb-tabs">
-          <div class="mb-tab"><span class="mbt-icon">◈</span>总览</div>
-          <div class="mb-tab on"><span class="mbt-icon">☰</span>学科</div>
-          <div class="mb-tab"><span class="mbt-icon">📋</span>项目</div>
-          <div class="mb-tab"><span class="mbt-icon">💬</span>问答</div>
-          <div class="mb-tab"><span class="mbt-icon">👤</span>我的</div>
+                <div class="mb-tabs">
+          <div class="mb-tab"><span class="mbt-icon">&#9672;</span>概况</div>
+          <div class="mb-tab"><span class="mbt-icon">&#9776;</span>学科</div>
+          <div class="mb-tab"><span class="mbt-icon">&#9678;</span>需求</div>
+          <div class="mb-tab"><span class="mbt-icon">&#9998;</span>生成</div>
+          <div class="mb-tab"><span class="mbt-icon">&#9786;</span>我的</div>
         </div>
-      </div>
-    </div>
   </div>
 </div>
 
@@ -1070,12 +996,12 @@ body {
   <div class="slide-info">
     <div class="si-num">3</div>
     <h2>语料需求更新</h2>
-    <p class="si-desc">记录和展示各合作企业对语料的需求情况，包括需求方、数据类型、格式要求、需求数量、合作进展等。按照"需求导向，边建边用"原则动态更新。</p>
+    <p class="si-desc">记录各合作企业对语料的需求动态，按"需求导向、边建边用"原则持续更新。涵盖需求方、数据类型、合作进展，帮助团队统一了解外部需求情况。</p>
     <ul class="si-features">
       <li>合作企业需求统一管理</li>
       <li>多模态 / 推理链 / 图谱等分类</li>
-      <li>合作进度追踪</li>
-      <li>需求变动实时更新通知</li>
+      <li>合作进度实时追踪</li>
+      <li>需求变动可通知相关人员</li>
     </ul>
   </div>
   <div class="panels-wrap">
@@ -1088,50 +1014,41 @@ body {
         </div>
         <div class="dt-body">
           <div class="dt-sidebar">
-            <div class="dts-logo">◈ AIS 语料库</div>
+            <div class="dts-logo">&#9672; AIS 语料库</div>
             <ul class="dts-nav">
-              <li>学科建设情况</li>
               <li>项目基本情况</li>
+              <li>学科建设情况</li>
               <li class="on">语料需求更新</li>
               <li>文档生成</li>
+              <li>个人中心</li>
             </ul>
           </div>
           <div class="dt-main">
             <div class="dtm-title">语料需求更新</div>
             <div class="chips" style="margin-bottom:10px">
-              <span class="chip on">全部需求</span><span class="chip">多模态数据</span><span class="chip">复杂推理</span><span class="chip">图谱数据</span><span class="chip">分子数据</span>
+              <span class="chip on">全部需求</span><span class="chip">多模态</span><span class="chip">复杂推理</span><span class="chip">图谱/分子</span>
             </div>
             <div class="qa-card" style="padding:10px">
-              <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:4px;display:flex;align-items:center;gap:8px">
-                字节跳动（Seed）<span class="pj-tag on" style="font-size:9px">进行中</span>
-              </div>
-              <div class="pjd">模型全阶段训练数据采购（多模态 + 思维链路数据）。3.15至今，已评测 8 类样本数据。建立定向科学数据合作供应方。</div>
-              <div class="pj-meta" style="margin-top:4px">需求类型：多模态数据 · 复杂推理数据 · 科学数据库 | 需求数量：大量</div>
+              <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:3px;display:flex;align-items:center;gap:8px">字节跳动（Seed）<span class="pj-tag on" style="font-size:9px">进行中</span></div>
+              <div class="pjd">模型全阶段训练数据采购（多模态 + 思维链路）。已评测 8 类样本，建立定向科学数据合作供应。</div>
             </div>
             <div class="qa-card" style="padding:10px">
-              <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:4px;display:flex;align-items:center;gap:8px">
-                月之暗面（KIMI）<span class="pj-tag on" style="font-size:9px">进行中</span>
-              </div>
-              <div class="pjd">多模态数据后训练阶段。3.8至今，推进 2 个数据合作周期。化学 VQA 数据、物科图文数据。</div>
-              <div class="pj-meta" style="margin-top:4px">需求类型：化学VQA数据 · 物理图文数据 | 渠道：数据采购</div>
+              <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:3px;display:flex;align-items:center;gap:8px">月之暗面（KIMI）<span class="pj-tag on" style="font-size:9px">进行中</span></div>
+              <div class="pjd">多模态数据后训练阶段。已推进 2 个合作周期。需求：化学 VQA 数据、物科图文数据。</div>
             </div>
             <div class="qa-card" style="padding:10px">
-              <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:4px;display:flex;align-items:center;gap:8px">
-                蚂蚁（百灵模型）<span class="pj-tag on" style="font-size:9px">进行中</span>
-              </div>
-              <div class="pjd">医疗、科学数据等多个垂类业务场景科学数据共建。3.6至今，针对医疗、科学多模态数据构建评测集。</div>
-              <div class="pj-meta" style="margin-top:4px">需求类型：医疗数据 · 科学多模态数据 | 合作方式：数据共建</div>
+              <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:3px;display:flex;align-items:center;gap:8px">蚂蚁（百灵模型）<span class="pj-tag on" style="font-size:9px">进行中</span></div>
+              <div class="pjd">医疗、科学等多垂类场景科学数据共建。针对多模态数据构建评测集，以评测推动数据训练。</div>
             </div>
             <div class="qa-card" style="padding:10px">
-              <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:4px;display:flex;align-items:center;gap:8px">
-                通义（Qwen）<span class="pj-tag done" style="font-size:9px">首批完成</span>
-              </div>
-              <div class="pjd">大语言模型训练数据，文献粗加工数据 + 思维链数据。1.9开始，完成首批数据采购验收。</div>
-              <div class="pj-meta" style="margin-top:4px">需求类型：文献粗加工 · 思维链数据 | 状态：已成为重要科学数据提供方</div>
+              <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:3px;display:flex;align-items:center;gap:8px">通义（Qwen）<span class="pj-tag done" style="font-size:9px">首批完成</span></div>
+              <div class="pjd">大语言模型训练数据（文献粗加工 + 思维链）。已完成首批采购验收，成为重要科学数据提供方。</div>
             </div>
-            <div style="margin-top:10px;display:flex;gap:8px">
-              <span style="font-size:10px;color:var(--text3)">北数所 · 国家训练场 · 知识产权社 · 企业研究院：已建立长期科学语料合作模式</span>
+            <div class="qa-card" style="padding:10px">
+              <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:3px;display:flex;align-items:center;gap:8px">北数所 · 国家训练场 · 知识产权社 · 企业研究院<span class="pj-tag plan" style="font-size:9px">长期合作</span></div>
+              <div class="pjd">已建立长期科学语料合作模式（多模态、思维链、文献），持续通过渠道拓展数据供给网络。</div>
             </div>
+            <div style="margin-top:8px;font-size:10px;color:var(--text3);line-height:1.6">典型需求类型：图文描述（地理/材料/化学等）· 图文问答 · 图谱数据（知识点+前置依赖）· 分子数据（SMILES/InChI/CAS）· 复杂推理链（含中间步骤+难度标注）</div>
           </div>
         </div>
       </div>
@@ -1142,41 +1059,24 @@ body {
         <div class="mb-topbar">9:41</div>
         <div class="mb-nav">语料需求更新</div>
         <div class="mb-content">
-          <div class="chips" style="margin-bottom:10px">
-            <span class="chip on">全部</span><span class="chip">多模态</span><span class="chip">推理</span><span class="chip">图谱</span>
-          </div>
-          <div class="qa-card" style="padding:8px">
-            <div style="font-size:12px;font-weight:600;color:var(--text);margin-bottom:2px">字节跳动（Seed）<span class="pj-tag on">进行中</span></div>
-            <div style="font-size:10px;color:var(--text2)">多模态+思维链路数据，已评测8类样本</div>
-          </div>
-          <div class="qa-card" style="padding:8px">
-            <div style="font-size:12px;font-weight:600;color:var(--text);margin-bottom:2px">月之暗面（KIMI）<span class="pj-tag on">进行中</span></div>
-            <div style="font-size:10px;color:var(--text2)">化学VQA+物科图文，2个合作周期</div>
-          </div>
-          <div class="qa-card" style="padding:8px">
-            <div style="font-size:12px;font-weight:600;color:var(--text);margin-bottom:2px">蚂蚁（百灵模型）<span class="pj-tag on">进行中</span></div>
-            <div style="font-size:10px;color:var(--text2)">医疗+科学多模态数据共建</div>
-          </div>
-          <div class="qa-card" style="padding:8px">
-            <div style="font-size:12px;font-weight:600;color:var(--text);margin-bottom:2px">通义（Qwen）<span class="pj-tag done">首批完成</span></div>
-            <div style="font-size:10px;color:var(--text2)">文献粗加工+思维链，已验收</div>
-          </div>
-          <div style="font-size:9px;color:var(--text3);margin-top:6px">北数所·国家训练场·知识产权社·企业研究院：长期合作模式已建立</div>
+          <div class="chips" style="margin-bottom:10px"><span class="chip on">全部</span><span class="chip">多模态</span><span class="chip">推理</span><span class="chip">图谱</span></div>
+          <div class="qa-card" style="padding:8px"><div style="font-size:11px;font-weight:600;color:var(--text);margin-bottom:2px">字节跳动（Seed）<span class="pj-tag on">进行中</span></div><div style="font-size:10px;color:var(--text2)">多模态+思维链路，已评测8类样本</div></div>
+          <div class="qa-card" style="padding:8px"><div style="font-size:11px;font-weight:600;color:var(--text);margin-bottom:2px">月之暗面（KIMI）<span class="pj-tag on">进行中</span></div><div style="font-size:10px;color:var(--text2)">化学VQA+物科图文，2个合作周期</div></div>
+          <div class="qa-card" style="padding:8px"><div style="font-size:11px;font-weight:600;color:var(--text);margin-bottom:2px">蚂蚁（百灵模型）<span class="pj-tag on">进行中</span></div><div style="font-size:10px;color:var(--text2)">医疗+科学多模态数据共建</div></div>
+          <div class="qa-card" style="padding:8px"><div style="font-size:11px;font-weight:600;color:var(--text);margin-bottom:2px">通义（Qwen）<span class="pj-tag done">首批完成</span></div><div style="font-size:10px;color:var(--text2)">文献粗加工+思维链，已验收</div></div>
+          <div style="font-size:9px;color:var(--text3);margin-top:6px;line-height:1.5">北数所·训练场·知产社·企业研究院：长期合作已建立。需求类型：图文描述、图文问答、图谱数据、分子数据、复杂推理链。</div>
         </div>
-        <div class="mb-tabs">
-          <div class="mb-tab"><span class="mbt-icon">◈</span>总览</div>
-          <div class="mb-tab"><span class="mbt-icon">☰</span>学科</div>
-          <div class="mb-tab"><span class="mbt-icon">📋</span>需求</div>
-          <div class="mb-tab"><span class="mbt-icon">💬</span>问答</div>
-          <div class="mb-tab"><span class="mbt-icon">👤</span>我的</div>
+                <div class="mb-tabs">
+          <div class="mb-tab"><span class="mbt-icon">&#9672;</span>概况</div>
+          <div class="mb-tab"><span class="mbt-icon">&#9776;</span>学科</div>
+          <div class="mb-tab"><span class="mbt-icon">&#9678;</span>需求</div>
+          <div class="mb-tab"><span class="mbt-icon">&#9998;</span>生成</div>
+          <div class="mb-tab"><span class="mbt-icon">&#9786;</span>我的</div>
         </div>
-      </div>
-    </div>
   </div>
 </div>
-<div class="slide slide-light slide-content">
-  <div class="slide-info">
-    <!-- ====== 4. 文档生成 ====== -->
+
+<!-- ====== 4. 文档生成 ====== -->
 <div class="si-num">4</div>
     <h2>文档生成</h2>
     <p class="si-desc">平台核心功能。左侧列出六类文档模板，覆盖项目中常见材料需求。选中模板后系统自动从数据库提取最新数据，按模板结构生成文档初稿。<span class="accent-dot amber"></span><b>一次更新数据，所有模板同步生效。</b></p>
@@ -1199,6 +1099,9 @@ body {
           <div class="dt-sidebar">
             <div class="dts-logo">◈ AIS 语料库</div>
             <ul class="dts-nav">
+              <li>项目基本情况</li>
+              <li>学科建设情况</li>
+              <li>语料需求更新</li>
               <li class="on">文档生成</li>
               <li>个人中心</li>
             </ul>
@@ -1232,15 +1135,13 @@ body {
           <div class="doc-tpl"><div class="dt-icon">🏛</div><div><div class="dt-name">已有工作基础</div><div class="dt-desc">特定机构</div></div></div>
           <div class="doc-tpl"><div class="dt-icon">✉️</div><div><div class="dt-name">联络/动员邮件</div><div class="dt-desc">院内/合作方</div></div></div>
         </div>
-        <div class="mb-tabs">
-          <div class="mb-tab"><span class="mbt-icon">◈</span>总览</div>
-          <div class="mb-tab"><span class="mbt-icon">☰</span>学科</div>
-          <div class="mb-tab on"><span class="mbt-icon">◫</span>生成</div>
-          <div class="mb-tab"><span class="mbt-icon">💬</span>问答</div>
-          <div class="mb-tab"><span class="mbt-icon">👤</span>我的</div>
+                <div class="mb-tabs">
+          <div class="mb-tab"><span class="mbt-icon">&#9672;</span>概况</div>
+          <div class="mb-tab"><span class="mbt-icon">&#9776;</span>学科</div>
+          <div class="mb-tab"><span class="mbt-icon">&#9678;</span>需求</div>
+          <div class="mb-tab"><span class="mbt-icon">&#9998;</span>生成</div>
+          <div class="mb-tab"><span class="mbt-icon">&#9786;</span>我的</div>
         </div>
-      </div>
-    </div>
   </div>
 </div>
 
@@ -1360,15 +1261,13 @@ body {
             <div class="menu-row">操作日志 <span style="color:#ccd2db">›</span></div>
           </div>
         </div>
-        <div class="mb-tabs">
-          <div class="mb-tab"><span class="mbt-icon">◈</span>总览</div>
-          <div class="mb-tab"><span class="mbt-icon">☰</span>学科</div>
-          <div class="mb-tab"><span class="mbt-icon">◫</span>生成</div>
-          <div class="mb-tab"><span class="mbt-icon">💬</span>问答</div>
-          <div class="mb-tab on"><span class="mbt-icon">👤</span>我的</div>
+                <div class="mb-tabs">
+          <div class="mb-tab"><span class="mbt-icon">&#9672;</span>概况</div>
+          <div class="mb-tab"><span class="mbt-icon">&#9776;</span>学科</div>
+          <div class="mb-tab"><span class="mbt-icon">&#9678;</span>需求</div>
+          <div class="mb-tab"><span class="mbt-icon">&#9998;</span>生成</div>
+          <div class="mb-tab"><span class="mbt-icon">&#9786;</span>我的</div>
         </div>
-      </div>
-    </div>
   </div>
 </div>
 
