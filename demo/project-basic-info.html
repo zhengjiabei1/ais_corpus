@@ -155,7 +155,7 @@ body {
 }
 .tab-panel {
   display: none;
-  max-width: clamp(600px, 65vw, 960px);
+  max-width: 100%;
 }
 .tab-panel.active { display: block; }
 
@@ -454,7 +454,7 @@ body {
       <!-- Tab 0: 项目概述 -->
       <div class="tab-panel active" id="dt-tab-0">
         <div class="panel-title">项目概述</div>
-        <div class="section-text" style="margin-bottom:14px">基础学科科学研究语料库建设项目由国家发展改革委批复立项，教育部统筹，北京大学牵头建设，聚焦<b>数学、物理、化学、天文、地理、生物</b>六大基础学科，旨在建成全球首个覆盖基础学科全谱系的战略语料库，为我国 AI for Science 的发展提供坚实长效的语料支撑。</div>
+        <div class="section-text" style="margin-bottom:14px">基础学科科学研究语料库建设项目由国家发展改革委批复立项，教育部统筹，北京大学牵头建设，聚焦<b>数学、物理、化学、天文、地理、生物</b>六大基础学科，旨在建成全球首个覆盖基础学科全谱系的战略语料库。项目按照"1+6+N"开放协同机制推进，以国际科学智能联盟为组织抓手，联合共建企业包括华为、蚂蚁、鹏城实验室、百度、万方、京能、字节跳动、中国联通、深势科技等，为我国 AI for Science 的发展提供坚实长效的语料支撑。</div>
         <div class="highlight-row">
           <div class="highlight-card"><div class="hc-label">建设期</div><div class="hc-value">12 个月</div></div>
           <div class="highlight-card"><div class="hc-label">总投资</div><div class="hc-value">59,590 万</div></div>
@@ -477,25 +477,25 @@ body {
       <div class="tab-panel" id="dt-tab-1">
         <div class="panel-title">战略背景</div>
         <div class="section-subtitle">国家战略定位</div>
-        <div class="section-text" style="margin-bottom:12px">习近平总书记明确指出人工智能"要占领先机、赢得优势，以人工智能引领科研范式变革"。AI4S 的全球竞争正从算法优化转向对<b>高质量科学数据的底层争夺</b>——语料资源的规模、质量和多样性直接决定模型对复杂科学问题的理解与推理能力。建设 AI4S 战略语料库已成为各国抢占技术制高点的战略必需。</div>
+        <div class="section-text" style="margin-bottom:12px">人工智能与AI4S的战略地位已成为全球科技竞争的核心焦点。习近平总书记在二十届中央政治局第二十次集体学习中明确指出，人工智能领域"要占领先机、赢得优势，必须在基础理论、方法、工具等方面取得突破，以人工智能引领科研范式变革，加速各领域科技创新突破"。当前 AI4S 的全球竞争正从算法优化转向对<b>高质量科学数据的底层争夺</b>——数据作为与算法、算力协同耦合的基础性关键资源，其质量、规模和多样性直接决定模型对复杂科学问题的理解能力与推理精度。</div>
         <div class="section-subtitle">当前数据困境</div>
-        <div class="section-text" style="margin-bottom:4px">主流大模型训练高度依赖公开互联网存量数据，存在<b>三大结构性缺陷</b>：</div>
+        <div class="section-text" style="margin-bottom:4px">主流大模型训练高度依赖公开互联网存量数据，虽具备规模庞大的优势，却存在<b>三大结构性缺陷</b>：</div>
         <ul class="defect-list">
-          <li>质量参差不齐，含大量重复、低价值、噪声数据</li>
-          <li>科学价值不足，科研文献、学术典籍占比极低</li>
-          <li>版权与合规风险突出，如 The Pile 等语料库面临诉讼与商用限制</li>
+          <li>质量参差不齐，包含大量重复信息、低价值内容与噪声数据，导致模型训练效率低下</li>
+          <li>科学价值占比不足，通用网页数据中科研文献、学术典籍等专业内容占比较低，难以支撑数学推理、物理建模等复杂科学任务</li>
+          <li>版权与合规风险突出，如 The Pile 等通用语料库因包含未经授权的内容，面临版权诉讼与商用限制</li>
         </ul>
         <div class="section-subtitle">建设必要性</div>
-        <div class="section-text" style="margin-bottom:10px">国际竞争焦点正从算法模型转向科学数据底层争夺。高质量语料是训练科学智能的核心养料——深度挖掘科研场景中蕴藏的学术文献、实验图谱、分子结构、观测时序等多模态数据，并通过科研计算与实验协同生成针对性增量数据，推动 AI 从被动学习向主动探索升级。</div>
+        <div class="section-text" style="margin-bottom:10px">国际竞争焦点正从算法模型的表层优化，转向对高质量科学数据的底层争夺。一方面深度挖掘科研场景中蕴藏的复杂多模态数据——学术文献中的数学公式、物理实验的动态图谱、生物分子的三维结构、地学观测的时序序列等；另一方面通过科研计算与实验协同生成针对性增量数据，形成"数据生成-模型训练-科学发现"的闭环机制。建设 AI4S 战略语料库，对于我国突破"卡脖子"技术瓶颈、实现基础研究跨越式发展具有重大而紧迫的战略意义。</div>
         <div class="section-subtitle">项目定位</div>
-        <div class="info-box" style="border-color:var(--blue-pale);background:#fafcff">本项目坚持<b>"边建设、边应用"</b>原则，免费向国家人工智能训练场全量开放，以公益授权机制无条件支持国家战略重点项目研发。致力于服务国家战略需求、赋能科研创新、降低行业门槛，为我国 AI 与基础学科发展提供无壁垒、高质量、可信赖的公益支撑。</div>
+        <div class="info-box" style="border-color:var(--blue-pale);background:#fafcff">本项目坚持<b>"边建设、边应用"</b>原则，免费向国家人工智能训练场全量开放，以公益授权机制无条件支持国家战略重点项目研发。构建"数据—工具—人才—模型"四位一体、长效共进化的建设体系，致力于服务国家战略需求、赋能科研创新、降低行业门槛，为我国 AI 与基础学科发展提供无壁垒、高质量、可信赖的公益支撑。</div>
       </div>
 
       <!-- Tab 2: 建设目标 -->
       <div class="tab-panel" id="dt-tab-2">
         <div class="panel-title">建设目标与关键指标</div>
         <div class="section-subtitle">总体目标</div>
-        <div class="section-text" style="margin-bottom:8px">以"<b>可治理、可追溯、可复用、可迭代</b>"为建设主线，构建覆盖数理化天地生六大基础学科的<b>≥1,000 个子语料库</b>，实现跨数据源、跨模态汇交与对齐，覆盖 <b>≥1,000 种数据源、≥50 种数据子模态</b>。打造 <b>≥50 个</b>语料加工工具、<b>≥200 个</b>工具链。建立科研语料标准体系和标识体系。</div>
+        <div class="section-text" style="margin-bottom:8px">以"<b>可治理、可追溯、可复用、可迭代</b>"为建设主线，构建覆盖数理化天地生六大基础学科的<b>≥1,000 个子语料库</b>，实现跨数据源、跨模态的汇交与对齐，覆盖 <b>≥1,000 种数据源、≥50 种数据子模态</b>。构建"人机协同"的语料自动化解析识别与人类专家标注的迭代演化系统，打造 <b>≥50 个</b>语料加工工具、<b>≥200 个</b>工具链。建立科研语料标准体系和标识体系，抽样合格率 ≥95%，标注一致性指标 ≥0.8。</div>
         <table class="metric-table">
           <tr><td class="mt-hdr">指标</td><td class="mt-hdr">北京大学</td><td class="mt-hdr">合并中科院后</td></tr>
           <tr><td class="mt-label">语料规模</td><td>≥38 PB / ≥92 亿条</td><td>≥95 PB / ≥230 亿条</td></tr>
@@ -588,15 +588,15 @@ body {
   <!-- Mobile Tab 1 -->
   <div class="mobile-panel" id="mb-tab-1">
     <div class="panel-title" style="font-size:16px">战略背景</div>
-    <div class="section-text" style="font-size:12px;margin-bottom:8px">习近平总书记指出 AI"要占领先机、赢得优势，以人工智能引领科研范式变革"。AI4S 全球竞争转向高质量科学数据底层争夺。</div>
-    <div class="section-text" style="font-size:12px;margin-bottom:8px">当前数据存在三大缺陷：质量参差、科学价值不足、版权风险突出。建设 AI4S 战略语料库对我国突破"卡脖子"瓶颈具有重大战略意义。</div>
-    <div class="info-box" style="border-color:var(--blue-pale);background:#fafcff;font-size:11px">坚持"<b>边建设、边应用</b>"，免费向国家人工智能训练场全量开放，以公益授权机制支撑国家战略项目。</div>
+    <div class="section-text" style="font-size:12px;margin-bottom:8px">习近平总书记指出 AI"要占领先机、赢得优势，以人工智能引领科研范式变革"。数据作为与算法、算力协同耦合的基础性战略资源，其质量、规模和多样性直接决定模型能力。AI4S 全球竞争正从算法优化转向高质量科学数据的底层争夺。</div>
+    <div class="section-text" style="font-size:12px;margin-bottom:6px">当前主流大模型训练数据存在三大结构性缺陷：质量参差不齐、科学价值占比不足、版权与合规风险突出。建设 AI4S 战略语料库，深度挖掘科研场景中蕴藏的学术文献、实验图谱等多模态数据，对我国突破"卡脖子"瓶颈具有重大战略意义。</div>
+    <div class="info-box" style="border-color:var(--blue-pale);background:#fafcff;font-size:11px">坚持"<b>边建设、边应用</b>"，免费向国家人工智能训练场全量开放。"数据—工具—人才—模型"四位一体长效共进化。</div>
   </div>
 
   <!-- Mobile Tab 2 -->
   <div class="mobile-panel" id="mb-tab-2">
     <div class="panel-title" style="font-size:16px">建设目标与关键指标</div>
-    <div class="section-text" style="font-size:12px;margin-bottom:8px">以"可治理、可追溯、可复用、可迭代"为主线，≥1,000 子语料库，≥50 加工工具，≥200 工具链。</div>
+    <div class="section-text" style="font-size:12px;margin-bottom:8px">以"可治理、可追溯、可复用、可迭代"为主线。≥1,000 子语料库，覆盖 ≥1,000 种数据源、≥50 种数据子模态。打造 ≥50 个加工工具、≥200 个工具链，抽样合格率 ≥95%。</div>
     <table class="metric-table" style="font-size:11px;margin-bottom:8px">
       <tr><td class="mt-hdr" style="font-size:10px">指标</td><td class="mt-hdr" style="font-size:10px">北京大学</td><td class="mt-hdr" style="font-size:10px">合并中科院</td></tr>
       <tr><td class="mt-label" style="font-size:10px;width:55px">规模</td><td>≥38PB/92亿条</td><td>≥95PB/230亿条</td></tr>
@@ -609,7 +609,7 @@ body {
   <!-- Mobile Tab 3 -->
   <div class="mobile-panel" id="mb-tab-3">
     <div class="panel-title" style="font-size:16px">组织架构</div>
-    <div class="section-text" style="font-size:12px;margin-bottom:8px">指挥部 → 协调中心 → 11 个工作组，按周调度，提交周报。</div>
+    <div class="section-text" style="font-size:12px;margin-bottom:8px">指挥部（项目负责人·首席科学家·秘书长）→ 协调中心（负责人·项目经理·副手·教育部协调），下设 11 个工作组。指挥部按月调度，工作组按周推进并提交周报。</div>
     <div style="text-align:center;margin-bottom:8px">
       <div class="org-box" style="background:#1a365d;padding:6px 14px;display:inline-block;margin-bottom:3px">指挥部</div>
       <div style="font-size:9px;color:#8899b0;margin-bottom:6px">▼</div>
