@@ -226,8 +226,14 @@ body {
 }
 
 /* Metric table */
+.table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
 .metric-table {
   width: 100%;
+  min-width: 400px;
   font-size: 12px;
   border-collapse: collapse;
   border: 1px solid #dce3ed;
@@ -376,7 +382,18 @@ body {
 .mobile-panel.active { display: block; }
 
 /* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
+/* Tablet: keep desktop layout but shrink sidebar */
+@media (max-width: 900px) {
+  .sidebar { width: 160px; }
+  .sidebar-item { font-size: 12px; padding: 6px 8px; }
+  .highlight-row { flex-wrap: wrap; }
+  .highlight-card { min-width: 100px; flex: 1 1 auto; }
+  .tab-nav-item { padding: 10px 12px; font-size: 12px; }
+  .tab-content-area { padding: 16px; }
+}
+
+/* Mobile: switch to mobile layout */
+@media (max-width: 640px) {
   .header { display: none; }
   .sidebar { display: none; }
   .tab-nav { display: none; }
