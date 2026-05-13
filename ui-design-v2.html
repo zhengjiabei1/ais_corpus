@@ -694,108 +694,6 @@ body {
   .slide-login { flex-direction: column; gap: 30px; }
 }
 
-/* ===== Main Layout (after login) ===== */
-.main-sidebar {
-  width: 190px;
-  background: #f7f9fc;
-  border-right: 1px solid var(--border);
-  padding: 16px 12px;
-  display: flex;
-  flex-direction: column;
-  flex-shrink: 0;
-}
-.main-sidebar .ms-logo {
-  font-size: 14px; font-weight: 700; color: var(--blue);
-  margin-bottom: 18px; padding: 0 6px;
-}
-.main-sidebar .ms-nav-item {
-  padding: 8px 10px; border-radius: 6px; font-size: 13px;
-  color: var(--text2); margin-bottom: 2px; cursor: pointer;
-}
-.main-sidebar .ms-nav-item:hover, .main-sidebar .ms-nav-item.on {
-  background: var(--blue-pale); color: var(--blue-deep); font-weight: 500;
-}
-.main-sidebar .ms-spacer { flex: 1; }
-
-.main-content {
-  flex: 1; display: flex; flex-direction: column; overflow: hidden;
-}
-.main-topbar {
-  height: 44px; background: #fff; border-bottom: 1px solid var(--border);
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0 20px; flex-shrink: 0;
-}
-.main-breadcrumb { font-size: 13px; color: var(--text2); }
-.main-user {
-  font-size: 13px; color: var(--text); cursor: pointer;
-  padding: 4px 10px; border-radius: 6px;
-}
-.main-user:hover { background: var(--bg); }
-.main-scroll {
-  flex: 1; overflow-y: auto; padding: 20px 24px;
-}
-
-/* Content section */
-.content-section {
-  margin-bottom: 40px; padding-bottom: 32px;
-  border-bottom: 1px solid var(--border);
-}
-.content-section:last-of-type { border-bottom: none; }
-.cs-header {
-  display: flex; align-items: center; gap: 10px; margin-bottom: 16px;
-}
-.cs-num {
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 26px; height: 26px; border-radius: 6px;
-  background: var(--blue); color: #fff; font-size: 13px; font-weight: 700;
-}
-.cs-title { font-size: 18px; font-weight: 700; color: var(--text); }
-.cs-edit {
-  margin-left: auto; font-size: 12px; color: var(--blue); cursor: pointer;
-  padding: 3px 10px; border-radius: 4px;
-}
-.cs-edit:hover { background: var(--blue-pale); }
-.cs-subtitle {
-  font-size: 13px; font-weight: 600; color: var(--text);
-  margin: 14px 0 6px; padding-top: 10px; border-top: 1px solid #f0f1f3;
-}
-.cs-text {
-  font-size: 12px; color: var(--text2); line-height: 1.8;
-}
-
-/* Info table */
-.info-table {
-  width: 100%; font-size: 12px; border-collapse: collapse; margin-bottom: 12px;
-}
-.info-table td {
-  padding: 7px 10px; border-bottom: 1px solid #f5f6f8;
-}
-.info-table .it-label {
-  font-weight: 600; color: var(--text); width: 90px; background: #fafbfc;
-}
-
-/* Mobile bottom nav */
-.mobile-bottom-nav {
-  display: none;
-  position: fixed; bottom: 0; left: 0; right: 0;
-  height: 52px; background: #fff; border-top: 1px solid var(--border);
-  z-index: 100;
-}
-.mbn-item {
-  flex: 1; display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  font-size: 9px; color: var(--text3); cursor: pointer; gap: 2px;
-}
-.mbn-item.on { color: var(--blue); }
-
-@media (max-width: 900px) {
-  .main-sidebar { display: none; }
-  .mobile-bottom-nav { display: flex; }
-  .main-scroll { padding: 12px; padding-bottom: 64px; }
-  .main-topbar { padding: 0 12px; }
-  .main-breadcrumb { font-size: 12px; }
-}
-
 
 </style>
 </head>
@@ -880,155 +778,176 @@ body {
 
 
 <!-- ====== MAIN ====== -->
-<div class="slide slide-white" style="padding:0;flex-direction:row;align-items:stretch;justify-content:flex-start;min-height:100vh;width:100%">
-  <!-- Desktop Sidebar -->
-  <div class="main-sidebar">
-    <div class="ms-logo">&#9672; AIS 语料库</div>
-    <div class="ms-nav-item on" data-target="sec-project">项目基本情况</div>
-    <div class="ms-nav-item" data-target="sec-subject">学科建设情况</div>
-    <div class="ms-nav-item" data-target="sec-demand">语料需求更新</div>
-    <div class="ms-nav-item" data-target="sec-doc">文档生成</div>
-    <div class="ms-spacer"></div>
-    <div class="ms-nav-item" data-target="sec-profile" style="color:var(--blue)">&#9786; 个人中心</div>
+<div class="slide slide-white slide-content">
+  <div class="slide-info">
+    <div class="si-num">&#9672;</div>
+    <h2>工作台</h2>
+    <p class="si-desc">登录后进入的主界面。四个模块从上到下依次排列：项目基本情况、学科建设情况、语料需求更新、文档生成。顶部右侧头像图标进入个人中心，可退出登录。</p>
+    <ul class="si-features">
+      <li>四大模块一页纵览，滚动浏览</li>
+      <li>电脑侧边栏 / 手机底部栏快速跳转</li>
+      <li>右上角头像进入个人中心</li>
+      <li>支持退出登录</li>
+    </ul>
   </div>
-  <!-- Main Content Area -->
-  <div class="main-content">
-    <!-- Top bar -->
-    <div class="main-topbar">
-      <span class="main-breadcrumb">AIS 语料库建设管理平台</span>
-      <div class="main-user" data-target="sec-profile">&#9786; 陈景元 ▾</div>
+  <div class="panels-wrap">
+    <div class="panel-col">
+      <div class="panel-label">桌面端</div>
+      <div class="dt-frame">
+        <div class="dt-topbar">
+          <span class="dt-dot r"></span><span class="dt-dot y"></span><span class="dt-dot g"></span>
+          <span class="dt-tab on">工作台</span>
+        </div>
+        <div class="dt-body" style="flex-direction:row">
+          <!-- Sidebar -->
+          <div style="width:130px;background:#f7f9fc;border-right:1px solid #e9ecf1;padding:10px 8px;flex-shrink:0;overflow-y:auto">
+            <div style="font-size:11px;font-weight:700;color:var(--blue);margin-bottom:12px">&#9672; AIS 语料库</div>
+            <div style="padding:6px 8px;border-radius:5px;font-size:10px;color:var(--blue-deep);background:var(--blue-pale);font-weight:500;margin-bottom:2px">项目基本情况</div>
+            <div style="padding:6px 8px;border-radius:5px;font-size:10px;color:var(--text2);margin-bottom:2px">学科建设情况</div>
+            <div style="padding:6px 8px;border-radius:5px;font-size:10px;color:var(--text2);margin-bottom:2px">语料需求更新</div>
+            <div style="padding:6px 8px;border-radius:5px;font-size:10px;color:var(--text2);margin-bottom:2px">文档生成</div>
+            <div style="margin-top:auto;padding:6px 8px;border-radius:5px;font-size:10px;color:var(--blue)">&#9786; 个人中心</div>
+          </div>
+          <!-- Main scroll area -->
+          <div style="flex:1;overflow-y:auto;padding:12px">
+            <!-- Top bar -->
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid #f0f1f3">
+              <span style="font-size:11px;color:var(--text2)">AIS 语料库建设管理平台</span>
+              <span style="font-size:11px;color:var(--text);cursor:pointer">&#9786; 陈景元 ▾</span>
+            </div>
+            <!-- Section 1 -->
+            <div style="margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid #f0f1f3">
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+                <span style="display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:5px;background:var(--blue);color:#fff;font-size:11px;font-weight:700">1</span>
+                <span style="font-size:14px;font-weight:700;color:var(--text)">项目基本情况</span>
+                <span style="margin-left:auto;font-size:10px;color:var(--blue)">编辑</span>
+              </div>
+              <table style="width:100%;font-size:10px;border-collapse:collapse;margin-bottom:8px">
+                <tr><td style="padding:5px 8px;font-weight:600;width:70px;background:#fafbfc">项目名称</td><td style="padding:5px 8px">基础学科科学研究语料库建设项目</td></tr>
+                <tr><td style="padding:5px 8px;font-weight:600;background:#fafbfc">批复/统筹</td><td style="padding:5px 8px">国家发展改革委 / 教育部</td></tr>
+                <tr><td style="padding:5px 8px;font-weight:600;background:#fafbfc">建设单位</td><td style="padding:5px 8px">北京大学（张锦任负责人，鄂维南院士任技术总师）</td></tr>
+                <tr><td style="padding:5px 8px;font-weight:600;background:#fafbfc">协同高校</td><td style="padding:5px 8px">清华、南大、复旦、上交、武大、厦大（"1+6"）</td></tr>
+                <tr><td style="padding:5px 8px;font-weight:600;background:#fafbfc">建设期/投资</td><td style="padding:5px 8px">12个月（2025.9-2026.12）/ 59,590万元</td></tr>
+              </table>
+              <div style="font-size:10px;color:var(--text2);line-height:1.6">
+                聚焦<b>数理化天地生</b>六大基础学科，建成全球首个覆盖基础学科全谱系的战略语料库。习近平总书记指出人工智能"要占领先机、赢得优势，以人工智能引领科研范式变革"。设指挥部（张锦、鄂维南、董彬）和协调中心，下辖11个工作组。
+              </div>
+            </div>
+            <!-- Section 2 -->
+            <div style="margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid #f0f1f3">
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+                <span style="display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:5px;background:var(--blue);color:#fff;font-size:11px;font-weight:700">2</span>
+                <span style="font-size:14px;font-weight:700;color:var(--text)">学科建设情况</span>
+              </div>
+              <div style="display:flex;gap:5px;margin-bottom:8px">
+                <span style="font-size:9px;padding:3px 8px;background:var(--blue-pale);color:var(--blue);border-radius:4px">62项目</span>
+                <span style="font-size:9px;padding:3px 8px;background:#f7f9fc;color:var(--text2);border-radius:4px">161资源</span>
+                <span style="font-size:9px;padding:3px 8px;background:#f7f9fc;color:var(--text2);border-radius:4px">200+工具</span>
+              </div>
+              <div style="border:1px solid #e9ecf1;border-radius:7px;padding:8px 10px;margin-bottom:5px">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px"><span style="font-size:11px;font-weight:600">&#9672; 数学</span><span style="font-size:10px;color:#fff;background:var(--blue);padding:1px 7px;border-radius:3px">65%</span></div>
+                <div style="font-size:9px;color:var(--text2)">8项目 · 0.04PB · 15人　Matlas发布 · 验证Anderson猜想</div>
+              </div>
+              <div style="border:1px solid #e9ecf1;border-radius:7px;padding:8px 10px;margin-bottom:5px">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px"><span style="font-size:11px;font-weight:600">&#9672; 物理</span><span style="font-size:10px;color:#fff;background:var(--blue);padding:1px 7px;border-radius:3px">55%</span></div>
+                <div style="font-size:9px;color:var(--text2)">12项目 · 6.72PB · 22人　PHYBench被OpenAI引用</div>
+              </div>
+              <div style="border:1px solid #e9ecf1;border-radius:7px;padding:8px 10px;margin-bottom:5px">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px"><span style="font-size:11px;font-weight:600">&#9672; 化学</span><span style="font-size:10px;color:#fff;background:var(--blue);padding:1px 7px;border-radius:3px">48%</span></div>
+                <div style="font-size:9px;color:var(--text2)">10项目 · 2.64PB · 18人　NMR世界最大实验数据库</div>
+              </div>
+              <div style="font-size:9px;color:var(--blue)">+ 天文(30%) · 地理(40%) · 生物(35%) 展开查看全部 ▼</div>
+            </div>
+            <!-- Section 3 -->
+            <div style="margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid #f0f1f3">
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+                <span style="display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:5px;background:var(--blue);color:#fff;font-size:11px;font-weight:700">3</span>
+                <span style="font-size:14px;font-weight:700;color:var(--text)">语料需求更新</span>
+              </div>
+              <div style="border:1px solid #e9ecf1;border-radius:7px;padding:8px 10px;margin-bottom:4px">
+                <div style="font-size:11px;font-weight:600;color:var(--text);margin-bottom:2px">字节跳动（Seed）<span style="font-size:9px;color:#fff;background:var(--blue);padding:1px 6px;border-radius:3px;margin-left:6px">进行中</span></div>
+                <div style="font-size:9px;color:var(--text2)">多模态+思维链路数据采购，已评测8类样本</div>
+              </div>
+              <div style="border:1px solid #e9ecf1;border-radius:7px;padding:8px 10px;margin-bottom:4px">
+                <div style="font-size:11px;font-weight:600;color:var(--text);margin-bottom:2px">月之暗面（KIMI）<span style="font-size:9px;color:#fff;background:var(--blue);padding:1px 6px;border-radius:3px;margin-left:6px">进行中</span></div>
+                <div style="font-size:9px;color:var(--text2)">化学VQA+物科图文，2个合作周期</div>
+              </div>
+              <div style="font-size:9px;color:var(--blue)">+ 蚂蚁(百灵) · 通义(Qwen首批完成) · 北数所等长期合作 展开查看全部 ▼</div>
+            </div>
+            <!-- Section 4 -->
+            <div style="margin-bottom:8px">
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+                <span style="display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:5px;background:var(--blue);color:#fff;font-size:11px;font-weight:700">4</span>
+                <span style="font-size:14px;font-weight:700;color:var(--text)">文档生成</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;padding:7px 10px;border:1px solid #e9ecf1;border-radius:6px;margin-bottom:4px">
+                <span style="font-size:13px">&#128196;</span>
+                <div><div style="font-size:11px;font-weight:600">项目进展汇报</div><div style="font-size:9px;color:var(--text3)">教育部/发改委</div></div>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;padding:7px 10px;border:1px solid #e9ecf1;border-radius:6px;margin-bottom:4px">
+                <span style="font-size:13px">&#128203;</span>
+                <div><div style="font-size:11px;font-weight:600">对外支持材料</div><div style="font-size:9px;color:var(--text3)">数据局/合作方</div></div>
+              </div>
+              <div style="font-size:9px;color:var(--blue)">+ 4种模板 · 选中后预览 · 导出Word/PDF ▼</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <!-- Scrollable sections -->
-    <div class="main-scroll" id="main-scroll">
-
-      <!-- Section 1: 项目基本情况 -->
-      <div class="content-section" id="sec-project">
-        <div class="cs-header">
-          <span class="cs-num">1</span>
-          <span class="cs-title">项目基本情况</span>
-          <span class="cs-edit">编辑</span>
+    <div class="panel-col" style="flex:0 0 auto">
+      <div class="panel-label">手机端</div>
+      <div class="mb-frame">
+        <div class="mb-topbar">9:41</div>
+        <div class="mb-nav" style="display:flex;justify-content:space-between;padding:0 12px">
+          <span style="font-size:10px;color:var(--text3)">工作台</span>
+          <span style="font-size:14px;color:var(--blue)">&#9786;</span>
         </div>
-        <table class="info-table">
-          <tr><td class="it-label">项目名称</td><td>基础学科科学研究语料库建设项目</td></tr>
-          <tr><td class="it-label">批复 / 统筹</td><td>国家发展改革委 / 教育部</td></tr>
-          <tr><td class="it-label">建设单位</td><td>北京大学（张锦常务副校长任负责人，鄂维南院士任技术总师）</td></tr>
-          <tr><td class="it-label">协同高校</td><td>清华、南大、复旦、上交、武大、厦大（"1+6"）</td></tr>
-          <tr><td class="it-label">共建企业</td><td>华为、蚂蚁、鹏城实验室、百度、万方、京能、字节跳动、中国联通、深势科技</td></tr>
-          <tr><td class="it-label">建设期</td><td>12个月（2025.9 - 2026.12）</td></tr>
-          <tr><td class="it-label">总投资</td><td>59,590 万元</td></tr>
-          <tr><td class="it-label">建设地点</td><td>北京怀柔（主） · 深圳南山北大深研院（备）</td></tr>
-        </table>
-        <div class="cs-text">
-          项目聚焦<b>数学、物理、化学、天文、地理、生物</b>六大基础学科，旨在建成全球首个覆盖基础学科全谱系的战略语料库，构建"人机协同"的语料自动化解析与专家标注迭代演化系统，为我国 AI for Science 的发展提供坚实长效的语料支撑。
+        <div class="mb-content">
+          <!-- Section 1 mini -->
+          <div style="margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid #f0f1f3">
+            <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:8px"><span style="background:var(--blue);color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;margin-right:6px">1</span>项目基本情况</div>
+            <table style="width:100%;font-size:9px;border-collapse:collapse;margin-bottom:6px">
+              <tr><td style="padding:3px 5px;font-weight:600;background:#fafbfc">名称</td><td style="padding:3px 5px">基础学科科学研究语料库建设项目</td></tr>
+              <tr><td style="padding:3px 5px;font-weight:600;background:#fafbfc">建设</td><td style="padding:3px 5px">北京大学（张锦/鄂维南）</td></tr>
+              <tr><td style="padding:3px 5px;font-weight:600;background:#fafbfc">协同</td><td style="padding:3px 5px">清华等6校"1+6"+华为等企业</td></tr>
+              <tr><td style="padding:3px 5px;font-weight:600;background:#fafbfc">期限</td><td style="padding:3px 5px">12个月 / 59,590万元</td></tr>
+            </table>
+            <div style="font-size:9px;color:var(--text2);line-height:1.5">聚焦数理化天地生六大学科。习近平指出AI"要占领先机、赢得优势"。</div>
+          </div>
+          <!-- Section 2 mini -->
+          <div style="margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid #f0f1f3">
+            <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:8px"><span style="background:var(--blue);color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;margin-right:6px">2</span>学科建设情况</div>
+            <div style="display:flex;gap:4px;font-size:8px;color:var(--text2);margin-bottom:6px">
+              <span style="background:#f7f9fc;padding:2px 6px;border-radius:3px">数学 65%</span>
+              <span style="background:#f7f9fc;padding:2px 6px;border-radius:3px">物理 55%</span>
+              <span style="background:#f7f9fc;padding:2px 6px;border-radius:3px">化学 48%</span>
+              <span style="background:#f7f9fc;padding:2px 6px;border-radius:3px">天文 30%</span>
+              <span style="background:#f7f9fc;padding:2px 6px;border-radius:3px">地理 40%</span>
+              <span style="background:#f7f9fc;padding:2px 6px;border-radius:3px">生物 35%</span>
+            </div>
+          </div>
+          <!-- Section 3 mini -->
+          <div style="margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid #f0f1f3">
+            <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:8px"><span style="background:var(--blue);color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;margin-right:6px">3</span>语料需求更新</div>
+            <div style="font-size:9px;color:var(--text2);line-height:1.6">字节(Seed)·KIMI·蚂蚁(百灵)·通义(Qwen) 已建立合作供应；北数所·训练场等长期合作。</div>
+          </div>
+          <!-- Section 4 mini -->
+          <div style="margin-bottom:8px">
+            <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:8px"><span style="background:var(--blue);color:#fff;padding:2px 6px;border-radius:3px;font-size:10px;margin-right:6px">4</span>文档生成</div>
+            <div style="font-size:9px;color:var(--text2);line-height:1.6">进展汇报 · 对外材料 · 背景意义 · 讲话稿 · 工作基础 · 联络邮件 → 选中预览 → 导出Word/PDF</div>
+          </div>
         </div>
-        <div class="cs-subtitle">战略背景</div>
-        <div class="cs-text">
-          习近平总书记明确指出人工智能"要占领先机、赢得优势，以人工智能引领科研范式变革"。当前，AI4S 的全球竞争正从算法优化转向对<b>高质量科学数据的底层争夺</b>——语料资源的规模、质量和多样性直接决定模型对复杂科学问题的理解与推理能力。建设 AI4S 战略语料库，对我国突破"卡脖子"瓶颈、抢占人工智能技术制高点具有重大而紧迫的战略意义。
-        </div>
-        <div class="cs-subtitle">建设目标与关键指标</div>
-        <div class="cs-text">
-          以"<b>可治理、可追溯、可复用、可迭代</b>"为建设主线。北京大学承担语料规模 <b>≥38 PB、≥92 亿条</b>，数据集 <b>≥900 个</b>，服务 <b>≥400 万</b>科研用户；与中科院文献情报中心合并后总规模 <b>≥95 PB、≥230 亿条</b>，数据集 <b>≥3,000 个</b>，服务 <b>≥600 万</b>用户。质量指标：准确率 ≥90%，抽样合格率 ≥95%，标注一致性 ≥0.8，重复率 ≤5‰。示范应用方面，将为 ≥10 家基础模型提供训练语料（提升 ≥20% 科学推理能力），服务 ≥100 个垂类工具模型和 ≥1,000 个科研智能体，全年累计使用 ≥100 万亿 token。
-        </div>
-        <div class="cs-subtitle">组织架构</div>
-        <div class="cs-text">
-          设<b>指挥部</b>（张锦、鄂维南、董彬），<b>协调中心</b>（崔斌负责、李鑫宇任项目经理、马雷/张立副手、杨凌春对接教育部、田永鸿参与统筹），下设 11 个工作组。六大学科组（数学：陈大岳、章志飞、董彬、文再文；物理：肖云峰、马仁敏、曹庆宏、朱华星；化学：彭海琳、刘志博、高毅勤、邹如强；天文：何子山、江林华、王力乐、董若冰；地理：贺灿飞、彭建、王志恒、刘瑜、林金泰；生物：高宁、杜鹏、高歌、王初、张路霞），另设数据统筹组（童云海、李鑫宇）、加工工具组（张文涛，依托 DataFlow）、硬件与平台组（马皓、马雷）、模型训练组（张林峰）、教学培养组（孙华）。
-        </div>
-        <div class="cs-subtitle">承担单位</div>
-        <div class="cs-text">
-          <b>北京大学</b>是国内基础科学研究旗舰，拥有 49 个国家一流学科、23 个全国重点实验室，2021 年至今获批基金委项目总经费 34.1 亿元。<b>北京科学智能研究院（AISI）</b>由鄂维南院士领衔，是全球首个 AI for Science 研究机构，发布 OpenLAM 大原子模型、Science Navigator 科学导航、SciencePedia 知识库（400 万条思维链），发起"国际科学智能联盟"。
-        </div>
-      </div>
-
-      <!-- Section 2: 学科建设情况 -->
-      <div class="content-section" id="sec-subject">
-        <div class="cs-header">
-          <span class="cs-num">2</span>
-          <span class="cs-title">学科建设情况</span>
-        </div>
-        <div class="stat-row" style="margin-bottom:16px">
-          <div class="stat-card"><div class="sn">62</div><div class="sl">建设项目</div></div>
-          <div class="stat-card"><div class="sn">161</div><div class="sl">数据资源类</div></div>
-          <div class="stat-card"><div class="sn">200+</div><div class="sl">加工工具</div></div>
-          <div class="stat-card"><div class="sn">1+6+N</div><div class="sl">协同单位</div></div>
-        </div>
-        <div class="sc"><div class="sc-head"><span class="scn">&#9672; 数学</span><span class="sc-badge">65%</span></div><div class="sc-body"><div class="sc-stat"><div class="scsn">8</div><div class="scsl">项目</div></div><div class="sc-stat"><div class="scsn">0.04 PB</div><div class="scsl">数据量</div></div><div class="sc-stat"><div class="scsn">15 人</div><div class="scsl">参与</div></div></div><div class="sc-foot">Matlas定理搜索引擎（中关村论坛发布）· LeanSearch+Archon验证Anderson猜想（国内首例）</div></div>
-        <div class="sc"><div class="sc-head"><span class="scn">&#9672; 物理</span><span class="sc-badge">55%</span></div><div class="sc-body"><div class="sc-stat"><div class="scsn">12</div><div class="scsl">项目</div></div><div class="sc-stat"><div class="scsn">6.72 PB</div><div class="scsl">数据量</div></div><div class="sc-stat"><div class="scsn">22 人</div><div class="scsl">参与</div></div></div><div class="sc-foot">PHYBench被OpenAI引用 · PRBench获企业采买 · ColliderAgent被MIT/CERN引用</div></div>
-        <div class="sc"><div class="sc-head"><span class="scn">&#9672; 化学</span><span class="sc-badge">48%</span></div><div class="sc-body"><div class="sc-stat"><div class="scsn">10</div><div class="scsl">项目</div></div><div class="sc-stat"><div class="scsn">2.64 PB</div><div class="scsl">数据量</div></div><div class="sc-stat"><div class="scsn">18 人</div><div class="scsl">参与</div></div></div><div class="sc-foot">NMR世界最大实验数据库（>330万条）· CarbonMat碳材料关联语料库</div></div>
-        <div class="sc"><div class="sc-head"><span class="scn">&#9672; 天文</span><span class="sc-badge">30%</span></div><div class="sc-body"><div class="sc-stat"><div class="scsn">5</div><div class="scsl">项目</div></div><div class="sc-stat"><div class="scsn">18.4 PB</div><div class="scsl">数据量</div></div><div class="sc-stat"><div class="scsn">8 人</div><div class="scsl">参与</div></div></div><div class="sc-foot">814 TB多源观测数据汇聚 · 获批北大本科教改立项</div></div>
-        <div class="sc"><div class="sc-head"><span class="scn">&#9672; 地理</span><span class="sc-badge">40%</span></div><div class="sc-body"><div class="sc-stat"><div class="scsn">6</div><div class="scsl">项目</div></div><div class="sc-stat"><div class="scsn">49.1 PB</div><div class="scsl">数据量</div></div><div class="sc-stat"><div class="scsn">12 人</div><div class="scsl">参与</div></div></div><div class="sc-foot">全球30米无缝数据立方体（2000–2024）· 地球与行星多天体数据语料库</div></div>
-        <div class="sc"><div class="sc-head"><span class="scn">&#9672; 生物</span><span class="sc-badge">35%</span></div><div class="sc-body"><div class="sc-stat"><div class="scsn">11</div><div class="scsl">项目</div></div><div class="sc-stat"><div class="scsn">25.5 PB</div><div class="scsl">数据量</div></div><div class="sc-stat"><div class="scsn">20 人</div><div class="scsl">参与</div></div></div><div class="sc-foot">中国人群肿瘤基因组（15种肿瘤全基因组测序）· 跨物种细胞调控图谱（4.2亿细胞）</div></div>
-      </div>
-
-      <!-- Section 3: 语料需求更新 -->
-      <div class="content-section" id="sec-demand">
-        <div class="cs-header">
-          <span class="cs-num">3</span>
-          <span class="cs-title">语料需求更新</span>
-          <span class="cs-edit">编辑</span>
-        </div>
-        <div class="chips" style="margin-bottom:10px">
-          <span class="chip on">全部需求</span><span class="chip">多模态</span><span class="chip">复杂推理</span><span class="chip">图谱/分子</span>
-        </div>
-        <div class="qa-card" style="padding:10px;margin-bottom:6px"><div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:3px;display:flex;align-items:center;gap:8px">字节跳动（Seed）<span class="pj-tag on" style="font-size:9px">进行中</span></div><div class="pjd">模型全阶段训练数据采购（多模态 + 思维链路）。已评测 8 类样本，建立定向科学数据合作供应。</div></div>
-        <div class="qa-card" style="padding:10px;margin-bottom:6px"><div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:3px;display:flex;align-items:center;gap:8px">月之暗面（KIMI）<span class="pj-tag on" style="font-size:9px">进行中</span></div><div class="pjd">多模态数据后训练阶段。已推进 2 个合作周期。需求：化学 VQA、物科图文数据。</div></div>
-        <div class="qa-card" style="padding:10px;margin-bottom:6px"><div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:3px;display:flex;align-items:center;gap:8px">蚂蚁（百灵模型）<span class="pj-tag on" style="font-size:9px">进行中</span></div><div class="pjd">医疗、科学等多垂类场景科学数据共建。针对多模态数据构建评测集。</div></div>
-        <div class="qa-card" style="padding:10px;margin-bottom:6px"><div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:3px;display:flex;align-items:center;gap:8px">通义（Qwen）<span class="pj-tag done" style="font-size:9px">首批完成</span></div><div class="pjd">文献粗加工 + 思维链数据。已完成首批采购验收，成为重要科学数据提供方。</div></div>
-        <div class="qa-card" style="padding:10px;margin-bottom:6px"><div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:3px;display:flex;align-items:center;gap:8px">北数所 · 国家训练场 · 知识产权社 · 企业研究院<span class="pj-tag plan" style="font-size:9px">长期合作</span></div><div class="pjd">已建立长期科学语料合作模式（多模态、思维链、文献），持续拓展数据供给网络。</div></div>
-      </div>
-
-      <!-- Section 4: 文档生成 -->
-      <div class="content-section" id="sec-doc">
-        <div class="cs-header">
-          <span class="cs-num">4</span>
-          <span class="cs-title">文档生成</span>
-        </div>
-        <div class="tip-banner" style="margin-bottom:12px"><span class="tb-icon">!</span>选择模板后系统自动从项目数据库中提取最新数据生成文档初稿</div>
-        <div class="doc-tpl"><div class="dt-icon">&#128196;</div><div><div class="dt-name">项目进展汇报</div><div class="dt-desc">面向教育部/发改委</div></div></div>
-        <div class="doc-tpl"><div class="dt-icon">&#128203;</div><div><div class="dt-name">对外支持材料</div><div class="dt-desc">面向数据局/合作方</div></div></div>
-        <div class="doc-tpl"><div class="dt-icon">&#128221;</div><div><div class="dt-name">项目背景与意义</div><div class="dt-desc">各方通用</div></div></div>
-        <div class="doc-tpl"><div class="dt-icon">&#127908;</div><div><div class="dt-name">讲话稿 / 经验分享</div><div class="dt-desc">会议/论坛</div></div></div>
-        <div class="doc-tpl"><div class="dt-icon">&#127983;</div><div><div class="dt-name">已有工作基础</div><div class="dt-desc">面向特定机构</div></div></div>
-        <div class="doc-tpl"><div class="dt-icon">&#9993;</div><div><div class="dt-name">联络/动员邮件</div><div class="dt-desc">院内/合作方</div></div></div>
-        <div style="margin-top:14px;border:1px dashed #e9ecf1;border-radius:8px;padding:14px;font-size:11px;color:var(--text2);text-align:center">&#8593; 选中上方模板，此处预览文档内容，确认后一键导出 Word / PDF</div>
-      </div>
-
-      <!-- Section 5: 个人中心 (hidden by default) -->
-      <div class="content-section" id="sec-profile" style="display:none">
-        <div class="cs-header">
-          <span class="cs-num">&#9786;</span>
-          <span class="cs-title">个人中心</span>
-        </div>
-        <div class="prof-head">
-          <div class="avt">陈</div>
-          <div><div class="prof-name">陈景元</div><div class="prof-role">数学组 · 管理员</div></div>
-        </div>
-        <div class="stat-row" style="margin-bottom:14px">
-          <div class="stat-card"><div class="sn">3</div><div class="sl">负责项目</div></div>
-          <div class="stat-card"><div class="sn">67%</div><div class="sl">平均进度</div></div>
-          <div class="stat-card"><div class="sn">15</div><div class="sl">团队人数</div></div>
-        </div>
-        <div class="menu-list">
-          <div class="menu-row">我负责的项目 <span style="color:#ccd2db">&#8250;</span></div>
-          <div class="menu-row">学科类别管理 <span style="color:#ccd2db">&#8250;</span></div>
-          <div class="menu-row">人员权限管理 <span style="color:#ccd2db">&#8250;</span></div>
-          <div class="menu-row">操作日志 <span style="color:#ccd2db">&#8250;</span></div>
-          <div class="menu-row" style="color:var(--red)">退出登录 <span style="color:#ccd2db">&#8250;</span></div>
+        <div class="mb-tabs">
+          <div class="mb-tab on"><span class="mbt-icon">&#9672;</span>概况</div>
+          <div class="mb-tab"><span class="mbt-icon">&#9776;</span>学科</div>
+          <div class="mb-tab"><span class="mbt-icon">&#9678;</span>需求</div>
+          <div class="mb-tab"><span class="mbt-icon">&#9998;</span>生成</div>
+          <div class="mb-tab"><span class="mbt-icon">&#9786;</span>我的</div>
         </div>
       </div>
-
     </div>
   </div>
 </div>
-
-<!-- Mobile Bottom Nav -->
-<div class="mobile-bottom-nav">
-  <div class="mbn-item on" data-target="sec-project">&#9672; 概况</div>
-  <div class="mbn-item" data-target="sec-subject">&#9776; 学科</div>
-  <div class="mbn-item" data-target="sec-demand">&#9678; 需求</div>
-  <div class="mbn-item" data-target="sec-doc">&#9998; 生成</div>
-  <div class="mbn-item" data-target="sec-profile">&#9786; 我的</div>
-</div>
-
 
 </body>
 </html>
