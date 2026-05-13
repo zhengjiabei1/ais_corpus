@@ -1018,30 +1018,65 @@ body {
         <div class="mb-nav">项目基本情况</div>
         <div class="mb-content">
           <div style="display:flex;gap:4px;margin-bottom:10px;overflow-x:auto">
-            <span class="chip on">概述</span><span class="chip">背景</span><span class="chip">目标</span><span class="chip">架构</span><span class="chip">单位</span>
+            <span class="chip on pj-mob-nav" data-idx="0">概述</span>
+            <span class="chip pj-mob-nav" data-idx="1">背景</span>
+            <span class="chip pj-mob-nav" data-idx="2">目标</span>
+            <span class="chip pj-mob-nav" data-idx="3">架构</span>
+            <span class="chip pj-mob-nav" data-idx="4">单位</span>
           </div>
-          <div style="font-size:13px;font-weight:700;color:#1a2332;margin-bottom:6px">项目概述</div>
-          <table class="info-table-v2" style="font-size:9px;margin-bottom:8px">
-            <tr><td class="itv-label" style="width:55px">名称</td><td>基础学科科学研究语料库建设项目</td></tr>
-            <tr><td class="itv-label" style="width:55px">批复/统筹</td><td>国家发展改革委 / 教育部</td></tr>
-            <tr><td class="itv-label" style="width:55px">建设单位</td><td>北京大学（张锦/鄂维南）</td></tr>
-            <tr><td class="itv-label" style="width:55px">协同高校</td><td>清华、南大、复旦、上交、武大、厦大（"1+6"）</td></tr>
-            <tr><td class="itv-label" style="width:55px">共建企业</td><td>华为、蚂蚁、鹏城实验室、百度、万方、京能、字节等</td></tr>
-            <tr><td class="itv-label" style="width:55px">建设期</td><td>12个月</td></tr>
-            <tr><td class="itv-label" style="width:55px">总投资</td><td>59,590万元</td></tr>
-          </table>
-          <div style="font-size:12px;font-weight:600;color:#1a365d;margin:10px 0 4px">战略背景</div>
-          <div style="font-size:10px;color:#4a5568;line-height:1.7">习近平指出 AI"要占领先机、赢得优势"。AI4S 竞争转向高质量科学数据底层争夺。</div>
-          <div style="font-size:12px;font-weight:600;color:#1a365d;margin:10px 0 4px">关键指标</div>
-          <div style="font-size:10px;color:#4a5568;line-height:1.7">北大：≥38 PB / 92 亿条 / ≥900 数据集 / ≥400万用户。合并中科院：≥95 PB / 230 亿条 / ≥600 万用户。</div>
-          <div style="font-size:12px;font-weight:600;color:#1a365d;margin:10px 0 4px">组织架构</div>
-          <div style="font-size:10px;color:#4a5568;line-height:1.7;margin-bottom:4px">指挥部 → 协调中心 → 11 个工作组</div>
-          <div style="display:flex;flex-wrap:wrap;gap:3px;margin-bottom:6px">
-            <span class="org-chip" style="font-size:8px;padding:2px 6px">数学组</span><span class="org-chip" style="font-size:8px;padding:2px 6px">物理组</span><span class="org-chip" style="font-size:8px;padding:2px 6px">化学组</span><span class="org-chip" style="font-size:8px;padding:2px 6px">天文组</span><span class="org-chip" style="font-size:8px;padding:2px 6px">地理组</span><span class="org-chip" style="font-size:8px;padding:2px 6px">生物组</span>
-            <span class="org-chip-support" style="font-size:8px;padding:2px 6px">数据统筹</span><span class="org-chip-support" style="font-size:8px;padding:2px 6px">加工工具</span><span class="org-chip-support" style="font-size:8px;padding:2px 6px">硬件平台</span><span class="org-chip-support" style="font-size:8px;padding:2px 6px">模型训练</span><span class="org-chip-support" style="font-size:8px;padding:2px 6px">教学培养</span>
+          <!-- Tab 0: 概述 -->
+          <div class="pj-mob-tab" id="pj-mob-0">
+            <div style="font-size:13px;font-weight:700;color:#1a2332;margin-bottom:6px">项目概述</div>
+            <table class="info-table-v2" style="font-size:9px;margin-bottom:8px">
+              <tr><td class="itv-label" style="width:50px">名称</td><td>基础学科科学研究语料库建设项目</td></tr>
+              <tr><td class="itv-label" style="width:50px">批复</td><td>国家发展改革委 / 教育部</td></tr>
+              <tr><td class="itv-label" style="width:50px">建设</td><td>北京大学（张锦/鄂维南）</td></tr>
+              <tr><td class="itv-label" style="width:50px">协同</td><td>清华、南大、复旦、上交、武大、厦大</td></tr>
+              <tr><td class="itv-label" style="width:50px">企业</td><td>华为、蚂蚁、鹏城实验室、百度、万方等</td></tr>
+              <tr><td class="itv-label" style="width:50px">期限</td><td>12个月 / 59,590万元</td></tr>
+            </table>
           </div>
-          <div style="font-size:12px;font-weight:600;color:#1a365d;margin:10px 0 4px">承担单位</div>
-          <div style="font-size:10px;color:#4a5568;line-height:1.7">北大：49 个一流学科，23 个全国重点实验室。AISI：鄂维南院士领衔，全球首个 AI4S 机构，发起国际科学智能联盟。</div>
+          <!-- Tab 1: 背景 -->
+          <div class="pj-mob-tab" id="pj-mob-1" style="display:none">
+            <div style="font-size:13px;font-weight:700;color:#1a2332;margin-bottom:6px">战略背景</div>
+            <div style="font-size:10px;color:#4a5568;line-height:1.7;margin-bottom:8px">习近平总书记指出 AI"要占领先机、赢得优势，以人工智能引领科研范式变革"。AI4S 全球竞争正从算法优化转向对高质量科学数据的底层争夺。</div>
+            <div style="font-size:10px;color:#4a5568;line-height:1.7">建设 AI4S 战略语料库，对我国突破"卡脖子"瓶颈、抢占人工智能技术制高点具有重大而紧迫的战略意义。</div>
+          </div>
+          <!-- Tab 2: 目标 -->
+          <div class="pj-mob-tab" id="pj-mob-2" style="display:none">
+            <div style="font-size:13px;font-weight:700;color:#1a2332;margin-bottom:6px">建设目标与关键指标</div>
+            <div style="font-size:10px;color:#4a5568;line-height:1.7;margin-bottom:4px">以"可治理、可追溯、可复用、可迭代"为主线。</div>
+            <div style="font-size:10px;color:#4a5568;line-height:1.7;margin-bottom:4px">北大承担：≥38 PB / 92 亿条 / ≥900 数据集 / ≥400 万用户。</div>
+            <div style="font-size:10px;color:#4a5568;line-height:1.7;margin-bottom:4px">合并中科院：≥95 PB / 230 亿条 / ≥3,000 数据集 / ≥600 万用户。</div>
+            <div style="font-size:10px;color:#4a5568;line-height:1.7">质量指标：准确率 ≥90%，抽样合格率 ≥95%。示范应用：服务 ≥10 家基础模型，≥1,000 个科研智能体。</div>
+          </div>
+          <!-- Tab 3: 架构 -->
+          <div class="pj-mob-tab" id="pj-mob-3" style="display:none">
+            <div style="font-size:13px;font-weight:700;color:#1a2332;margin-bottom:6px">组织架构</div>
+            <div style="font-size:10px;color:#4a5568;line-height:1.7;margin-bottom:6px">指挥部 → 协调中心 → 11 个工作组，按周调度，提交周报。</div>
+            <div style="text-align:center;margin-bottom:6px">
+              <div class="org-box" style="background:#1a365d;padding:6px 14px;display:inline-block;margin-bottom:3px">指挥部</div>
+              <div style="font-size:8px;color:#8899b0;margin-bottom:6px">▼</div>
+              <div class="org-box" style="background:#2c5aa8;padding:5px 12px;display:inline-block;margin-bottom:3px">协调中心</div>
+              <div style="font-size:8px;color:#8899b0;margin-bottom:6px">▼</div>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-bottom:4px">
+              <span class="org-chip" style="font-size:8px;padding:3px 0">数学组</span><span class="org-chip" style="font-size:8px;padding:3px 0">物理组</span><span class="org-chip" style="font-size:8px;padding:3px 0">化学组</span>
+              <span class="org-chip" style="font-size:8px;padding:3px 0">天文组</span><span class="org-chip" style="font-size:8px;padding:3px 0">地理组</span><span class="org-chip" style="font-size:8px;padding:3px 0">生物组</span>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:3px">
+              <span class="org-chip-support" style="font-size:8px;padding:3px 0">数据统筹</span><span class="org-chip-support" style="font-size:8px;padding:3px 0">加工工具</span><span class="org-chip-support" style="font-size:8px;padding:3px 0">硬件平台</span>
+              <span class="org-chip-support" style="font-size:8px;padding:3px 0">模型训练</span><span class="org-chip-support" style="font-size:8px;padding:3px 0;grid-column:span 2">教学培养</span>
+            </div>
+          </div>
+          <!-- Tab 4: 单位 -->
+          <div class="pj-mob-tab" id="pj-mob-4" style="display:none">
+            <div style="font-size:13px;font-weight:700;color:#1a2332;margin-bottom:6px">承担单位</div>
+            <div style="font-size:11px;font-weight:600;color:#1a365d;margin-bottom:3px">北京大学</div>
+            <div style="font-size:10px;color:#4a5568;line-height:1.7;margin-bottom:8px">49 个一流学科，23 个全国重点实验室，基金委项目经费 34.1 亿元，12 位"两弹一星"功勋。</div>
+            <div style="font-size:11px;font-weight:600;color:#1a365d;margin-bottom:3px">北京科学智能研究院（AISI）</div>
+            <div style="font-size:10px;color:#4a5568;line-height:1.7">鄂维南院士领衔，全球首个 AI4S 机构。发布 OpenLAM、Science Navigator、SciencePedia。发起国际科学智能联盟。</div>
+          </div>
         </div>
         <div class="mb-tabs">
           <div class="mb-tab"><span class="mbt-icon">&#9672;</span>首页</div>
@@ -1343,13 +1378,24 @@ body {
 
 
 <script>
-// Project info tab switching
+// Desktop tab switching
 document.querySelectorAll('.pj-nav-item').forEach(function(item, idx) {
   item.addEventListener('click', function() {
     document.querySelectorAll('.pj-nav-item').forEach(function(n) { n.classList.remove('active'); });
     this.classList.add('active');
     document.querySelectorAll('.pj-tab-content').forEach(function(t) { t.style.display = 'none'; });
     var target = document.getElementById('pj-tab-' + idx);
+    if (target) target.style.display = 'block';
+  });
+});
+// Mobile tab switching
+document.querySelectorAll('.pj-mob-nav').forEach(function(chip) {
+  chip.addEventListener('click', function() {
+    var idx = this.getAttribute('data-idx');
+    document.querySelectorAll('.pj-mob-nav').forEach(function(c) { c.classList.remove('on'); });
+    this.classList.add('on');
+    document.querySelectorAll('.pj-mob-tab').forEach(function(t) { t.style.display = 'none'; });
+    var target = document.getElementById('pj-mob-' + idx);
     if (target) target.style.display = 'block';
   });
 });
