@@ -14,6 +14,9 @@
   --blue-light: #5b8def;
   --blue-pale: #dce8f8;
   --blue-bg: #f2f5fc;
+  --orange: #d97706;
+  --orange-light: #fff7ed;
+  --orange-pale: #fed7aa;
   --text: #1a2332;
   --text2: #4a5568;
   --text3: #8899b0;
@@ -48,6 +51,7 @@ body {
   font-weight: 700;
   color: var(--blue-deep);
 }
+.header .logo span { color: var(--orange); }
 .header .user {
   font-size: 13px;
   color: var(--text);
@@ -107,8 +111,8 @@ body {
 }
 .sidebar-item:hover { background: var(--bg); }
 .sidebar-item.active {
-  background: var(--blue-pale);
-  color: var(--blue-deep);
+  background: var(--orange-light);
+  color: var(--orange);
   font-weight: 600;
 }
 .sidebar-item .si-icon { font-size: 14px; }
@@ -141,9 +145,9 @@ body {
 }
 .tab-nav-item:hover { color: var(--text2); }
 .tab-nav-item.active {
-  color: var(--blue-deep);
+  color: var(--orange);
   font-weight: 600;
-  border-bottom-color: var(--blue-deep);
+  border-bottom-color: var(--orange);
 }
 
 /* ===== TAB CONTENT ===== */
@@ -169,7 +173,7 @@ body {
 .section-subtitle {
   font-size: clamp(13px, 1.2vw, 17px);
   font-weight: 600;
-  color: var(--blue-deep);
+  color: var(--orange);
   margin: clamp(12px, 1.5vw, 20px) 0 8px;
 }
 .section-text {
@@ -199,7 +203,7 @@ body {
 }
 .highlight-card .hc-label {
   font-size: clamp(10px, 0.75vw, 12px);
-  color: var(--blue-light);
+  color: var(--orange);
   margin-bottom: 4px;
 }
 
@@ -253,8 +257,8 @@ body {
 .metric-table .mt-hdr {
   font-weight: 600;
   font-size: 11px;
-  background: #eef2ff;
-  color: var(--blue-deep);
+  background: var(--orange-light);
+  color: var(--orange);
   text-align: center;
 }
 .metric-table .mt-label {
@@ -281,7 +285,7 @@ body {
 .org-chip-support {
   display: inline-block; padding: 5px 0; border-radius: 5px;
   font-size: 10px; font-weight: 600; color: var(--blue-deep); text-align: center;
-  background: var(--blue-pale); border: 1px solid #b8cfe8;
+  background: var(--orange-light); border: 1px solid var(--orange-pale); color: var(--orange);
 }
 
 /* Info box */
@@ -303,7 +307,7 @@ body {
   margin: 4px 0 8px 8px;
 }
 .defect-list li { margin-bottom: 2px; }
-.defect-list li::marker { color: var(--blue-light); }
+.defect-list li::marker { color: var(--orange); }
 
 /* Achievement list */
 .achieve-list {
@@ -313,7 +317,7 @@ body {
   margin: 4px 0 0 4px;
 }
 .achieve-list li { margin-bottom: 1px; }
-.achieve-list li::marker { color: var(--blue-light); }
+.achieve-list li::marker { color: var(--orange); }
 
 /* ===== MOBILE ===== */
 .mobile-header {
@@ -368,7 +372,7 @@ body {
   cursor: pointer;
 }
 .mobile-chip.active {
-  background: var(--blue);
+  background: var(--orange);
   color: #fff;
 }
 
@@ -415,7 +419,7 @@ body {
 
 <!-- Desktop Header -->
 <div class="header">
-  <div class="logo">&#9672; AIS 语料库建设管理平台</div>
+  <div class="logo"><span>&#9672;</span> AIS 语料库建设管理平台</div>
   <div class="user">
     <span>陈景元</span>
     <div class="user-avatar">陈</div>
@@ -488,7 +492,7 @@ body {
         <div class="section-subtitle">建设必要性</div>
         <div class="section-text" style="margin-bottom:10px">国际竞争焦点正从算法模型的表层优化，转向对高质量科学数据的底层争夺。一方面深度挖掘科研场景中蕴藏的复杂多模态数据——学术文献中的数学公式、物理实验的动态图谱、生物分子的三维结构、地学观测的时序序列等；另一方面通过科研计算与实验协同生成针对性增量数据，形成"数据生成-模型训练-科学发现"的闭环机制。建设 AI4S 战略语料库，对于我国突破"卡脖子"技术瓶颈、实现基础研究跨越式发展具有重大而紧迫的战略意义。</div>
         <div class="section-subtitle">项目定位</div>
-        <div class="info-box" style="border-color:var(--blue-pale);background:#fafcff">本项目坚持<b>"边建设、边应用"</b>原则，免费向国家人工智能训练场全量开放，以公益授权机制无条件支持国家战略重点项目研发。构建"数据—工具—人才—模型"四位一体、长效共进化的建设体系，致力于服务国家战略需求、赋能科研创新、降低行业门槛，为我国 AI 与基础学科发展提供无壁垒、高质量、可信赖的公益支撑。</div>
+        <div class="info-box" style="border-color:var(--orange-pale);background:var(--orange-light)">本项目坚持<b>"边建设、边应用"</b>原则，免费向国家人工智能训练场全量开放，以公益授权机制无条件支持国家战略重点项目研发。构建"数据—工具—人才—模型"四位一体、长效共进化的建设体系，致力于服务国家战略需求、赋能科研创新、降低行业门槛，为我国 AI 与基础学科发展提供无壁垒、高质量、可信赖的公益支撑。</div>
       </div>
 
       <!-- Tab 2: 建设目标 -->
@@ -595,6 +599,7 @@ body {
       <div class="highlight-card" style="min-width:70px"><div class="hc-label">总投资</div><div class="hc-value" style="font-size:14px">59,590万</div></div>
       <div class="highlight-card" style="min-width:70px"><div class="hc-label">协同</div><div class="hc-value" style="font-size:14px">1+6+N</div></div>
     </div>
+    <div class="section-text" style="font-size:11px;margin-bottom:8px">国家发改委批复，教育部统筹，北京大学牵头，聚焦<b>数理化天地生</b>六大学科。"1+6+N"协同机制，联合清华等六所高校及华为、蚂蚁等企业。</div>
     <table class="info-table" style="font-size:11px">
       <tr><td class="it-label" style="width:55px;font-size:10px">名称</td><td>基础学科科学研究语料库建设项目</td></tr>
       <tr><td class="it-label" style="width:55px;font-size:10px">批复</td><td>国家发展改革委 / 教育部</td></tr>
@@ -610,7 +615,7 @@ body {
     <div class="panel-title" style="font-size:16px">战略背景</div>
     <div class="section-text" style="font-size:12px;margin-bottom:8px">习近平总书记指出 AI"要占领先机、赢得优势，以人工智能引领科研范式变革"。数据作为与算法、算力协同耦合的基础性战略资源，其质量、规模和多样性直接决定模型能力。AI4S 全球竞争正从算法优化转向高质量科学数据的底层争夺。</div>
     <div class="section-text" style="font-size:12px;margin-bottom:6px">当前主流大模型训练数据存在三大结构性缺陷：质量参差不齐、科学价值占比不足、版权与合规风险突出。建设 AI4S 战略语料库，深度挖掘科研场景中蕴藏的学术文献、实验图谱等多模态数据，对我国突破"卡脖子"瓶颈具有重大战略意义。</div>
-    <div class="info-box" style="border-color:var(--blue-pale);background:#fafcff;font-size:11px">坚持"<b>边建设、边应用</b>"，免费向国家人工智能训练场全量开放。"数据—工具—人才—模型"四位一体长效共进化。</div>
+    <div class="info-box" style="border-color:var(--orange-pale);background:var(--orange-light);font-size:11px">坚持"<b>边建设、边应用</b>"，免费向国家人工智能训练场全量开放。"数据—工具—人才—模型"四位一体长效共进化。</div>
   </div>
 
   <!-- Mobile Tab 2 -->
