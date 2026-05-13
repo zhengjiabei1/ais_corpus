@@ -695,6 +695,45 @@ body {
 }
 
 
+
+/* ===== Organization Chart ===== */
+.org-chart { margin: 6px 0; }
+.org-box {
+  padding: 7px 12px; border-radius: 7px; text-align: center;
+  font-size: 11px; font-weight: 600; color: #fff;
+}
+.org-box span { font-size: 9px; font-weight: 400; opacity: 0.85; }
+.org-box-top { background: #1a365d; }
+.org-box-mid { background: #2c5aa8; }
+.org-box-sub { background: #5b8def; font-size: 10px; padding: 5px 10px; }
+.org-line {
+  width: 2px; height: 12px; background: #b0c4de; margin: 0 auto;
+}
+.org-line-branch {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  padding: 6px 0 0 0; justify-content: center;
+}
+.org-branch-item {
+  display: flex; flex-direction: column; align-items: center; gap: 3px;
+  font-size: 8px; color: var(--text3);
+}
+
+/* Enhanced table */
+.info-table-v2 {
+  width: 100%; font-size: 10px; border-collapse: collapse;
+  border: 1px solid #dce3ed; border-radius: 6px; overflow: hidden;
+}
+.info-table-v2 td {
+  padding: 6px 9px; border-bottom: 1px solid #eef1f6;
+}
+.info-table-v2 tr:last-child td { border-bottom: none; }
+.info-table-v2 tr:nth-child(even) td { background: #fafcfd; }
+.info-table-v2 .itv-label {
+  font-weight: 600; color: #1a365d; width: 72px;
+  background: #f2f5fa; font-size: 9px; letter-spacing: 0.5px;
+  text-align: center;
+}
+
 </style>
 </head>
 <body>
@@ -778,6 +817,7 @@ body {
 
 
 
+
 <!-- ====== 2. 导航页 ====== -->
 <div class="slide slide-light slide-content">
   <div class="slide-info">
@@ -799,31 +839,27 @@ body {
           <span class="dt-dot r"></span><span class="dt-dot y"></span><span class="dt-dot g"></span>
           <span class="dt-tab on">工作台</span>
         </div>
-        <div class="dt-body" style="align-items:center;justify-content:center;background:#f7f9fc;flex-direction:column;padding:20px;gap:16px">
-          <div style="width:100%;display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
-            <span style="font-size:14px;font-weight:700;color:var(--text)">&#9672; AIS 语料库建设管理平台</span>
-            <span style="font-size:12px;color:var(--blue);cursor:pointer;padding:4px 10px;border-radius:6px;background:var(--blue-pale)">&#9786; 陈景元</span>
+        <div class="dt-body" style="align-items:center;justify-content:center;background:#f7f9fc;flex-direction:column;padding:28px;gap:18px">
+          <div style="width:100%;display:flex;justify-content:space-between;align-items:center">
+            <span style="font-size:15px;font-weight:700;color:var(--text)">&#9672; AIS 语料库建设管理平台</span>
+            <span style="font-size:12px;color:var(--blue);cursor:pointer;padding:5px 12px;border-radius:6px;background:#eef2ff">&#9786; 陈景元</span>
           </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;width:100%">
-            <div style="background:#fff;border:1px solid #e9ecf1;border-radius:10px;padding:20px;cursor:pointer">
-              <div style="font-size:24px;margin-bottom:8px">&#128203;</div>
-              <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px">项目基本情况</div>
-              <div style="font-size:11px;color:var(--text2);line-height:1.5">项目概述、战略背景、建设目标、组织架构、承担单位介绍</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;width:100%">
+            <div style="background:linear-gradient(135deg,#eef2ff 0%,#e2eafc 100%);border:1px solid #d0ddf5;border-radius:12px;padding:24px;cursor:pointer;text-align:center">
+              <div style="font-size:16px;font-weight:700;color:#1a3a5c;margin-bottom:8px">项目基本情况</div>
+              <div style="font-size:11px;color:#4a5e82;line-height:1.6">项目概述 · 战略背景 · 建设目标<br>组织架构 · 承担单位介绍</div>
             </div>
-            <div style="background:#fff;border:1px solid #e9ecf1;border-radius:10px;padding:20px;cursor:pointer">
-              <div style="font-size:24px;margin-bottom:8px">&#128200;</div>
-              <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px">学科建设情况</div>
-              <div style="font-size:11px;color:var(--text2);line-height:1.5">六大学科进度总览、数据规模、重点成果、人员统计</div>
+            <div style="background:linear-gradient(135deg,#f0f7ff 0%,#e3effb 100%);border:1px solid #c8ddf5;border-radius:12px;padding:24px;cursor:pointer;text-align:center">
+              <div style="font-size:16px;font-weight:700;color:#1e4d8c;margin-bottom:8px">学科建设情况</div>
+              <div style="font-size:11px;color:#4a6d94;line-height:1.6">六大学科进度总览 · 数据规模<br>重点成果 · 人员统计</div>
             </div>
-            <div style="background:#fff;border:1px solid #e9ecf1;border-radius:10px;padding:20px;cursor:pointer">
-              <div style="font-size:24px;margin-bottom:8px">&#128226;</div>
-              <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px">语料需求更新</div>
-              <div style="font-size:11px;color:var(--text2);line-height:1.5">合作企业需求动态、数据类型、合作进展追踪</div>
+            <div style="background:linear-gradient(135deg,#f5f7ff 0%,#e8edfa 100%);border:1px solid #c5d1f0;border-radius:12px;padding:24px;cursor:pointer;text-align:center">
+              <div style="font-size:16px;font-weight:700;color:#2c3d6b;margin-bottom:8px">语料需求更新</div>
+              <div style="font-size:11px;color:#4a5e82;line-height:1.6">合作企业需求动态<br>数据类型 · 合作进展追踪</div>
             </div>
-            <div style="background:#fff;border:1px solid #e9ecf1;border-radius:10px;padding:20px;cursor:pointer">
-              <div style="font-size:24px;margin-bottom:8px">&#128196;</div>
-              <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px">文档生成</div>
-              <div style="font-size:11px;color:var(--text2);line-height:1.5">六种文档模板、自动提取数据、一键导出 Word / PDF</div>
+            <div style="background:linear-gradient(135deg,#f8faff 0%,#edf2fc 100%);border:1px solid #d0daf0;border-radius:12px;padding:24px;cursor:pointer;text-align:center">
+              <div style="font-size:16px;font-weight:700;color:#1a3a5c;margin-bottom:8px">文档生成</div>
+              <div style="font-size:11px;color:#4a5e82;line-height:1.6">六种文档模板 · 自动提取数据<br>一键导出 Word / PDF</div>
             </div>
           </div>
         </div>
@@ -834,40 +870,29 @@ body {
       <div class="mb-frame">
         <div class="mb-topbar">9:41</div>
         <div class="mb-nav" style="display:flex;justify-content:space-between;padding:0 12px">
-          <span style="font-size:11px;color:var(--text2)">&#9672; 工作台</span>
-          <span style="font-size:14px;color:var(--blue)">&#9786;</span>
+          <span style="font-size:12px;font-weight:600;color:var(--text)">&#9672; 工作台</span>
+          <span style="font-size:15px;color:var(--blue)">&#9786;</span>
         </div>
-        <div class="mb-content" style="display:flex;flex-direction:column;gap:12px;padding:16px">
-          <div style="background:#fff;border:1px solid #e9ecf1;border-radius:10px;padding:16px">
-            <div style="display:flex;align-items:center;gap:10px">
-              <span style="font-size:22px">&#128203;</span>
-              <div><div style="font-size:13px;font-weight:700;color:var(--text)">项目基本情况</div><div style="font-size:10px;color:var(--text3)">概述 · 背景 · 目标 · 架构</div></div>
-            </div>
+        <div class="mb-content" style="display:flex;flex-direction:column;gap:10px;padding:14px">
+          <div style="background:linear-gradient(135deg,#eef2ff,#dce6fa);border-radius:10px;padding:18px;text-align:center">
+            <div style="font-size:14px;font-weight:700;color:#1a3a5c;margin-bottom:3px">项目基本情况</div>
+            <div style="font-size:10px;color:#4a5e82">概述 · 背景 · 目标 · 架构 · 单位</div>
           </div>
-          <div style="background:#fff;border:1px solid #e9ecf1;border-radius:10px;padding:16px">
-            <div style="display:flex;align-items:center;gap:10px">
-              <span style="font-size:22px">&#128200;</span>
-              <div><div style="font-size:13px;font-weight:700;color:var(--text)">学科建设情况</div><div style="font-size:10px;color:var(--text3)">六学科 · 进度 · 成果 · 人员</div></div>
-            </div>
+          <div style="background:linear-gradient(135deg,#f0f7ff,#ddecf9);border-radius:10px;padding:18px;text-align:center">
+            <div style="font-size:14px;font-weight:700;color:#1e4d8c;margin-bottom:3px">学科建设情况</div>
+            <div style="font-size:10px;color:#4a6d94">六学科 · 进度 · 成果 · 人员</div>
           </div>
-          <div style="background:#fff;border:1px solid #e9ecf1;border-radius:10px;padding:16px">
-            <div style="display:flex;align-items:center;gap:10px">
-              <span style="font-size:22px">&#128226;</span>
-              <div><div style="font-size:13px;font-weight:700;color:var(--text)">语料需求更新</div><div style="font-size:10px;color:var(--text3)">企业需求 · 数据类型 · 进度</div></div>
-            </div>
+          <div style="background:linear-gradient(135deg,#f5f7ff,#e4eaf8);border-radius:10px;padding:18px;text-align:center">
+            <div style="font-size:14px;font-weight:700;color:#2c3d6b;margin-bottom:3px">语料需求更新</div>
+            <div style="font-size:10px;color:#4a5e82">企业需求 · 数据类型 · 进度</div>
           </div>
-          <div style="background:#fff;border:1px solid #e9ecf1;border-radius:10px;padding:16px">
-            <div style="display:flex;align-items:center;gap:10px">
-              <span style="font-size:22px">&#128196;</span>
-              <div><div style="font-size:13px;font-weight:700;color:var(--text)">文档生成</div><div style="font-size:10px;color:var(--text3)">模板 · 预览 · 导出</div></div>
-            </div>
+          <div style="background:linear-gradient(135deg,#f8faff,#ea effa);border-radius:10px;padding:18px;text-align:center">
+            <div style="font-size:14px;font-weight:700;color:#1a3a5c;margin-bottom:3px">文档生成</div>
+            <div style="font-size:10px;color:#4a5e82">模板 · 预览 · 导出</div>
           </div>
         </div>
         <div class="mb-tabs">
           <div class="mb-tab on"><span class="mbt-icon">&#9672;</span>首页</div>
-          <div class="mb-tab"><span class="mbt-icon">&#9776;</span>学科</div>
-          <div class="mb-tab"><span class="mbt-icon">&#9678;</span>需求</div>
-          <div class="mb-tab"><span class="mbt-icon">&#9998;</span>生成</div>
           <div class="mb-tab"><span class="mbt-icon">&#9786;</span>我的</div>
         </div>
       </div>
@@ -881,11 +906,11 @@ body {
   <div class="slide-info">
     <div class="si-num">1</div>
     <h2>项目基本情况</h2>
-    <p class="si-desc">面向领导、合作单位的项目全景介绍。基本信息表格化呈现，战略背景和建设目标概括提炼，组织架构分层展示。</p>
+    <p class="si-desc">面向领导、合作单位的项目全景介绍。基本信息表格化呈现，战略背景和建设目标概括提炼，组织架构分层展示，承担单位实力介绍。</p>
     <ul class="si-features">
       <li>基本信息表格清晰查阅</li>
       <li>战略背景 + 建设目标概括</li>
-      <li>组织架构分层展示</li>
+      <li>组织架构分层可视化</li>
       <li>管理员可在线编辑更新</li>
     </ul>
   </div>
@@ -898,45 +923,47 @@ body {
           <span class="dt-tab on">项目基本情况</span>
         </div>
         <div class="dt-body">
-          <div class="dt-sidebar">
-            <div class="dts-logo">&#9672; AIS 语料库</div>
-            <ul class="dts-nav">
-              <li class="on">项目基本情况</li>
-              <li>学科建设情况</li>
-              <li>语料需求更新</li>
-              <li>文档生成</li>
-            </ul>
-          </div>
-          <div class="dt-main">
-            <div class="dtm-title">项目基本情况</div>
-            <table class="info-table-v2">
+          <div class="dt-main" style="padding:12px 14px">
+            <div class="dtm-title" style="margin-bottom:10px">项目概述</div>
+            <div style="font-size:10px;color:var(--text2);line-height:1.7;margin-bottom:10px">基础学科科学研究语料库建设项目由国家发展改革委批复立项，教育部统筹，北京大学牵头建设，聚焦<b>数理化天地生</b>六大基础学科，旨在建成全球首个覆盖基础学科全谱系的战略语料库。</div>
+            <table class="info-table-v2" style="margin-bottom:12px">
               <tr><td class="itv-label">项目名称</td><td>基础学科科学研究语料库建设项目</td></tr>
               <tr><td class="itv-label">批复 / 统筹</td><td>国家发展改革委 / 教育部</td></tr>
               <tr><td class="itv-label">建设单位</td><td>北京大学（张锦常务副校长任负责人，鄂维南院士任技术总师）</td></tr>
-              <tr><td class="itv-label">协同高校</td><td>清华、南大、复旦、上交、武大、厦大（"1+6"协同机制）</td></tr>
+              <tr><td class="itv-label">协同高校</td><td>清华大学、南京大学、复旦大学、上海交通大学、武汉大学、厦门大学（"1+6"协同机制）</td></tr>
               <tr><td class="itv-label">共建企业</td><td>华为、蚂蚁、鹏城实验室、百度、万方、京能、字节跳动、中国联通、深势科技</td></tr>
-              <tr><td class="itv-label">建设期</td><td>12 个月（2025.9 – 2026.12）</td></tr>
-              <tr><td class="itv-label">总投资</td><td>59,590 万元</td></tr>
-              <tr><td class="itv-label">建设地点</td><td>北京怀柔（主）· 深圳南山北大深研院（备）</td></tr>
+              <tr><td class="itv-label">建设期 / 投资</td><td>12 个月（2025.9 – 2026.12）/ 59,590 万元</td></tr>
+              <tr><td class="itv-label">建设地点</td><td>北京怀柔慧云西路6号院（主）· 深圳南山北大深研院（备）</td></tr>
             </table>
-            <div class="cs-text" style="margin-top:10px">聚焦<b>数学、物理、化学、天文、地理、生物</b>六大基础学科，建成全球首个覆盖基础学科全谱系的战略语料库，为我国 AI for Science 提供长效语料支撑。</div>
+
             <div class="cs-subtitle">战略背景</div>
-            <div class="cs-text">习近平总书记指出人工智能"要占领先机、赢得优势，以人工智能引领科研范式变革"。AI4S 竞争正从算法优化转向高质量科学数据的底层争夺。建设 AI4S 战略语料库，对我国突破"卡脖子"瓶颈具有重大而紧迫的战略意义。</div>
+            <div class="cs-text">习近平总书记明确指出人工智能"要占领先机、赢得优势，以人工智能引领科研范式变革"。当前 AI4S 全球竞争正从算法优化转向对<b>高质量科学数据的底层争夺</b>。建设 AI4S 战略语料库，对我国突破"卡脖子"瓶颈、抢占人工智能技术制高点具有重大而紧迫的战略意义。</div>
+
             <div class="cs-subtitle">建设目标与关键指标</div>
-            <div class="cs-text">以"<b>可治理、可追溯、可复用、可迭代</b>"为主线。北大承担 <b>≥38 PB、≥92 亿条</b>，数据集 <b>≥900 个</b>，服务 <b>≥400 万</b>用户；合并中科院后 <b>≥95 PB、≥230 亿条</b>，服务 <b>≥600 万</b>用户。质量指标：准确率 ≥90%，抽样合格率 ≥95%，标注一致性 ≥0.8。</div>
+            <div class="cs-text">以"<b>可治理、可追溯、可复用、可迭代</b>"为建设主线。北京大学承担 <b>≥38 PB、≥92 亿条</b>，数据集 <b>≥900 个</b>，服务 <b>≥400 万</b>科研用户；与中科院文献情报中心合并后总规模 <b>≥95 PB、≥230 亿条</b>，数据集 <b>≥3,000 个</b>，服务 <b>≥600 万</b>用户。质量指标：准确率 ≥90%，抽样合格率 ≥95%，标注一致性 ≥0.8，重复率 ≤5‰。示范应用：服务 ≥10 家基础模型，≥100 个垂类工具模型，≥1,000 个科研智能体。</div>
+
             <div class="cs-subtitle">组织架构</div>
-            <div class="cs-text">
-              <div style="margin-bottom:6px"><b>指挥部</b>（项目负责人 · 首席科学家 · 秘书长）</div>
-              <div style="margin-left:16px;margin-bottom:6px">└ <b>协调中心</b>（负责人 · 项目经理 · 副手 · 教育部协调 · 日常统筹）</div>
-              <div style="margin-left:32px;margin-bottom:2px">├ 数学组 · 物理组 · 化学组 · 天文组 · 地理组 · 生物组（六大学科语料加工与质量把关）</div>
-              <div style="margin-left:32px;margin-bottom:2px">├ 数据统筹组（统一数据收集、采买、高校对接）</div>
-              <div style="margin-left:32px;margin-bottom:2px">├ 加工工具组（DataFlow 语料加工工具研发）</div>
-              <div style="margin-left:32px;margin-bottom:2px">├ 硬件与平台组（系统采买与搭建）</div>
-              <div style="margin-left:32px;margin-bottom:2px">├ 模型训练组（模型视角反馈语料质量）</div>
-              <div style="margin-left:32px">└ 教学培养组（语料课程与人才培训）</div>
+            <div class="org-chart">
+              <div class="org-box org-box-top">指挥部<br><span>项目负责人 · 首席科学家 · 秘书长</span></div>
+              <div class="org-line"></div>
+              <div class="org-box org-box-mid">协调中心<br><span>负责人 · 项目经理 · 副手 · 教育部协调 · 日常统筹</span></div>
+              <div class="org-line-branch">
+                <div class="org-branch-item"><div class="org-box org-box-sub">数学组</div><span>语料加工与质量把关</span></div>
+                <div class="org-branch-item"><div class="org-box org-box-sub">物理组</div><span>语料加工与质量把关</span></div>
+                <div class="org-branch-item"><div class="org-box org-box-sub">化学组</div><span>语料加工与质量把关</span></div>
+                <div class="org-branch-item"><div class="org-box org-box-sub">天文组</div><span>语料加工与质量把关</span></div>
+                <div class="org-branch-item"><div class="org-box org-box-sub">地理组</div><span>语料加工与质量把关</span></div>
+                <div class="org-branch-item"><div class="org-box org-box-sub">生物组</div><span>语料加工与质量把关</span></div>
+                <div class="org-branch-item"><div class="org-box org-box-sub" style="background:#f0f4ff">数据统筹组</div><span>数据汇交与采买</span></div>
+                <div class="org-branch-item"><div class="org-box org-box-sub" style="background:#f0f4ff">加工工具组</div><span>DataFlow平台</span></div>
+                <div class="org-branch-item"><div class="org-box org-box-sub" style="background:#f0f4ff">硬件平台组</div><span>系统采买搭建</span></div>
+                <div class="org-branch-item"><div class="org-box org-box-sub" style="background:#f0f4ff">模型训练组</div><span>质量反馈</span></div>
+                <div class="org-branch-item"><div class="org-box org-box-sub" style="background:#f0f4ff">教学培养组</div><span>课程与培训</span></div>
+              </div>
             </div>
+
             <div class="cs-subtitle">承担单位</div>
-            <div class="cs-text"><b>北京大学</b>：49 个国家一流学科，23 个全国重点实验室，12 位"两弹一星"功勋。<b>北京科学智能研究院（AISI）</b>：鄂维南院士领衔，全球首个 AI4S 机构，发起国际科学智能联盟。</div>
+            <div class="cs-text"><b>北京大学</b> — 国内基础科学研究旗舰，49 个国家一流学科，23 个全国重点实验室，基金委项目经费 34.1 亿元，12 位"两弹一星"功勋出自北大。<b>北京科学智能研究院（AISI）</b> — 鄂维南院士领衔，全球首个 AI for Science 研究机构，发布 OpenLAM、Science Navigator、SciencePedia，发起"国际科学智能联盟"。</div>
           </div>
         </div>
       </div>
@@ -947,30 +974,30 @@ body {
         <div class="mb-topbar">9:41</div>
         <div class="mb-nav">项目基本情况</div>
         <div class="mb-content">
-          <table class="info-table-v2" style="font-size:9px">
-            <tr><td class="itv-label">名称</td><td>基础学科科学研究语料库建设项目</td></tr>
-            <tr><td class="itv-label">批复</td><td>国家发展改革委 / 教育部</td></tr>
-            <tr><td class="itv-label">建设</td><td>北京大学（张锦/鄂维南）</td></tr>
-            <tr><td class="itv-label">协同</td><td>清华等6校"1+6"+华为等企业</td></tr>
-            <tr><td class="itv-label">期限</td><td>12个月 / 59,590万元</td></tr>
-            <tr><td class="itv-label">地点</td><td>北京怀柔（主）· 深圳南山（备）</td></tr>
+          <table class="info-table-v2" style="font-size:9px;margin-bottom:8px">
+            <tr><td class="itv-label" style="width:55px">名称</td><td>基础学科科学研究语料库建设项目</td></tr>
+            <tr><td class="itv-label" style="width:55px">批复/统筹</td><td>国家发展改革委 / 教育部</td></tr>
+            <tr><td class="itv-label" style="width:55px">建设单位</td><td>北京大学（张锦/鄂维南）</td></tr>
+            <tr><td class="itv-label" style="width:55px">协同高校</td><td>清华、南大、复旦、上交、武大、厦大（"1+6"）</td></tr>
+            <tr><td class="itv-label" style="width:55px">共建企业</td><td>华为、蚂蚁、鹏城实验室、百度、万方、京能、字节等</td></tr>
+            <tr><td class="itv-label" style="width:55px">期限/投资</td><td>12个月 / 59,590万元</td></tr>
           </table>
-          <div style="font-size:10px;color:var(--text2);line-height:1.6;margin-top:8px">聚焦数理化天地生六大学科。习近平指出AI"要占领先机、赢得优势"。</div>
-          <div style="font-size:10px;font-weight:600;color:var(--text);margin-top:8px">组织架构</div>
-          <div style="font-size:9px;color:var(--text2);line-height:1.6">指挥部 → 协调中心 → 11个工作组（六大学科组 + 数据统筹 + 加工工具 + 硬件平台 + 模型训练 + 教学培养）</div>
+          <div style="font-size:10px;color:var(--text2);line-height:1.6;margin-bottom:6px">聚焦数理化天地生六大学科。习近平指出 AI"要占领先机、赢得优势"。</div>
+          <div style="font-size:10px;font-weight:600;color:var(--text);margin-bottom:4px">关键指标</div>
+          <div style="font-size:9px;color:var(--text2);line-height:1.5;margin-bottom:6px">北大：≥38 PB / 92亿条 / ≥900数据集 / ≥400万用户。合并中科院：≥95 PB / 230亿条 / ≥3,000数据集 / ≥600万用户。</div>
+          <div style="font-size:10px;font-weight:600;color:var(--text);margin-bottom:4px">组织架构</div>
+          <div style="font-size:9px;color:var(--text2);line-height:1.6">指挥部 → 协调中心 → 11个工作组（六大学科组 + 数据统筹 + 加工工具 + 硬件平台 + 模型训练 + 教学培养）。按周调度，提交周报。</div>
+          <div style="font-size:10px;font-weight:600;color:var(--text);margin-bottom:4px;margin-top:6px">承担单位</div>
+          <div style="font-size:9px;color:var(--text2);line-height:1.5">北大：49个一流学科，23个全国重点实验室。AISI：鄂维南院士领衔，全球首个AI4S机构。</div>
         </div>
         <div class="mb-tabs">
-          <div class="mb-tab on"><span class="mbt-icon">&#9672;</span>首页</div>
-          <div class="mb-tab"><span class="mbt-icon">&#9776;</span>学科</div>
-          <div class="mb-tab"><span class="mbt-icon">&#9678;</span>需求</div>
-          <div class="mb-tab"><span class="mbt-icon">&#9998;</span>生成</div>
-          <div class="mb-tab"><span class="mbt-icon">&#9786;</span>我的</div>
+          <div class="mb-tab"><span class="mbt-icon">&#9672;</span>首页</div>
+          <div class="mb-tab on"><span class="mbt-icon">&#9786;</span>我的</div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
 
 <!-- ====== 4. 学科建设情况 ====== -->
 <div class="slide slide-light slide-content">
@@ -994,15 +1021,6 @@ body {
           <span class="dt-tab on">学科建设情况</span>
         </div>
         <div class="dt-body">
-          <div class="dt-sidebar">
-            <div class="dts-logo">&#9672; AIS 语料库</div>
-            <ul class="dts-nav">
-              <li>项目基本情况</li>
-              <li class="on">学科建设情况</li>
-              <li>语料需求更新</li>
-              <li>文档生成</li>
-            </ul>
-          </div>
           <div class="dt-main">
             <div class="stat-row" style="margin-bottom:12px">
               <div class="stat-card"><div class="sn">62</div><div class="sl">建设项目</div></div>
@@ -1070,15 +1088,6 @@ body {
           <span class="dt-tab on">语料需求更新</span>
         </div>
         <div class="dt-body">
-          <div class="dt-sidebar">
-            <div class="dts-logo">&#9672; AIS 语料库</div>
-            <ul class="dts-nav">
-              <li>项目基本情况</li>
-              <li>学科建设情况</li>
-              <li class="on">语料需求更新</li>
-              <li>文档生成</li>
-            </ul>
-          </div>
           <div class="dt-main">
             <div class="dtm-title">语料需求更新</div>
             <div class="chips" style="margin-bottom:10px">
@@ -1156,15 +1165,6 @@ body {
           <span class="dt-tab on">文档生成</span>
         </div>
         <div class="dt-body">
-          <div class="dt-sidebar">
-            <div class="dts-logo">&#9672; AIS 语料库</div>
-            <ul class="dts-nav">
-              <li>项目基本情况</li>
-              <li>学科建设情况</li>
-              <li>语料需求更新</li>
-              <li class="on">文档生成</li>
-            </ul>
-          </div>
           <div class="dt-main">
             <div class="dtm-title">文档生成</div>
             <div class="tip-banner" style="margin-bottom:10px"><span class="tb-icon">!</span>选择模板后系统自动从项目数据库中提取最新数据生成文档初稿</div>
@@ -1228,15 +1228,6 @@ body {
           <span class="dt-tab on">个人中心</span>
         </div>
         <div class="dt-body">
-          <div class="dt-sidebar">
-            <div class="dts-logo">&#9672; AIS 语料库</div>
-            <ul class="dts-nav">
-              <li>项目基本情况</li>
-              <li>学科建设情况</li>
-              <li>语料需求更新</li>
-              <li>文档生成</li>
-            </ul>
-          </div>
           <div class="dt-main">
             <div class="prof-head">
               <div class="avt">陈</div>
