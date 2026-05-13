@@ -1,0 +1,1642 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIS语料库建设管理平台 - UI设计稿</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --blue-deep: #1a365d;
+  --blue: #2c5aa8;
+  --blue-mid: #3b6fc9;
+  --blue-light: #5b8def;
+  --blue-pale: #dce8f8;
+  --blue-bg: #eef3fa;
+  --blue-ghost: #f5f7fc;
+  --white: #fff;
+  --text: #1a2332;
+  --text2: #4a5568;
+  --text3: #8899b0;
+  --border: #e2e8f0;
+  --bg: #f7f9fc;
+  --bg2: #edf2f9;
+  --amber: #d97706;
+  --amber-light: #fef7ed;
+  --teal: #0d9488;
+  --teal-light: #eefaf8;
+  --green: #15803d;
+  --green-light: #eaf7ee;
+  --red: #c53030;
+  --red-light: #fef5f5;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  background: #eef1f6;
+}
+
+/* ===== PPT Slide Container ===== */
+.slide {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 48px 60px;
+  position: relative;
+}
+.slide-white { background: #fff; }
+.slide-light { background: var(--blue-ghost); }
+.slide-dark { background: linear-gradient(160deg, #0f1d32 0%, #1a365d 40%, #1e3a5f 100%); }
+
+/* ===== Slide 1: Cover ===== */
+.slide-cover {
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+}
+.cover-badge {
+  display: inline-block;
+  padding: 6px 18px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: var(--blue-light);
+  font-size: 13px;
+  letter-spacing: 3px;
+}
+.cover-title {
+  font-size: 44px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 2px;
+  line-height: 1.3;
+}
+.cover-sub {
+  font-size: 18px;
+  color: rgba(255,255,255,0.55);
+  font-weight: 300;
+  margin-top: 4px;
+}
+.cover-tags {
+  display: flex;
+  gap: 10px;
+  margin-top: 24px;
+}
+.cover-tag {
+  padding: 8px 20px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+}
+.cover-footer {
+  position: absolute;
+  bottom: 40px;
+  color: rgba(255,255,255,0.3);
+  font-size: 13px;
+}
+
+/* ===== Slide 2: Login ===== */
+.slide-login {
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  gap: 80px;
+}
+.login-info {
+  max-width: 360px;
+}
+.login-info .li-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 4px;
+  background: var(--blue-pale);
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+.login-info h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+.login-info p {
+  font-size: 14px;
+  color: var(--text3);
+  line-height: 1.7;
+}
+
+.login-card {
+  width: 380px;
+  background: #fff;
+  border-radius: 14px;
+  padding: 36px 32px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+}
+.login-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+.login-card .lc-sub {
+  font-size: 13px;
+  color: var(--text3);
+  margin-bottom: 24px;
+}
+.lc-input {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--text);
+  margin-bottom: 12px;
+  background: var(--bg);
+}
+.lc-input:focus { outline: none; border-color: var(--blue); background: #fff; }
+.lc-btn {
+  width: 100%;
+  padding: 12px;
+  background: var(--blue);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: 4px;
+}
+.lc-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 18px 0;
+  font-size: 12px;
+  color: var(--text3);
+}
+.lc-divider::before, .lc-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+.lc-oauth {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.lc-oauth-item {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+/* ===== Slide: Mechanism ===== */
+.slide-mechanism {
+  gap: 32px;
+  padding-top: 56px;
+}
+.mech-header {
+  text-align: center;
+}
+.mech-header .mh-num {
+  font-size: 13px;
+  color: var(--blue);
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+.mech-header h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 6px 0 8px;
+}
+.mech-header p {
+  font-size: 15px;
+  color: var(--text3);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.mech-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.mech-box {
+  width: 200px;
+  padding: 24px 16px;
+  border-radius: 14px;
+  text-align: center;
+}
+.mech-box.mb1 { background: var(--green-light); border: 1px solid #bbf7d0; }
+.mech-box.mb2 { background: var(--blue-ghost); border: 1px solid var(--blue-pale); }
+.mech-box.mb3 { background: var(--amber-light); border: 1px solid #fde68a; }
+.mech-box .mb-icon { font-size: 28px; margin-bottom: 8px; }
+.mech-box .mb-title { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+.mech-box.mb1 .mb-title { color: var(--green); }
+.mech-box.mb2 .mb-title { color: var(--blue); }
+.mech-box.mb3 .mb-title { color: var(--amber); }
+.mech-box .mb-desc { font-size: 12px; color: var(--text3); line-height: 1.5; }
+.mech-arrow { font-size: 24px; color: var(--text3); }
+
+.mech-docs {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.mech-doc {
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  color: var(--text2);
+  background: var(--bg);
+  border: 1px solid var(--border);
+}
+
+/* ===== Content Slides (PPT style with panels) ===== */
+.slide-content {
+  flex-direction: row;
+  gap: 40px;
+  align-items: flex-start;
+}
+.slide-info {
+  width: 280px;
+  flex-shrink: 0;
+  padding-top: 20px;
+}
+.slide-info .si-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px; height: 32px;
+  border-radius: 8px;
+  background: var(--blue);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+.slide-info h2 {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+.slide-info .si-desc {
+  font-size: 14px;
+  color: var(--text3);
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+.slide-info .si-features {
+  list-style: none;
+}
+.slide-info .si-features li {
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.8;
+  padding-left: 14px;
+  position: relative;
+}
+.slide-info .si-features li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 9px;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--blue-light);
+}
+
+.panels-wrap {
+  flex: 1;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+.panel-col {
+  flex: 1;
+}
+.panel-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text3);
+  letter-spacing: 1.5px;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+/* ===== Desktop Frame ===== */
+.dt-frame {
+  background: #fafbfc;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+.dt-topbar {
+  height: 30px;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+}
+.dt-dot { width: 7px; height: 7px; border-radius: 50%; margin-right: 5px; }
+.dt-dot.r { background: #ef4444; }
+.dt-dot.y { background: #f59e0b; }
+.dt-dot.g { background: #10b981; }
+.dt-tab {
+  padding: 4px 14px;
+  font-size: 10px;
+  color: var(--text3);
+  border-right: 1px solid var(--border);
+  background: #fafbfc;
+}
+.dt-tab.on { background: #fff; color: var(--text); font-weight: 500; }
+
+.dt-body {
+  display: flex;
+  height: 400px;
+}
+.dt-sidebar {
+  width: 155px;
+  background: #f7f9fc;
+  border-right: 1px solid var(--border);
+  padding: 12px 10px;
+}
+.dt-sidebar .dts-logo {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--blue);
+  margin-bottom: 14px;
+  padding: 0 6px;
+}
+.dts-nav {
+  list-style: none;
+}
+.dts-nav li {
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  color: var(--text2);
+  margin-bottom: 2px;
+}
+.dts-nav li.on {
+  background: var(--blue-pale);
+  color: var(--blue-deep);
+  font-weight: 500;
+}
+
+.dt-main {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  background: #fff;
+}
+.dt-main .dtm-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+/* ===== Mobile Frame ===== */
+.mb-frame {
+  width: 290px;
+  flex-shrink: 0;
+  background: #f5f6f8;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+.mb-topbar {
+  height: 24px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  font-weight: 600;
+  color: #333;
+}
+.mb-nav {
+  height: 36px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  border-bottom: 0.5px solid var(--border);
+}
+.mb-content {
+  height: 340px;
+  overflow-y: auto;
+  padding: 10px;
+}
+.mb-tabs {
+  height: 40px;
+  background: #fff;
+  border-top: 0.5px solid var(--border);
+  display: flex;
+}
+.mb-tab {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  color: var(--text3);
+  gap: 1px;
+}
+.mb-tab.on { color: var(--blue); }
+.mbt-icon { font-size: 14px; }
+
+/* ===== Shared Components ===== */
+.stat-row {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+.stat-card {
+  flex: 1;
+  text-align: center;
+  padding: 10px 4px;
+  background: var(--blue-ghost);
+  border-radius: 8px;
+}
+.stat-card .sn { font-size: 18px; font-weight: 700; color: var(--text); }
+.stat-card .sl { font-size: 10px; color: var(--text3); margin-top: 1px; }
+
+.sec-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text3);
+  letter-spacing: 0.5px;
+  margin: 10px 0 6px;
+}
+
+.subj-row {
+  display: flex;
+  align-items: center;
+  padding: 7px 10px;
+  border-radius: 6px;
+  margin-bottom: 3px;
+  gap: 8px;
+  font-size: 11px;
+  background: var(--blue-ghost);
+}
+.subj-row .srn { font-weight: 600; color: var(--text); width: 26px; }
+.subj-row .srb { flex: 1; height: 4px; background: #dce3ed; border-radius: 2px; overflow: hidden; }
+.subj-row .srf { height: 100%; border-radius: 2px; background: var(--blue); }
+.subj-row .srp { color: var(--text2); width: 26px; text-align: right; font-weight: 500; }
+.subj-row .srd { color: var(--text3); width: 50px; text-align: right; }
+
+.sc {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-bottom: 6px;
+  overflow: hidden;
+}
+.sc-head {
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fafbfc;
+}
+.sc-head .scn { font-size: 13px; font-weight: 700; color: var(--text); }
+.sc-badge {
+  font-size: 9px; padding: 2px 7px; border-radius: 3px;
+  color: #fff; background: var(--blue-mid); font-weight: 500;
+}
+.sc-body {
+  padding: 8px 10px;
+  display: flex; gap: 8px;
+}
+.sc-stat { flex: 1; }
+.sc-stat .scsn { font-size: 15px; font-weight: 700; color: var(--text); }
+.sc-stat .scsl { font-size: 9px; color: var(--text3); margin-top: 1px; }
+.sc-foot {
+  padding: 5px 10px;
+  background: #fafbfc;
+  font-size: 9px; color: var(--text2);
+  display: flex; align-items: center; gap: 6px;
+}
+.sc-foot .scfb { flex: 1; height: 3px; background: #dce3ed; border-radius: 2px; overflow: hidden; }
+.sc-foot .scff { height: 100%; border-radius: 2px; background: var(--blue); }
+
+.pj-item {
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f1f3;
+}
+.pj-item:last-child { border-bottom: none; }
+.pj-item .pjn { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+.pj-item .pjd { font-size: 11px; color: var(--text2); line-height: 1.4; margin-bottom: 4px; }
+.pj-item .pjm { font-size: 10px; color: var(--text3); display: flex; align-items: center; gap: 6px; }
+.pj-tag {
+  font-size: 9px; padding: 1px 6px; border-radius: 3px; font-weight: 500;
+}
+.pj-tag.on { background: var(--blue-pale); color: var(--blue); }
+.pj-tag.done { background: var(--green-light); color: var(--green); }
+.pj-tag.plan { background: var(--amber-light); color: var(--amber); }
+
+.detail-block { margin-bottom: 8px; }
+.detail-block .dl { font-size: 10px; color: var(--text3); margin-bottom: 2px; letter-spacing: 0.5px; }
+.detail-block .dv { font-size: 12px; color: var(--text); line-height: 1.6; }
+
+.fg { margin-bottom: 8px; }
+.fg .fgl { font-size: 11px; font-weight: 500; color: var(--text); margin-bottom: 2px; }
+.fg .fgl .req { color: var(--red); }
+.fg-input {
+  width: 100%; padding: 5px 8px; border: 1px solid var(--border);
+  border-radius: 5px; font-size: 11px; color: var(--text); background: #fff;
+}
+.fg-textarea {
+  width: 100%; height: 55px; padding: 5px 8px; border: 1px solid var(--border);
+  border-radius: 5px; font-size: 11px; color: var(--text); line-height: 1.5;
+  resize: none; background: #fff;
+}
+
+.chips { display: flex; gap: 4px; flex-wrap: wrap; }
+.chip {
+  padding: 3px 8px; border-radius: 4px; font-size: 10px;
+  color: var(--text2); background: var(--bg); border: 1px solid var(--border);
+}
+.chip.on { background: var(--blue-pale); color: var(--blue); border-color: var(--blue-light); }
+
+.btn-row { display: flex; gap: 5px; margin-top: 10px; }
+.btn {
+  flex: 1; padding: 6px 0; border-radius: 5px; font-size: 11px;
+  text-align: center; border: 1px solid var(--border); background: #fff; color: var(--text2);
+}
+.btn.pri { background: var(--blue); color: #fff; border-color: var(--blue); }
+
+.doc-tpl {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 10px; border: 1px solid var(--border);
+  border-radius: 7px; margin-bottom: 5px;
+}
+.doc-tpl .dt-icon {
+  width: 28px; height: 28px; border-radius: 6px;
+  background: var(--blue-pale); display: flex; align-items: center;
+  justify-content: center; font-size: 13px; flex-shrink: 0;
+  color: var(--blue);
+}
+.doc-tpl .dt-name { font-size: 12px; font-weight: 600; color: var(--text); }
+.doc-tpl .dt-desc { font-size: 10px; color: var(--text3); }
+
+.doc-pv {
+  border: 1px solid var(--border); border-radius: 7px;
+  padding: 12px; background: #fdfdfd;
+}
+.doc-pv .dp-title {
+  font-size: 13px; font-weight: 700; text-align: center;
+  margin-bottom: 8px; color: var(--text);
+}
+.doc-pv .dp-text {
+  font-size: 10px; color: var(--text2); line-height: 1.8;
+}
+
+.prof-head {
+  display: flex; align-items: center; gap: 8px;
+  padding-bottom: 10px; border-bottom: 1px solid var(--border); margin-bottom: 10px;
+}
+.avt {
+  width: 34px; height: 34px; border-radius: 50%;
+  background: var(--blue-pale); color: var(--blue);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 600;
+}
+.prof-name { font-size: 13px; font-weight: 600; color: var(--text); }
+.prof-role { font-size: 10px; color: var(--text3); margin-top: 1px; }
+
+.menu-list { border: 1px solid var(--border); border-radius: 7px; overflow: hidden; }
+.menu-row {
+  padding: 9px 10px; font-size: 11px; color: var(--text);
+  border-bottom: 1px solid #f0f1f3; display: flex; justify-content: space-between;
+}
+.menu-row:last-child { border-bottom: none; }
+
+.tip-banner {
+  background: var(--amber-light); border-radius: 5px; padding: 6px 8px;
+  font-size: 9px; color: var(--amber); display: flex; align-items: center;
+  gap: 5px; margin-bottom: 8px;
+}
+.tip-banner .tb-icon {
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--amber); color: #fff; font-size: 8px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; font-weight: 700;
+}
+
+.tag-row { display: flex; gap: 3px; flex-wrap: wrap; }
+.tag-row .t { padding: 2px 7px; background: var(--bg); border-radius: 3px; font-size: 9px; color: var(--text2); }
+
+/* ===== Q&A Components ===== */
+.qa-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 8px;
+}
+.qa-card .qa-q {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+.qa-card .qa-q .qa-q-icon {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: var(--blue);
+  color: #fff;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-weight: 700;
+}
+.qa-card .qa-a {
+  font-size: 12px;
+  color: var(--text2);
+  line-height: 1.6;
+  padding-left: 26px;
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+.qa-card .qa-a .qa-a-icon {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: var(--teal);
+  color: #fff;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-weight: 700;
+}
+.qa-card .qa-meta {
+  font-size: 10px;
+  color: var(--text3);
+  margin-top: 4px;
+  padding-left: 26px;
+}
+.qa-input-row {
+  display: flex;
+  gap: 6px;
+  margin-top: 10px;
+}
+.qa-input {
+  flex: 1;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 12px;
+  color: var(--text);
+  background: var(--bg);
+}
+
+/* Slide with Q&A specific */
+.qa-sidebar {
+  width: 155px;
+  background: #f7f9fc;
+  border-right: 1px solid var(--border);
+  padding: 12px 10px;
+}
+.qa-sidebar .qa-logo {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--blue);
+  margin-bottom: 14px;
+  padding: 0 6px;
+}
+.qa-nav-item {
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  color: var(--text2);
+  margin-bottom: 2px;
+}
+
+/* Accent dot */
+.accent-dot {
+  display: inline-block;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+.accent-dot.amber { background: var(--amber); }
+.accent-dot.teal { background: var(--teal); }
+.accent-dot.green { background: var(--green); }
+
+@media (max-width: 1000px) {
+  .slide { padding: 24px 20px; }
+  .slide-content { flex-direction: column; }
+  .slide-info { width: 100%; padding-top: 0; }
+  .panels-wrap { flex-direction: column; }
+  .mb-frame { width: 100%; }
+  .slide-login { flex-direction: column; gap: 30px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ====== MECHANISM ====== -->
+<div class="slide slide-white slide-mechanism">
+  <div class="mech-header">
+    <div class="mh-num">平台机制</div>
+    <h2>「数据中台 + 文档生成 + 协同问答」</h2>
+    <p>日常维护一套结构化项目数据，文档自动生成，疑问随时问答。一次更新，全局同步。</p>
+  </div>
+  <div class="mech-flow">
+    <div class="mech-box mb1">
+      <div class="mb-icon">📝</div>
+      <div class="mb-title">管理员定期更新</div>
+      <div class="mb-desc">各学科进度、项目信息<br>数据规模、人员变动</div>
+    </div>
+    <div class="mech-arrow">→</div>
+    <div class="mech-box mb2">
+      <div class="mb-icon">🗄</div>
+      <div class="mb-title">结构化项目数据库</div>
+      <div class="mb-desc">唯一「数据真相源」<br>所有信息统一存储</div>
+    </div>
+    <div class="mech-arrow">→</div>
+    <div class="mech-box mb3">
+      <div class="mb-icon">✨</div>
+      <div class="mb-title">三大使用方式</div>
+      <div class="mb-desc">1. 随时查：总览 / 学科详情<br>2. 自动生成：选模板→导出文档<br>3. 问答：提问交流</div>
+    </div>
+  </div>
+  <div class="mech-docs">
+    <div class="mech-doc">📄 项目进展汇报</div>
+    <div class="mech-doc">📋 对外支持材料</div>
+    <div class="mech-doc">📝 项目背景与意义</div>
+    <div class="mech-doc">🎤 讲话稿/经验分享</div>
+    <div class="mech-doc">🏛 已有工作基础</div>
+    <div class="mech-doc">✉️ 联络/动员邮件</div>
+  </div>
+</div>
+
+<!-- ====== LOGIN ====== -->
+<div class="slide slide-light slide-content">
+  <div class="slide-info">
+    <div class="si-num">◈</div>
+    <h2>登录页面</h2>
+    <p class="si-desc">平台入口，也是产品的封面页。深蓝渐变背景配合淡色几何装饰，中间放置简洁的登录卡片。使用北京大学校内账号登录。</p>
+    <ul class="si-features">
+      <li>作为产品封面，设计简洁大气</li>
+      <li>校内账号统一认证</li>
+      <li>仅限项目相关人员使用</li>
+      <li>新用户联系管理员开通</li>
+    </ul>
+  </div>
+  <div class="panels-wrap">
+    <div class="panel-col">
+      <div class="panel-label">桌面端</div>
+      <div class="dt-frame">
+        <div class="dt-topbar">
+          <span class="dt-dot r"></span><span class="dt-dot y"></span><span class="dt-dot g"></span>
+        </div>
+        <div class="dt-body" style="align-items:center;justify-content:center;background:linear-gradient(150deg, #dce8f8 0%, #e8f0fa 30%, #d0dff5 60%, #e2ebf8 100%);position:relative;overflow:hidden">
+          <!-- decorative circles -->
+          <div style="position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(44,90,168,0.08) 0%,transparent 70%);top:-80px;right:-60px"></div>
+          <div style="position:absolute;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(59,111,201,0.06) 0%,transparent 70%);bottom:-40px;left:-40px"></div>
+          <div style="position:absolute;width:1px;height:60px;background:rgba(44,90,168,0.08);top:60px;left:30%"></div>
+          <div style="position:absolute;width:1px;height:40px;background:rgba(44,90,168,0.05);bottom:100px;right:25%"></div>
+          <!-- login card -->
+          <div style="width:260px;background:rgba(255,255,255,0.97);border-radius:12px;padding:28px 24px;box-shadow:0 8px 40px rgba(0,0,0,0.25);text-align:center;position:relative;z-index:1">
+            <div style="font-size:20px;font-weight:700;color:var(--blue-deep);margin-bottom:2px">◈ AIS 语料库</div>
+            <div style="font-size:15px;font-weight:600;color:var(--text);margin-bottom:2px">欢迎登录</div>
+            <div style="font-size:11px;color:var(--text3);margin-bottom:18px">使用北京大学校内账号</div>
+            <input class="lc-input" placeholder="工号 / 学号" style="margin-bottom:8px;font-size:12px">
+            <input class="lc-input" placeholder="密码" type="password" style="margin-bottom:12px;font-size:12px">
+            <button class="lc-btn" style="width:100%;font-size:13px;padding:9px">登 录</button>
+            <div class="lc-divider" style="font-size:10px;margin:12px 0">或</div>
+            <div class="lc-oauth">
+              <div class="lc-oauth-item" style="width:30px;height:30px;font-size:14px">🔑</div>
+              <div class="lc-oauth-item" style="width:30px;height:30px;font-size:14px">📧</div>
+              <div class="lc-oauth-item" style="width:30px;height:30px;font-size:14px">🏫</div>
+            </div>
+            <div style="text-align:center;margin-top:12px;font-size:10px;color:var(--text3)">仅限项目相关人员 · 联系管理员开通</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel-col" style="flex:0 0 auto">
+      <div class="panel-label">手机端</div>
+      <div class="mb-frame">
+        <div class="mb-topbar">9:41</div>
+        <div class="mb-content" style="height:380px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(160deg, #dce8f8 0%, #e8f0fa 35%, #d0dff5 65%, #e2ebf8 100%);position:relative;overflow:hidden;padding:20px">
+          <!-- decorative -->
+          <div style="position:absolute;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(44,90,168,0.1) 0%,transparent 70%);top:-50px;right:-40px"></div>
+          <div style="position:absolute;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,rgba(59,111,201,0.07) 0%,transparent 70%);bottom:-30px;left:-30px"></div>
+          <!-- content -->
+          <div style="position:relative;z-index:1;text-align:center;width:100%">
+            <div style="font-size:22px;font-weight:700;color:var(--blue-deep);margin-bottom:20px;letter-spacing:1px">◈ AIS 语料库</div>
+            <div style="width:100%;background:rgba(255,255,255,0.97);border-radius:12px;padding:22px 18px;box-shadow:0 6px 30px rgba(0,0,0,0.3);text-align:center">
+              <div style="font-size:17px;font-weight:600;color:var(--text);margin-bottom:2px">欢迎登录</div>
+              <div style="font-size:11px;color:var(--text3);margin-bottom:16px">使用北京大学校内账号</div>
+              <input class="lc-input" placeholder="工号 / 学号" style="margin-bottom:8px;font-size:11px">
+              <input class="lc-input" placeholder="密码" type="password" style="margin-bottom:12px;font-size:11px">
+              <button class="lc-btn" style="width:100%;font-size:13px;padding:9px">登 录</button>
+              <div class="lc-divider" style="font-size:10px;margin:12px 0">或</div>
+              <div class="lc-oauth">
+                <div class="lc-oauth-item" style="width:28px;height:28px;font-size:13px">🔑</div>
+                <div class="lc-oauth-item" style="width:28px;height:28px;font-size:13px">📧</div>
+                <div class="lc-oauth-item" style="width:28px;height:28px;font-size:13px">🏫</div>
+              </div>
+            </div>
+            <div style="text-align:center;margin-top:14px;font-size:10px;color:var(--text3)">仅限项目相关人员 · 联系管理员开通</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== 1. DASHBOARD ====== -->
+<div class="slide slide-light slide-content">
+  <div class="slide-info">
+    <div class="si-num">1</div>
+    <h2>建设总览</h2>
+    <p class="si-desc">打开即见全学科建设概况。顶部四张数字卡片展示项目总数、数据资源类数、加工工具数、协同单位规模。下方六学科进度条标注数据量，点击任一学科进入详情。</p>
+    <ul class="si-features">
+      <li>全学科概览，一页尽览</li>
+      <li>进度条 + 数据量双重展示</li>
+      <li>点击学科卡片跳转详情</li>
+      <li>电脑 / 手机自适应布局</li>
+    </ul>
+  </div>
+  <div class="panels-wrap">
+    <div class="panel-col">
+      <div class="panel-label">桌面端</div>
+      <div class="dt-frame">
+        <div class="dt-topbar">
+          <span class="dt-dot r"></span><span class="dt-dot y"></span><span class="dt-dot g"></span>
+          <span class="dt-tab on">建设总览</span><span class="dt-tab">学科详情</span><span class="dt-tab">文档生成</span>
+        </div>
+        <div class="dt-body">
+          <div class="dt-sidebar">
+            <div class="dts-logo">◈ AIS 语料库</div>
+            <ul class="dts-nav">
+              <li class="on">建设总览</li>
+              <li>数学</li>
+              <li>物理</li>
+              <li>化学</li>
+              <li>天文</li>
+              <li>地理</li>
+              <li>生物</li>
+              <li>文档生成</li>
+              <li>问答平台</li>
+            </ul>
+          </div>
+          <div class="dt-main">
+            <div class="dtm-title">建设总览</div>
+            <div class="stat-row">
+              <div class="stat-card"><div class="sn">62</div><div class="sl">建设项目</div></div>
+              <div class="stat-card"><div class="sn">161</div><div class="sl">数据资源类</div></div>
+              <div class="stat-card"><div class="sn">200+</div><div class="sl">加工工具</div></div>
+              <div class="stat-card"><div class="sn">1+6+N</div><div class="sl">协同单位</div></div>
+            </div>
+            <div class="sec-label">六大学科建设进度</div>
+            <div class="subj-row"><span class="srn">数学</span><span class="srb"><span class="srf" style="width:65%"></span></span><span class="srp">65%</span><span class="srd">0.04 PB</span></div>
+            <div class="subj-row"><span class="srn">物理</span><span class="srb"><span class="srf" style="width:55%"></span></span><span class="srp">55%</span><span class="srd">6.72 PB</span></div>
+            <div class="subj-row"><span class="srn">化学</span><span class="srb"><span class="srf" style="width:48%"></span></span><span class="srp">48%</span><span class="srd">2.64 PB</span></div>
+            <div class="subj-row"><span class="srn">天文</span><span class="srb"><span class="srf" style="width:30%"></span></span><span class="srp">30%</span><span class="srd">18.4 PB</span></div>
+            <div class="subj-row"><span class="srn">地理</span><span class="srb"><span class="srf" style="width:40%"></span></span><span class="srp">40%</span><span class="srd">49.1 PB</span></div>
+            <div class="subj-row"><span class="srn">生物</span><span class="srb"><span class="srf" style="width:35%"></span></span><span class="srp">35%</span><span class="srd">25.5 PB</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel-col" style="flex:0 0 auto">
+      <div class="panel-label">手机端</div>
+      <div class="mb-frame">
+        <div class="mb-topbar">9:41</div>
+        <div class="mb-nav">建设总览</div>
+        <div class="mb-content">
+          <div class="stat-row">
+            <div class="stat-card"><div class="sn">62</div><div class="sl">项目</div></div>
+            <div class="stat-card"><div class="sn">161</div><div class="sl">资源</div></div>
+            <div class="stat-card"><div class="sn">200+</div><div class="sl">工具</div></div>
+            <div class="stat-card"><div class="sn">1+6+N</div><div class="sl">协同</div></div>
+          </div>
+          <div class="sec-label">六大学科建设进度</div>
+          <div class="sc">
+            <div class="sc-head"><span class="scn">◈ 数学</span><span class="sc-badge">65%</span></div>
+            <div class="sc-body">
+              <div class="sc-stat"><div class="scsn">8</div><div class="scsl">项目</div></div>
+              <div class="sc-stat"><div class="scsn">0.04</div><div class="scsl">数据量(PB)</div></div>
+              <div class="sc-stat"><div class="scsn">15</div><div class="scsl">人员</div></div>
+            </div>
+            <div class="sc-foot">建设进度<span class="scfb"><span class="scff" style="width:65%"></span></span>65%</div>
+          </div>
+          <div class="sc">
+            <div class="sc-head"><span class="scn">◈ 物理</span><span class="sc-badge">55%</span></div>
+            <div class="sc-body">
+              <div class="sc-stat"><div class="scsn">12</div><div class="scsl">项目</div></div>
+              <div class="sc-stat"><div class="scsn">6.72</div><div class="scsl">数据量(PB)</div></div>
+              <div class="sc-stat"><div class="scsn">22</div><div class="scsl">人员</div></div>
+            </div>
+            <div class="sc-foot">建设进度<span class="scfb"><span class="scff" style="width:55%"></span></span>55%</div>
+          </div>
+          <div class="sc">
+            <div class="sc-head"><span class="scn">◈ 化学</span><span class="sc-badge">48%</span></div>
+            <div class="sc-body">
+              <div class="sc-stat"><div class="scsn">10</div><div class="scsl">项目</div></div>
+              <div class="sc-stat"><div class="scsn">2.64</div><div class="scsl">数据量(PB)</div></div>
+              <div class="sc-stat"><div class="scsn">18</div><div class="scsl">人员</div></div>
+            </div>
+            <div class="sc-foot">建设进度<span class="scfb"><span class="scff" style="width:48%"></span></span>48%</div>
+          </div>
+        </div>
+        <div class="mb-tabs">
+          <div class="mb-tab on"><span class="mbt-icon">◈</span>总览</div>
+          <div class="mb-tab"><span class="mbt-icon">☰</span>学科</div>
+          <div class="mb-tab"><span class="mbt-icon">◫</span>生成</div>
+          <div class="mb-tab"><span class="mbt-icon">💬</span>问答</div>
+          <div class="mb-tab"><span class="mbt-icon">👤</span>我的</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== 2. SUBJECT DETAIL ====== -->
+<div class="slide slide-white slide-content">
+  <div class="slide-info">
+    <div class="si-num">2</div>
+    <h2>学科详情</h2>
+    <p class="si-desc">从总览点击任一学科进入。展开该学科的全部项目（在建/已有/规划中）、数据总量、参与人员名单。相当于该学科的完整档案页，也是向外部汇报时最常用的信息视图。</p>
+    <ul class="si-features">
+      <li>在建项目 / 已有项目分区展示</li>
+      <li>数据规模 + 人员一目了然</li>
+      <li>点击项目名称进入项目详情</li>
+      <li>侧边栏快速切换其他学科</li>
+    </ul>
+  </div>
+  <div class="panels-wrap">
+    <div class="panel-col">
+      <div class="panel-label">桌面端</div>
+      <div class="dt-frame">
+        <div class="dt-topbar">
+          <span class="dt-dot r"></span><span class="dt-dot y"></span><span class="dt-dot g"></span>
+          <span class="dt-tab on">数学 · 学科详情</span><span class="dt-tab">建设总览</span>
+        </div>
+        <div class="dt-body">
+          <div class="dt-sidebar">
+            <div class="dts-logo">◈ AIS 语料库</div>
+            <ul class="dts-nav">
+              <li>建设总览</li>
+              <li class="on">数学</li>
+              <li>物理</li>
+              <li>化学</li>
+              <li>天文</li>
+              <li>地理</li>
+              <li>生物</li>
+            </ul>
+          </div>
+          <div class="dt-main">
+            <div class="dtm-title">数学学科语料建设</div>
+            <div class="stat-row">
+              <div class="stat-card"><div class="sn">8</div><div class="sl">项目总数</div></div>
+              <div class="stat-card"><div class="sn">4</div><div class="sl">在建</div></div>
+              <div class="stat-card"><div class="sn">0.04 PB</div><div class="sl">数据量</div></div>
+              <div class="stat-card"><div class="sn">15</div><div class="sl">参与人员</div></div>
+            </div>
+            <div class="sec-label">在建项目</div>
+            <div class="pj-item">
+              <div class="pjn">数学定理语料库（ReasLib）</div>
+              <div class="pjd">核心定理及证明，2000本教材+40万论文OCR完成</div>
+              <div class="pjm"><span class="pj-tag on">建设中</span> 78% · 陈景元</div>
+            </div>
+            <div class="pj-item">
+              <div class="pjn">形式化语料集（Lean/Mathlib）</div>
+              <div class="pjd">10本教材完成形式化，目标100个数学子方向</div>
+              <div class="pjm"><span class="pj-tag on">建设中</span> 45% · 刘矩阵</div>
+            </div>
+            <div class="pj-item">
+              <div class="pjn">Agentic推理语料集</div>
+              <div class="pjd">推理轨迹数据合成流程已验证，目标百万级</div>
+              <div class="pjm"><span class="pj-tag on">建设中</span> 32% · 王积分</div>
+            </div>
+            <div class="sec-label">已有项目</div>
+            <div class="pj-item">
+              <div class="pjn">Matlas 数学定理搜索引擎</div>
+              <div class="pjd">800万数学陈述，中关村论坛 3.27 发布</div>
+              <div class="pjm"><span class="pj-tag done">已发布</span></div>
+            </div>
+            <div class="pj-item">
+              <div class="pjn">LeanSearch + Archon 自动验证</div>
+              <div class="pjd">证明并验证 Anderson 猜想（国内首例）</div>
+              <div class="pjm"><span class="pj-tag done">已发布</span></div>
+            </div>
+            <div class="sec-label">参与人员</div>
+            <div class="tag-row">
+              <span class="t">陈景元（负责人）</span><span class="t">刘矩阵</span><span class="t">张建国有</span><span class="t">王积分</span><span class="t">李函数</span><span class="t">赵空间</span><span class="t">周导数</span><span class="t">+8人</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel-col" style="flex:0 0 auto">
+      <div class="panel-label">手机端</div>
+      <div class="mb-frame">
+        <div class="mb-topbar">9:41</div>
+        <div class="mb-nav">← 数学 · 学科详情</div>
+        <div class="mb-content">
+          <div class="stat-row">
+            <div class="stat-card"><div class="sn">8</div><div class="sl">项目</div></div>
+            <div class="stat-card"><div class="sn">4</div><div class="sl">在建</div></div>
+            <div class="stat-card"><div class="sn">0.04</div><div class="sl">PB</div></div>
+            <div class="stat-card"><div class="sn">15</div><div class="sl">人员</div></div>
+          </div>
+          <div class="sec-label">在建项目</div>
+          <div class="pj-item">
+            <div class="pjn">ReasLib 定理语料库</div>
+            <div class="pjd">2000本教材+40万论文</div>
+            <div class="pjm"><span class="pj-tag on">建设中</span> 78%</div>
+          </div>
+          <div class="pj-item">
+            <div class="pjn">形式化语料（Lean）</div>
+            <div class="pjd">10本教材形式化，目标100子方向</div>
+            <div class="pjm"><span class="pj-tag on">建设中</span> 45%</div>
+          </div>
+          <div class="pj-item">
+            <div class="pjn">Agentic推理语料</div>
+            <div class="pjd">目标百万级推理轨迹</div>
+            <div class="pjm"><span class="pj-tag on">建设中</span> 32%</div>
+          </div>
+          <div class="sec-label">已有项目</div>
+          <div class="pj-item">
+            <div class="pjn">Matlas 定理搜索引擎</div>
+            <div class="pjd">800万陈述，中关村论坛发布</div>
+            <div class="pjm"><span class="pj-tag done">已发布</span></div>
+          </div>
+        </div>
+        <div class="mb-tabs">
+          <div class="mb-tab"><span class="mbt-icon">◈</span>总览</div>
+          <div class="mb-tab on"><span class="mbt-icon">☰</span>学科</div>
+          <div class="mb-tab"><span class="mbt-icon">◫</span>生成</div>
+          <div class="mb-tab"><span class="mbt-icon">💬</span>问答</div>
+          <div class="mb-tab"><span class="mbt-icon">👤</span>我的</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== 3. PROJECT DETAIL ====== -->
+<div class="slide slide-light slide-content">
+  <div class="slide-info">
+    <div class="si-num">3</div>
+    <h2>项目详情</h2>
+    <p class="si-desc">从学科详情或项目列表点击进入。展示单个项目的完整档案：介绍、建设内容细分、数据规模、负责人、参与人员、最新进展记录。编辑按钮仅授权用户可见。</p>
+    <ul class="si-features">
+      <li>完整项目档案，信息结构化</li>
+      <li>建设内容分项列出</li>
+      <li>最新进展时间线记录</li>
+      <li>编辑入口权限控制</li>
+    </ul>
+  </div>
+  <div class="panels-wrap">
+    <div class="panel-col">
+      <div class="panel-label">桌面端</div>
+      <div class="dt-frame">
+        <div class="dt-topbar">
+          <span class="dt-dot r"></span><span class="dt-dot y"></span><span class="dt-dot g"></span>
+          <span class="dt-tab on">项目详情</span>
+        </div>
+        <div class="dt-body">
+          <div class="dt-sidebar">
+            <div class="dts-logo">◈ AIS 语料库</div>
+            <ul class="dts-nav">
+              <li>建设总览</li>
+              <li class="on">数学</li>
+              <li>物理</li>
+              <li>化学</li>
+              <li>天文</li>
+              <li>地理</li>
+              <li>生物</li>
+            </ul>
+          </div>
+          <div class="dt-main">
+            <div style="margin-bottom:10px">
+              <span style="font-size:10px;color:var(--blue);font-weight:600">数学</span>
+              <div class="dtm-title" style="margin-bottom:4px">数学定理语料库（ReasLib）</div>
+              <span class="pj-tag on">建设中</span>
+            </div>
+            <div class="detail-block"><div class="dl">项目介绍</div><div class="dv">收集整理数学分析、高等代数、概率论与数理统计、常微分方程等核心课程的定理、公式及完整证明过程，构建覆盖数学全领域的定理搜索引擎和知识图谱。</div></div>
+            <div class="detail-block"><div class="dl">建设内容</div><div class="dv">· 原始数学语料集：2000本教材+40万论文，OCR完成<br>· 结构化语料集：800万数学陈述<br>· 形式化语料集：10本教材形式化<br>· Agentic推理语料集：已验证合成流程</div></div>
+            <div class="detail-block"><div class="dl">数据规模</div><div class="dv">0.0431 PB</div></div>
+            <div class="detail-block"><div class="dl">负责人</div><div class="dv">陈景元</div></div>
+            <div class="detail-block"><div class="dl">参与人员</div><div class="dv">刘矩阵、张建国有、王积分、李函数</div></div>
+            <div class="detail-block"><div class="dl">最新进展</div><div class="dv" style="font-size:11px;color:var(--text2)"><span class="accent-dot green"></span>2026.05 · 新增概率论大数定律定理 23 条</div></div>
+            <div class="btn-row">
+              <div class="btn pri">编辑更新</div>
+              <div class="btn">返回列表</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel-col" style="flex:0 0 auto">
+      <div class="panel-label">手机端</div>
+      <div class="mb-frame">
+        <div class="mb-topbar">9:41</div>
+        <div class="mb-nav">← 项目详情</div>
+        <div class="mb-content">
+          <div style="margin-bottom:8px">
+            <span style="font-size:9px;color:var(--blue);font-weight:600">数学</span>
+            <div style="font-size:15px;font-weight:700;color:var(--text);margin:2px 0">数学定理语料库</div>
+            <span class="pj-tag on">建设中</span>
+          </div>
+          <div class="detail-block"><div class="dl">项目介绍</div><div class="dv">收集整理核心课程的定理、公式及证明过程，构建数学全领域定理搜索引擎和知识图谱。</div></div>
+          <div class="detail-block"><div class="dl">建设内容</div><div class="dv">· 原始语料：2000本教材+40万论文<br>· 结构化：800万数学陈述<br>· 形式化：10本教材<br>· 推理语料：已验流程</div></div>
+          <div class="detail-block"><div class="dl">数据规模</div><div class="dv">0.0431 PB</div></div>
+          <div class="detail-block"><div class="dl">负责人 / 人员</div><div class="dv">陈景元 / 刘矩阵、张建国有等</div></div>
+          <div class="detail-block"><div class="dl">最新进展</div><div class="dv" style="font-size:10px;color:var(--text2)"><span class="accent-dot green"></span>2026.05 新增定理23条</div></div>
+          <div class="btn-row">
+            <div class="btn pri">编辑</div>
+            <div class="btn">返回</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== 4. EDIT ====== -->
+<div class="slide slide-white slide-content">
+  <div class="slide-info">
+    <div class="si-num">4</div>
+    <h2>编辑更新</h2>
+    <p class="si-desc">仅项目负责人和管理员可见编辑入口。可修改项目全部字段。关键设计：<span class="accent-dot amber"></span><b>保存后所有关联文档模板自动同步最新数据</b>，无需手动修改各份文档。</p>
+    <ul class="si-features">
+      <li>权限控制：仅授权用户可编辑</li>
+      <li>全字段可修改</li>
+      <li>保存后文档模板自动同步</li>
+      <li>更新记录可追溯</li>
+    </ul>
+  </div>
+  <div class="panels-wrap">
+    <div class="panel-col">
+      <div class="panel-label">桌面端</div>
+      <div class="dt-frame">
+        <div class="dt-topbar">
+          <span class="dt-dot r"></span><span class="dt-dot y"></span><span class="dt-dot g"></span>
+          <span class="dt-tab on">编辑项目</span>
+        </div>
+        <div class="dt-body">
+          <div class="dt-sidebar">
+            <div class="dts-logo">◈ AIS 语料库</div>
+            <ul class="dts-nav">
+              <li>建设总览</li>
+              <li class="on">数学</li>
+              <li>物理</li>
+              <li>化学</li>
+            </ul>
+          </div>
+          <div class="dt-main">
+            <div class="dtm-title">编辑项目</div>
+            <div class="tip-banner"><span class="tb-icon">!</span>保存后所有关联文档模板自动同步最新数据</div>
+            <div style="display:flex;gap:10px">
+              <div class="fg" style="flex:1"><div class="fgl">项目名称 <span class="req">*</span></div><input class="fg-input" value="数学定理语料库（ReasLib）"></div>
+              <div class="fg" style="flex:0 0 100px"><div class="fgl">进度 (%)</div><input class="fg-input" value="78"></div>
+            </div>
+            <div style="display:flex;gap:10px">
+              <div class="fg" style="flex:1"><div class="fgl">学科</div><div class="chips"><span class="chip on">数学</span><span class="chip">物理</span><span class="chip">化学</span></div></div>
+              <div class="fg" style="flex:1"><div class="fgl">状态</div><div class="chips"><span class="chip on">建设中</span><span class="chip">已完成</span></div></div>
+            </div>
+            <div class="fg"><div class="fgl">项目介绍</div><textarea class="fg-textarea">收集整理数学分析、高等代数、概率论等核心课程的定理、公式及完整证明过程。</textarea></div>
+            <div class="fg"><div class="fgl">建设内容</div><textarea class="fg-textarea">· 原始数学语料：2000本教材+40万论文
+· 结构化语料：800万数学陈述
+· 形式化语料：10本教材形式化</textarea></div>
+            <div style="display:flex;gap:10px">
+              <div class="fg" style="flex:1"><div class="fgl">负责人</div><input class="fg-input" value="陈景元"></div>
+              <div class="fg" style="flex:1"><div class="fgl">参与人员</div><input class="fg-input" value="刘矩阵、张建国有"></div>
+            </div>
+            <div class="btn-row">
+              <div class="btn pri">保存更新</div>
+              <div class="btn">取消</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel-col" style="flex:0 0 auto">
+      <div class="panel-label">手机端</div>
+      <div class="mb-frame">
+        <div class="mb-topbar">9:41</div>
+        <div class="mb-nav">编辑项目</div>
+        <div class="mb-content">
+          <div class="tip-banner"><span class="tb-icon">!</span>保存后文档模板自动同步</div>
+          <div class="fg"><div class="fgl">项目名称 <span class="req">*</span></div><input class="fg-input" value="数学定理语料库"></div>
+          <div class="fg"><div class="fgl">学科</div><div class="chips"><span class="chip on">数学</span><span class="chip">物理</span><span class="chip">化学</span><span class="chip">天文</span><span class="chip">地理</span><span class="chip">生物</span></div></div>
+          <div class="fg"><div class="fgl">状态</div><div class="chips"><span class="chip on">建设中</span><span class="chip">已完成</span><span class="chip">规划中</span></div></div>
+          <div class="fg"><div class="fgl">建设进度 (%)</div><input class="fg-input" value="78"></div>
+          <div class="fg"><div class="fgl">项目介绍</div><textarea class="fg-textarea">核心课程的定理、公式及证明过程，构建数学全领域知识图谱。</textarea></div>
+          <div class="fg"><div class="fgl">负责人 / 人员</div><input class="fg-input" value="陈景元 / 刘矩阵、张建国有"></div>
+          <div class="btn-row">
+            <div class="btn pri">保存</div>
+            <div class="btn">取消</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== 5. DOCUMENT GENERATION ====== -->
+<div class="slide slide-light slide-content">
+  <div class="slide-info">
+    <div class="si-num">5</div>
+    <h2>文档生成</h2>
+    <p class="si-desc">平台核心功能。左侧列出六类文档模板，覆盖项目中常见材料需求。选中模板后系统自动从数据库提取最新数据，按模板结构生成文档初稿。<span class="accent-dot amber"></span><b>一次更新数据，所有模板同步生效。</b></p>
+    <ul class="si-features">
+      <li>6 种文档模板覆盖全场景</li>
+      <li>自动提取最新项目数据</li>
+      <li>预览满意后一键导出 Word / PDF</li>
+      <li>管理员可增删改模板</li>
+    </ul>
+  </div>
+  <div class="panels-wrap">
+    <div class="panel-col">
+      <div class="panel-label">桌面端</div>
+      <div class="dt-frame">
+        <div class="dt-topbar">
+          <span class="dt-dot r"></span><span class="dt-dot y"></span><span class="dt-dot g"></span>
+          <span class="dt-tab on">文档生成</span>
+        </div>
+        <div class="dt-body">
+          <div class="dt-sidebar">
+            <div class="dts-logo">◈ AIS 语料库</div>
+            <ul class="dts-nav">
+              <li>建设总览</li>
+              <li>学科详情</li>
+              <li class="on">文档生成</li>
+              <li>问答平台</li>
+              <li>个人中心</li>
+            </ul>
+          </div>
+          <div class="dt-main">
+            <div class="dtm-title">文档生成</div>
+            <div class="tip-banner"><span class="tb-icon">!</span>系统自动从数据库提取最新数据生成文档初稿</div>
+            <div class="doc-tpl"><div class="dt-icon">📄</div><div><div class="dt-name">项目进展汇报</div><div class="dt-desc">面向教育部/发改委，含组织机制、各学科进度、下一步计划</div></div></div>
+            <div class="doc-tpl" style="border-color:var(--blue-light);border-width:1.5px;background:#fafcff"><div class="dt-icon">📋</div><div><div class="dt-name">对外支持材料</div><div class="dt-desc">面向数据局/合作方，含项目简介、经费、单位、进展</div></div></div>
+            <div class="doc-tpl"><div class="dt-icon">📝</div><div><div class="dt-name">项目背景与意义</div><div class="dt-desc">通用背景材料，含国家战略背景、国内外现状、目标</div></div></div>
+            <div class="doc-tpl"><div class="dt-icon">🎤</div><div><div class="dt-name">讲话稿 / 经验分享</div><div class="dt-desc">面向会议/论坛，含建设思路、合作模式</div></div></div>
+            <div class="doc-tpl"><div class="dt-icon">🏛</div><div><div class="dt-name">已有工作基础</div><div class="dt-desc">面向特定机构，含该机构相关的数据和工具积累</div></div></div>
+            <div class="doc-tpl"><div class="dt-icon">✉️</div><div><div class="dt-name">联络/动员邮件</div><div class="dt-desc">面向院内/合作方，含项目重要性、需要对方做什么</div></div></div>
+            <div style="font-size:10px;color:var(--text3);text-align:center;margin-top:8px">点击模板 → 预览 → 导出 Word / PDF</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel-col" style="flex:0 0 auto">
+      <div class="panel-label">手机端</div>
+      <div class="mb-frame">
+        <div class="mb-topbar">9:41</div>
+        <div class="mb-nav">文档生成</div>
+        <div class="mb-content">
+          <div class="tip-banner"><span class="tb-icon">!</span>选模板自动生成文档初稿</div>
+          <div class="doc-tpl"><div class="dt-icon">📄</div><div><div class="dt-name">项目进展汇报</div><div class="dt-desc">教育部/发改委</div></div></div>
+          <div class="doc-tpl" style="border-color:var(--blue-light);border-width:1.5px;background:#fafcff"><div class="dt-icon">📋</div><div><div class="dt-name">对外支持材料</div><div class="dt-desc">数据局/合作方</div></div></div>
+          <div class="doc-tpl"><div class="dt-icon">📝</div><div><div class="dt-name">项目背景与意义</div><div class="dt-desc">各方通用</div></div></div>
+          <div class="doc-tpl"><div class="dt-icon">🎤</div><div><div class="dt-name">讲话稿/经验分享</div><div class="dt-desc">会议/论坛</div></div></div>
+          <div class="doc-tpl"><div class="dt-icon">🏛</div><div><div class="dt-name">已有工作基础</div><div class="dt-desc">特定机构</div></div></div>
+          <div class="doc-tpl"><div class="dt-icon">✉️</div><div><div class="dt-name">联络/动员邮件</div><div class="dt-desc">院内/合作方</div></div></div>
+        </div>
+        <div class="mb-tabs">
+          <div class="mb-tab"><span class="mbt-icon">◈</span>总览</div>
+          <div class="mb-tab"><span class="mbt-icon">☰</span>学科</div>
+          <div class="mb-tab on"><span class="mbt-icon">◫</span>生成</div>
+          <div class="mb-tab"><span class="mbt-icon">💬</span>问答</div>
+          <div class="mb-tab"><span class="mbt-icon">👤</span>我的</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== 6. DOCUMENT PREVIEW ====== -->
+<div class="slide slide-white slide-content">
+  <div class="slide-info">
+    <div class="si-num">6</div>
+    <h2>文档预览与导出</h2>
+    <p class="si-desc">选中模板后进入预览。系统自动拉取各学科最新数据填入模板，生成完整文档。确认无误后一键导出 Word 或 PDF。不满意可重新生成或手动微调。</p>
+    <ul class="si-features">
+      <li>实时预览生成效果</li>
+      <li>一键导出 Word / PDF</li>
+      <li>可重新生成或手动微调</li>
+      <li>格式符合正式汇报要求</li>
+    </ul>
+  </div>
+  <div class="panels-wrap">
+    <div class="panel-col">
+      <div class="panel-label">桌面端</div>
+      <div class="dt-frame">
+        <div class="dt-topbar">
+          <span class="dt-dot r"></span><span class="dt-dot y"></span><span class="dt-dot g"></span>
+          <span class="dt-tab on">预览：对外支持材料</span>
+        </div>
+        <div class="dt-body">
+          <div class="dt-sidebar">
+            <div class="dts-logo">◈ AIS 语料库</div>
+            <ul class="dts-nav">
+              <li>建设总览</li>
+              <li>学科详情</li>
+              <li class="on">文档生成</li>
+            </ul>
+          </div>
+          <div class="dt-main">
+            <div class="doc-pv">
+              <div class="dp-title">基础学科科学研究语料库建设项目<br>对外支持材料</div>
+              <div class="dp-text">
+<b>一、项目描述</b><br>
+国家发改委批复立项，教育部统筹，北京大学牵头，聚焦数理化天地生六大学科。张锦常务副校长任负责人，鄂维南院士任技术总师。"1+6+N"协同机制，联合清华、南大、复旦、上交、武大、厦大及华为、蚂蚁、鹏城实验室等。<br><br>
+<b>二、经费描述</b><br>
+项目总投资暂定 59,590 万元，建设期 12 个月。<br><br>
+<b>三、各学科建设进展</b><br>
+数学：Matlas 发布，形式化 10 本教材，ReasLib 建设中<br>
+物理：PHYBench 被 OpenAI 引用，PRBench 获企业采买<br>
+化学：NMR 世界最大实验数据库，CarbonMat 语料库<br>
+天文：814 TB 多源观测数据<br>
+地理：全球 30 米数据立方体，PB 级数据<br>
+生物：肿瘤基因组 15 种肿瘤测序
+              </div>
+            </div>
+            <div class="btn-row" style="margin-top:8px">
+              <div class="btn pri">导出 Word</div>
+              <div class="btn">导出 PDF</div>
+              <div class="btn">重新生成</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel-col" style="flex:0 0 auto">
+      <div class="panel-label">手机端</div>
+      <div class="mb-frame">
+        <div class="mb-topbar">9:41</div>
+        <div class="mb-nav">← 预览</div>
+        <div class="mb-content">
+          <div class="doc-pv">
+            <div class="dp-title" style="font-size:11px">基础学科科学研究语料库<br>对外支持材料</div>
+            <div class="dp-text" style="font-size:9px">
+<b>一、项目描述</b><br>
+国家发改委批复，教育部统筹，北京大学牵头。"1+6+N"机制。<br><br>
+<b>二、经费</b><br>
+59,590 万元，12 个月建设期。<br><br>
+<b>三、各学科进展</b><br>
+数学：Matlas发布，ReasLib建设中<br>
+物理：PHYBench被OpenAI引用<br>
+化学：NMR世界最大实验数据库<br>
+天文：814TB多源数据<br>
+地理：全球30米数据立方体<br>
+生物：肿瘤基因组15种测序
+            </div>
+          </div>
+          <div class="btn-row">
+            <div class="btn pri">导出Word</div>
+            <div class="btn">导出PDF</div>
+          </div>
+          <div class="btn-row" style="margin-top:3px">
+            <div class="btn">重新生成</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== 7. Q&A PLATFORM ====== -->
+<div class="slide slide-light slide-content">
+  <div class="slide-info">
+    <div class="si-num">7</div>
+    <h2>问答平台</h2>
+    <p class="si-desc">项目相关人员可在平台上提问交流。已解答的问题沉淀为知识库，方便后来者查阅。<span class="accent-dot teal"></span><b>各学科可分设问答区</b>，支持按学科、关键词搜索已有问答。</p>
+    <ul class="si-features">
+      <li>分学科问答分区</li>
+      <li>关键词搜索已有问答</li>
+      <li>已解答问题沉淀为知识库</li>
+      <li>可匿名提问</li>
+    </ul>
+  </div>
+  <div class="panels-wrap">
+    <div class="panel-col">
+      <div class="panel-label">桌面端</div>
+      <div class="dt-frame">
+        <div class="dt-topbar">
+          <span class="dt-dot r"></span><span class="dt-dot y"></span><span class="dt-dot g"></span>
+          <span class="dt-tab on">问答平台</span><span class="dt-tab">建设总览</span>
+        </div>
+        <div class="dt-body">
+          <div class="dt-sidebar">
+            <div class="dts-logo">◈ AIS 语料库</div>
+            <ul class="dts-nav">
+              <li>建设总览</li>
+              <li>学科详情</li>
+              <li>文档生成</li>
+              <li class="on">问答平台</li>
+              <li>个人中心</li>
+            </ul>
+            <div style="font-size:10px;color:var(--text3);margin-top:12px;padding:0 6px">学科分区</div>
+            <ul class="dts-nav" style="margin-top:4px">
+              <li>全部问答</li>
+              <li>数学</li>
+              <li>物理</li>
+              <li>化学</li>
+              <li>天文</li>
+              <li>地理</li>
+              <li>生物</li>
+            </ul>
+          </div>
+          <div class="dt-main">
+            <div class="dtm-title">问答平台</div>
+            <div class="qa-input-row" style="margin-bottom:12px">
+              <input class="qa-input" placeholder="搜索已有问答...">
+              <button class="btn pri" style="flex:0 0 50px;padding:8px 0;font-size:11px">搜索</button>
+            </div>
+            <div class="chips" style="margin-bottom:12px">
+              <span class="chip on">全部</span><span class="chip">数学</span><span class="chip">物理</span><span class="chip">化学</span><span class="chip">天文</span><span class="chip">地理</span><span class="chip">生物</span>
+            </div>
+            <div class="qa-card">
+              <div class="qa-q"><span class="qa-q-icon">Q</span>数学定理语料库的形式化标准是什么？</div>
+              <div class="qa-a"><span class="qa-a-icon">A</span>采用 Lean 4 作为形式化工具，遵循 Mathlib 4 的编码规范。每条定理需包含定理陈述、证明步骤、依赖的前置定理。</div>
+              <div class="qa-meta">陈景元 · 2026-05-10 · 数学 · 5 条回复</div>
+            </div>
+            <div class="qa-card">
+              <div class="qa-q"><span class="qa-q-icon">Q</span>语料库的数据安全分级标准参考哪个文件？</div>
+              <div class="qa-a"><span class="qa-a-icon">A</span>参考《基础学科科研数据分级管理规范（试行）》，可在文档生成模块下载。核心原则：公开数据自由访问，受限数据需审批。</div>
+              <div class="qa-meta">马雷 · 2026-05-08 · 综合 · 3 条回复</div>
+            </div>
+            <div class="qa-card">
+              <div class="qa-q"><span class="qa-q-icon">Q</span>物理实验数据需要提供哪些元数据？</div>
+              <div class="qa-a"><span class="qa-a-icon">A</span>需包含：实验日期、设备型号、测量条件（温度/压力等）、原始数据文件格式、数据处理步骤、不确定度评估。</div>
+              <div class="qa-meta">周光召 · 2026-05-06 · 物理 · 2 条回复</div>
+            </div>
+            <div class="qa-input-row">
+              <input class="qa-input" placeholder="输入你的问题...">
+              <button class="btn pri" style="flex:0 0 50px;padding:8px 0;font-size:11px">提问</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel-col" style="flex:0 0 auto">
+      <div class="panel-label">手机端</div>
+      <div class="mb-frame">
+        <div class="mb-topbar">9:41</div>
+        <div class="mb-nav">问答平台</div>
+        <div class="mb-content">
+          <div class="qa-input-row" style="margin-bottom:10px">
+            <input class="qa-input" placeholder="搜索问答..." style="font-size:10px">
+          </div>
+          <div class="chips" style="margin-bottom:10px">
+            <span class="chip on">全部</span><span class="chip">数学</span><span class="chip">物理</span><span class="chip">化学</span>
+          </div>
+          <div class="qa-card" style="padding:10px">
+            <div class="qa-q" style="font-size:12px"><span class="qa-q-icon">Q</span>形式化标准是什么？</div>
+            <div class="qa-a" style="font-size:11px"><span class="qa-a-icon">A</span>采用 Lean 4 + Mathlib 4 规范。</div>
+            <div class="qa-meta">陈景元 · 5/10 · 数学</div>
+          </div>
+          <div class="qa-card" style="padding:10px">
+            <div class="qa-q" style="font-size:12px"><span class="qa-q-icon">Q</span>数据安全分级参考哪个文件？</div>
+            <div class="qa-a" style="font-size:11px"><span class="qa-a-icon">A</span>参考《基础学科科研数据分级管理规范（试行）》。</div>
+            <div class="qa-meta">马雷 · 5/8 · 综合</div>
+          </div>
+          <div class="qa-card" style="padding:10px">
+            <div class="qa-q" style="font-size:12px"><span class="qa-q-icon">Q</span>物理实验需提供哪些元数据？</div>
+            <div class="qa-a" style="font-size:11px"><span class="qa-a-icon">A</span>实验日期、设备型号、条件、原始数据格式等。</div>
+            <div class="qa-meta">周光召 · 5/6 · 物理</div>
+          </div>
+          <div class="qa-input-row">
+            <input class="qa-input" placeholder="输入问题..." style="font-size:10px">
+            <button class="btn pri" style="flex:0 0 40px;padding:6px 0;font-size:10px">提问</button>
+          </div>
+        </div>
+        <div class="mb-tabs">
+          <div class="mb-tab"><span class="mbt-icon">◈</span>总览</div>
+          <div class="mb-tab"><span class="mbt-icon">☰</span>学科</div>
+          <div class="mb-tab"><span class="mbt-icon">◫</span>生成</div>
+          <div class="mb-tab on"><span class="mbt-icon">💬</span>问答</div>
+          <div class="mb-tab"><span class="mbt-icon">👤</span>我的</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== 8. PROFILE ====== -->
+<div class="slide slide-white slide-content">
+  <div class="slide-info">
+    <div class="si-num">8</div>
+    <h2>个人中心</h2>
+    <p class="si-desc">查看个人负责项目、团队人数、平均进度。管理员可进入学科管理、模板管理、人员权限管理、操作日志等后台功能。</p>
+    <ul class="si-features">
+      <li>个人项目和统计概览</li>
+      <li>学科 / 模板 / 权限管理</li>
+      <li>操作日志审计追溯</li>
+    </ul>
+  </div>
+  <div class="panels-wrap">
+    <div class="panel-col">
+      <div class="panel-label">桌面端</div>
+      <div class="dt-frame">
+        <div class="dt-topbar">
+          <span class="dt-dot r"></span><span class="dt-dot y"></span><span class="dt-dot g"></span>
+          <span class="dt-tab on">个人中心</span>
+        </div>
+        <div class="dt-body">
+          <div class="dt-sidebar">
+            <div class="dts-logo">◈ AIS 语料库</div>
+            <ul class="dts-nav">
+              <li>建设总览</li>
+              <li>学科详情</li>
+              <li>文档生成</li>
+              <li>问答平台</li>
+              <li class="on">个人中心</li>
+            </ul>
+          </div>
+          <div class="dt-main">
+            <div class="dtm-title">个人中心</div>
+            <div class="prof-head">
+              <div class="avt">陈</div>
+              <div><div class="prof-name">陈景元</div><div class="prof-role">数学组 · 管理员</div></div>
+            </div>
+            <div class="stat-row">
+              <div class="stat-card"><div class="sn">3</div><div class="sl">负责项目</div></div>
+              <div class="stat-card"><div class="sn">67%</div><div class="sl">平均进度</div></div>
+              <div class="stat-card"><div class="sn">15</div><div class="sl">团队人数</div></div>
+            </div>
+            <div class="menu-list">
+              <div class="menu-row">我负责的项目 <span style="color:#ccd2db">›</span></div>
+              <div class="menu-row">学科类别管理 <span style="color:#ccd2db">›</span></div>
+              <div class="menu-row">文档模板管理 <span style="color:#ccd2db">›</span></div>
+              <div class="menu-row">人员权限管理 <span style="color:#ccd2db">›</span></div>
+              <div class="menu-row">操作日志 <span style="color:#ccd2db">›</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel-col" style="flex:0 0 auto">
+      <div class="panel-label">手机端</div>
+      <div class="mb-frame">
+        <div class="mb-topbar">9:41</div>
+        <div class="mb-nav">个人中心</div>
+        <div class="mb-content">
+          <div class="prof-head">
+            <div class="avt">陈</div>
+            <div><div class="prof-name">陈景元</div><div class="prof-role">数学组 · 管理员</div></div>
+          </div>
+          <div class="stat-row">
+            <div class="stat-card"><div class="sn">3</div><div class="sl">负责项目</div></div>
+            <div class="stat-card"><div class="sn">67%</div><div class="sl">平均进度</div></div>
+            <div class="stat-card"><div class="sn">15</div><div class="sl">团队</div></div>
+          </div>
+          <div class="menu-list">
+            <div class="menu-row">我负责的项目 <span style="color:#ccd2db">›</span></div>
+            <div class="menu-row">学科类别管理 <span style="color:#ccd2db">›</span></div>
+            <div class="menu-row">文档模板管理 <span style="color:#ccd2db">›</span></div>
+            <div class="menu-row">人员权限管理 <span style="color:#ccd2db">›</span></div>
+            <div class="menu-row">操作日志 <span style="color:#ccd2db">›</span></div>
+          </div>
+        </div>
+        <div class="mb-tabs">
+          <div class="mb-tab"><span class="mbt-icon">◈</span>总览</div>
+          <div class="mb-tab"><span class="mbt-icon">☰</span>学科</div>
+          <div class="mb-tab"><span class="mbt-icon">◫</span>生成</div>
+          <div class="mb-tab"><span class="mbt-icon">💬</span>问答</div>
+          <div class="mb-tab on"><span class="mbt-icon">👤</span>我的</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
