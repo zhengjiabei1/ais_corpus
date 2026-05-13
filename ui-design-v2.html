@@ -1342,5 +1342,17 @@ body {
 </div>
 
 
+<script>
+// Project info tab switching
+document.querySelectorAll('.pj-nav-item').forEach(function(item, idx) {
+  item.addEventListener('click', function() {
+    document.querySelectorAll('.pj-nav-item').forEach(function(n) { n.classList.remove('active'); });
+    this.classList.add('active');
+    document.querySelectorAll('.pj-tab-content').forEach(function(t) { t.style.display = 'none'; });
+    var target = document.getElementById('pj-tab-' + idx);
+    if (target) target.style.display = 'block';
+  });
+});
+</script>
 </body>
 </html>
