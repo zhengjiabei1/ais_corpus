@@ -25,6 +25,8 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
   background: #eef1f6;
   min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
 }
 
 /* ===== HEADER ===== */
@@ -394,17 +396,16 @@ body {
 
 /* Mobile: switch to mobile layout */
 @media (max-width: 640px) {
+  body {
+    height: 100dvh; overflow: hidden;
+    display: flex; flex-direction: column;
+  }
   .header { display: none; }
-  .sidebar { display: none; }
-  .tab-nav { display: none; }
-  .tab-content-area { display: none; }
+  .layout { display: none; }
 
-  .mobile-header { display: flex; }
-  .mobile-chip-nav { display: flex; }
-  .mobile-content { display: block; }
-
-  .layout { flex-direction: column; }
-  .main { flex: none; }
+  .mobile-header { display: flex; flex-shrink: 0; }
+  .mobile-chip-nav { display: flex; flex-shrink: 0; }
+  .mobile-content { display: block; flex: 1; overflow-y: auto; }
 }
 </style>
 </head>
