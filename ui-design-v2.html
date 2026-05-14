@@ -1440,5 +1440,186 @@ document.querySelectorAll('.pj-mob-nav').forEach(function(chip) {
   });
 });
 </script>
+
+<!-- ====== 问答工作台 ====== -->
+<div class="slide slide-white slide-content">
+  <div class="slide-info">
+    <div class="si-num">&#9758;</div>
+    <h2>问答工作台</h2>
+    <p class="si-desc">内部知识检索工具。员工输入关键词或自然语言问题，系统从项目知识库中匹配相关条目。可单条复制、也可勾选多条组装为文档导出。用于快速响应领导询问、合作机构索要材料等场景。</p>
+    <ul class="si-features">
+      <li>知识库检索：按关键词匹配条目</li>
+      <li>分类浏览：按板块快速定位</li>
+      <li>勾选组装：多条拼成文档导出</li>
+      <li>一键复制 / 导出 Word</li>
+    </ul>
+  </div>
+  <div class="panels-wrap">
+    <div class="panel-col">
+      <div class="panel-label">桌面端</div>
+      <div class="dt-frame">
+        <div class="dt-topbar">
+          <span class="dt-dot r"></span><span class="dt-dot y"></span><span class="dt-dot g"></span>
+          <span class="dt-tab on">问答工作台</span>
+        </div>
+        <div class="dt-body" style="flex-direction:column">
+          <!-- Search bar -->
+          <div style="padding:12px 14px;background:#fff;border-bottom:1px solid #f0f1f3">
+            <div style="display:flex;gap:8px">
+              <div style="flex:1;display:flex;align-items:center;padding:7px 12px;border:1.5px solid var(--blue-pale);border-radius:8px;background:#fff">
+                <span style="font-size:12px;color:var(--blue);margin-right:8px">&#128269;</span>
+                <input placeholder="输入问题或关键词，如：项目总投资多少、数学学科进展、给数据局的对外材料..." style="flex:1;border:none;outline:none;font-size:12px;color:var(--text);background:transparent">
+              </div>
+              <button class="btn pri" style="flex:0 0 60px;padding:8px 0;font-size:12px">搜索</button>
+            </div>
+            <div class="chips" style="margin-top:8px">
+              <span class="chip on">全部</span><span class="chip">项目概述</span><span class="chip">战略背景</span><span class="chip">建设目标</span><span class="chip">组织架构</span><span class="chip">学科进展</span><span class="chip">承担单位</span><span class="chip">需求合作</span>
+            </div>
+          </div>
+          <!-- Results area -->
+          <div style="flex:1;overflow-y:auto;padding:12px 14px;background:var(--bg)">
+            <div style="font-size:10px;color:var(--text3);margin-bottom:10px">搜索"项目总投资" — 找到 3 条相关条目</div>
+            <!-- Result card 1 -->
+            <div style="background:#fff;border:1px solid #e9ecf1;border-radius:8px;padding:12px;margin-bottom:8px;display:flex;gap:10px;align-items:flex-start">
+              <input type="checkbox" checked style="margin-top:2px;flex-shrink:0;accent-color:var(--blue)">
+              <div style="flex:1;min-width:0">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
+                  <span style="font-size:12px;font-weight:600;color:var(--text)">项目总投资</span>
+                  <span style="font-size:9px;color:var(--text3);background:#f7f9fc;padding:1px 6px;border-radius:3px">项目概述</span>
+                </div>
+                <div style="font-size:11px;color:var(--text2);line-height:1.7">批复指南中项目总投资暂定 <b>59,590 万元</b>。其中工程费用 44,277.74 万元，工程建设其他费 50,320.4 万元，预备费 4,729.91 万元，拟全部申请政府资金。</div>
+                <div style="display:flex;gap:12px;margin-top:6px;font-size:10px;color:var(--text3)">
+                  <span>来源：发改委批复文件</span>
+                  <span>适用：对外介绍 · 公文 · 汇报</span>
+                </div>
+              </div>
+              <div style="flex-shrink:0;display:flex;flex-direction:column;gap:4px">
+                <span style="font-size:10px;color:var(--blue);cursor:pointer;padding:3px 8px;border:1px solid var(--blue-pale);border-radius:4px;text-align:center">复制</span>
+                <span style="font-size:10px;color:var(--blue);cursor:pointer;padding:3px 8px;border:1px solid var(--blue-pale);border-radius:4px;text-align:center">导出</span>
+              </div>
+            </div>
+            <!-- Result card 2 -->
+            <div style="background:#fff;border:1px solid #e9ecf1;border-radius:8px;padding:12px;margin-bottom:8px;display:flex;gap:10px;align-items:flex-start">
+              <input type="checkbox" checked style="margin-top:2px;flex-shrink:0;accent-color:var(--blue)">
+              <div style="flex:1;min-width:0">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
+                  <span style="font-size:12px;font-weight:600;color:var(--text)">建设单位与负责人</span>
+                  <span style="font-size:9px;color:var(--text3);background:#f7f9fc;padding:1px 6px;border-radius:3px">项目概述</span>
+                </div>
+                <div style="font-size:11px;color:var(--text2);line-height:1.7">北京大学。由张锦常务副校长担任项目负责人，鄂维南院士担任技术总师，统筹把控总体方向与关键技术路线，保障项目高效推进与高质量交付。</div>
+                <div style="display:flex;gap:12px;margin-top:6px;font-size:10px;color:var(--text3)">
+                  <span>来源：发改委批复文件</span>
+                  <span>适用：对外介绍 · 公文 · 汇报</span>
+                </div>
+              </div>
+              <div style="flex-shrink:0;display:flex;flex-direction:column;gap:4px">
+                <span style="font-size:10px;color:var(--blue);cursor:pointer;padding:3px 8px;border:1px solid var(--blue-pale);border-radius:4px;text-align:center">复制</span>
+                <span style="font-size:10px;color:var(--blue);cursor:pointer;padding:3px 8px;border:1px solid var(--blue-pale);border-radius:4px;text-align:center">导出</span>
+              </div>
+            </div>
+            <!-- Result card 3 -->
+            <div style="background:#fff;border:1px solid #e9ecf1;border-radius:8px;padding:12px;margin-bottom:8px;display:flex;gap:10px;align-items:flex-start">
+              <input type="checkbox" style="margin-top:2px;flex-shrink:0;accent-color:var(--blue)">
+              <div style="flex:1;min-width:0">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
+                  <span style="font-size:12px;font-weight:600;color:var(--text)">建设期与建设地点</span>
+                  <span style="font-size:9px;color:var(--text3);background:#f7f9fc;padding:1px 6px;border-radius:3px">项目概述</span>
+                </div>
+                <div style="font-size:11px;color:var(--text2);line-height:1.7">建设期为 12 个月（2025年9月至2026年12月）。建设地点位于北京市怀柔区慧云西路6号院（主），备份地点位于深圳市南山区北京大学深圳研究生院（备）。</div>
+                <div style="display:flex;gap:12px;margin-top:6px;font-size:10px;color:var(--text3)">
+                  <span>来源：发改委批复文件</span>
+                  <span>适用：对外介绍 · 公文</span>
+                </div>
+              </div>
+              <div style="flex-shrink:0;display:flex;flex-direction:column;gap:4px">
+                <span style="font-size:10px;color:var(--blue);cursor:pointer;padding:3px 8px;border:1px solid var(--blue-pale);border-radius:4px;text-align:center">复制</span>
+                <span style="font-size:10px;color:var(--blue);cursor:pointer;padding:3px 8px;border:1px solid var(--blue-pale);border-radius:4px;text-align:center">导出</span>
+              </div>
+            </div>
+            <!-- Assembly bar -->
+            <div style="background:#fff;border:1px solid var(--blue-pale);border-radius:8px;padding:10px 14px;margin-top:10px;display:flex;align-items:center;gap:12px">
+              <span style="font-size:11px;color:var(--text2)">已勾选 <b>2 条</b>，可组装为文档：</span>
+              <span style="font-size:11px;color:var(--blue);cursor:pointer;padding:5px 12px;border:1px solid var(--blue-pale);border-radius:4px">生成对外简介</span>
+              <span style="font-size:11px;color:var(--blue);cursor:pointer;padding:5px 12px;border:1px solid var(--blue-pale);border-radius:4px">生成经费说明</span>
+              <span style="font-size:11px;color:var(--blue);cursor:pointer;padding:5px 12px;border:1px solid var(--blue-pale);border-radius:4px">导出全部勾选</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel-col" style="flex:0 0 auto">
+      <div class="panel-label">手机端</div>
+      <div class="mb-frame">
+        <div class="mb-topbar">9:41</div>
+        <div class="mb-nav">问答工作台</div>
+        <div class="mb-content">
+          <div style="display:flex;gap:6px;margin-bottom:10px">
+            <div style="flex:1;display:flex;align-items:center;padding:7px 10px;border:1.5px solid var(--blue-pale);border-radius:8px;background:#fff">
+              <input placeholder="搜索问题或关键词..." style="flex:1;border:none;outline:none;font-size:11px;color:var(--text);background:transparent">
+            </div>
+            <button class="btn pri" style="flex:0 0 44px;padding:7px 0;font-size:11px">搜索</button>
+          </div>
+          <div class="chips" style="margin-bottom:10px">
+            <span class="chip on">全部</span><span class="chip">概述</span><span class="chip">背景</span><span class="chip">目标</span><span class="chip">架构</span><span class="chip">学科</span>
+          </div>
+          <div style="font-size:9px;color:var(--text3);margin-bottom:8px">找到 3 条相关 · 已勾选 2 条</div>
+          <!-- Card 1 -->
+          <div style="background:#fff;border:1px solid #e9ecf1;border-radius:8px;padding:10px;margin-bottom:6px">
+            <div style="display:flex;align-items:flex-start;gap:8px">
+              <input type="checkbox" checked style="margin-top:1px;flex-shrink:0;accent-color:var(--blue)">
+              <div style="flex:1;min-width:0">
+                <div style="font-size:11px;font-weight:600;color:var(--text);margin-bottom:2px">项目总投资</div>
+                <div style="font-size:10px;color:var(--text2);line-height:1.6">59,590 万元。工程费 44,277.74 万，其他费 50,320.4 万，预备费 4,729.91 万。</div>
+                <div style="display:flex;gap:8px;margin-top:4px;font-size:9px;color:var(--text3)"><span>来源：发改委批复</span><span>适用：对外/公文</span></div>
+              </div>
+              <span style="font-size:9px;color:var(--blue);flex-shrink:0;padding:2px 6px;border:1px solid var(--blue-pale);border-radius:3px">复制</span>
+            </div>
+          </div>
+          <!-- Card 2 -->
+          <div style="background:#fff;border:1px solid #e9ecf1;border-radius:8px;padding:10px;margin-bottom:6px">
+            <div style="display:flex;align-items:flex-start;gap:8px">
+              <input type="checkbox" checked style="margin-top:1px;flex-shrink:0;accent-color:var(--blue)">
+              <div style="flex:1;min-width:0">
+                <div style="font-size:11px;font-weight:600;color:var(--text);margin-bottom:2px">建设单位与负责人</div>
+                <div style="font-size:10px;color:var(--text2);line-height:1.6">北京大学。张锦常务副校长任负责人，鄂维南院士任技术总师。</div>
+                <div style="display:flex;gap:8px;margin-top:4px;font-size:9px;color:var(--text3)"><span>来源：发改委批复</span></div>
+              </div>
+              <span style="font-size:9px;color:var(--blue);flex-shrink:0;padding:2px 6px;border:1px solid var(--blue-pale);border-radius:3px">复制</span>
+            </div>
+          </div>
+          <!-- Card 3 -->
+          <div style="background:#fff;border:1px solid #e9ecf1;border-radius:8px;padding:10px;margin-bottom:6px">
+            <div style="display:flex;align-items:flex-start;gap:8px">
+              <input type="checkbox" style="margin-top:1px;flex-shrink:0;accent-color:var(--blue)">
+              <div style="flex:1;min-width:0">
+                <div style="font-size:11px;font-weight:600;color:var(--text);margin-bottom:2px">建设期与建设地点</div>
+                <div style="font-size:10px;color:var(--text2);line-height:1.6">12个月（2025.9-2026.12）。北京怀柔（主），深圳南山（备）。</div>
+                <div style="display:flex;gap:8px;margin-top:4px;font-size:9px;color:var(--text3)"><span>来源：发改委批复</span></div>
+              </div>
+              <span style="font-size:9px;color:var(--blue);flex-shrink:0;padding:2px 6px;border:1px solid var(--blue-pale);border-radius:3px">复制</span>
+            </div>
+          </div>
+          <!-- Assembly -->
+          <div style="background:#fff;border:1px solid var(--blue-pale);border-radius:8px;padding:8px 10px;margin-top:8px">
+            <div style="font-size:10px;color:var(--text2);margin-bottom:6px">已勾选 2 条，可组装文档：</div>
+            <div style="display:flex;gap:6px">
+              <span style="font-size:10px;color:var(--blue);padding:4px 10px;border:1px solid var(--blue-pale);border-radius:4px">生成对外简介</span>
+              <span style="font-size:10px;color:var(--blue);padding:4px 10px;border:1px solid var(--blue-pale);border-radius:4px">导出全部</span>
+            </div>
+          </div>
+        </div>
+        <div class="mb-tabs">
+          <div class="mb-tab"><span class="mbt-icon">&#9672;</span>首页</div>
+          <div class="mb-tab"><span class="mbt-icon">&#9776;</span>学科</div>
+          <div class="mb-tab"><span class="mbt-icon">&#9678;</span>需求</div>
+          <div class="mb-tab"><span class="mbt-icon">&#9998;</span>生成</div>
+          <div class="mb-tab on"><span class="mbt-icon">&#9758;</span>问答</div>
+          <div class="mb-tab"><span class="mbt-icon">&#9786;</span>我的</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
